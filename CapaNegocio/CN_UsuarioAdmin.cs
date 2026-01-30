@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using CapaDatos;
+using CapaEntidad;
+
+namespace CapaNegocio
+{
+    public class CN_UsuarioAdmin
+    {
+        private readonly CD_UsuarioAdmin _cd = new CD_UsuarioAdmin();
+
+        public List<Usuario> Listar() => _cd.Listar();
+
+        public Usuario ObtenerPorCorreo(string correo) => _cd.ObtenerPorCorreo(correo);
+
+        // Validar login para admin: compara SHA256 y verifica Activo
+        public Usuario ValidarLogin(string correo, string clave)
+        {
+            if (string.IsNullOrWhiteSpace(correo) || string.IsNullOrEmpty(clave)) return null;
+
+            var usuario = _cd.ObtenerPorCorreo(correo.Trim().ToLower());
+            if (usuario == null) return null;
+
+            string claveHash = CN_Recursos.ConvertirSha256(clave);
+            string stored = usuario.Clave?.Trim() ?? string.Empty;
+
+            if (!string.IsNullOrEmpty(stored) && string.Equals(stored, claveHash, StringComparison.OrdinalIgnoreCase) && usuario.Activo)
+            {
+                return usuario;
+            }
+
+            return null;
+        }
+
+        public int Registrar(Usuario obj, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (string.IsNullOrWhiteSpace(obj.Rol)) obj.Rol = "Admin";
+            if (!string.IsNullOrWhiteSpace(obj.Clave)) obj.Clave = CN_Recursos.ConvertirSha256(obj.Clave);
+
+            // Prevent duplicate email across Cliente table: keep the first created (either client or admin)
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(obj.Correo))
+                {
+                    var correoNorm = obj.Correo.Trim().ToLower();
+                    var clienteExistente = new CapaDatos.CD_Cliente().ObtenerPorCorreo(correoNorm);
+                    if (clienteExistente != null)
+                    {
+                        mensaje = "El correo ya está registrado como cliente.";
+                        return 0;
+                    }
+                }
+            }
+            catch
+            {
+                // if check fails for any reason, continue to attempt registration and let DB enforce constraints
+            }
+
+            return _cd.Registrar(obj, out mensaje);
+        }
+
+        public bool Editar(Usuario obj, out string mensaje) => _cd.Editar(obj, out mensaje);
+
+        public bool Eliminar(int idusuario, out string mensaje) => _cd.Eliminar(idusuario, out mensaje);
+    }
+}

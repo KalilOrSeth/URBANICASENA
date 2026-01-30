@@ -1,0 +1,72 @@
+﻿[2025-12-02 05:30:23] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-02 05:30:27] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 05:32:28] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-02 05:32:29] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 18:04:18] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-02 18:04:20] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 18:21:18] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-02 18:21:20] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 18:22:27] EnviarCorreo: inicio intento para qwert@gmail.com
+[2025-12-02 18:22:30] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 23:00:42] EnviarCorreo: inicio intento para gorrion@gmail.com
+[2025-12-02 23:00:44] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 23:15:05] EnviarCorreo: inicio intento para xiaomi@gmail.com
+[2025-12-02 23:15:07] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 23:16:37] EnviarCorreo: inicio intento para xiaomi@gmail.com
+[2025-12-02 23:16:38] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 23:40:47] EnviarCorreo: inicio intento para pepepepe@gmail.com
+[2025-12-02 23:40:49] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-03 00:06:03] EnviarCorreo: inicio intento para gorrion@gmail.com
+[2025-12-03 00:06:05] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-03 00:14:46] EnviarCorreo: inicio intento para xiaomi@gmail.com
+[2025-12-03 00:14:48] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-03 00:48:13] EnviarCorreo: inicio intento para caballo@gmail.com
+[2025-12-03 00:48:16] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-03 02:32:29] EnviarCorreo: inicio intento para pepepepe@gmail.com
+[2025-12-03 02:32:33] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-04 23:26:59] EnviarCorreo: inicio intento para depredator@gmail.com
+[2025-12-04 23:27:01] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 01:07:47] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-06 01:07:50] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 01:08:07] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-06 01:08:09] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 02:02:22] EnviarCorreo: inicio intento para blackpeas@gmail.com
+[2025-12-06 02:02:24] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 02:03:10] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-06 02:03:12] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 02:42:01] EnviarCorreo: inicio intento para wawa@gmail.com
+[2025-12-06 02:42:03] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 02:42:24] EnviarCorreo: inicio intento para ninjasss@gmail.com
+[2025-12-06 02:42:25] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 02:42:56] EnviarCorreo: inicio intento para ninjasss@gmail.com
+[2025-12-06 02:42:58] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-06 02:49:15] EnviarCorreo: inicio intento para ninjasss@gmail.com
+[2025-12-06 02:49:17] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 16:30:25] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:30] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 16:30:30] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:32] EnviarCorreo Exception: 5.7.0 Too many emails per second. Please upgrade your plan https://mailtrap.io/billing/plans/testing
+[2025-12-07 16:30:32] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:34] EnviarCorreo Exception: 5.7.0 Too many emails per second. Please upgrade your plan https://mailtrap.io/billing/plans/testing
+[2025-12-07 16:30:34] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:35] EnviarCorreo Exception: 5.7.0 Too many emails per second. Please upgrade your plan https://mailtrap.io/billing/plans/testing
+[2025-12-07 16:30:35] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:37] EnviarCorreo Exception: 5.7.0 Too many emails per second. Please upgrade your plan https://mailtrap.io/billing/plans/testing
+[2025-12-07 16:30:37] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:38] EnviarCorreo Exception: 5.7.0 Too many emails per second. Please upgrade your plan https://mailtrap.io/billing/plans/testing
+[2025-12-07 16:30:39] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:40] EnviarCorreo Exception: 5.7.0 Too many emails per second. Please upgrade your plan https://mailtrap.io/billing/plans/testing
+[2025-12-07 16:30:41] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:30:42] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 16:31:36] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 16:31:37] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 17:28:36] EnviarCorreo: inicio intento para santiago@gmail.com
+[2025-12-07 17:28:38] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 18:07:25] EnviarCorreo: inicio intento para pepe@gmail.com
+[2025-12-07 18:07:27] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 18:23:34] EnviarCorreo: inicio intento para santiago@gmail.com
+[2025-12-07 18:23:37] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 18:23:50] EnviarCorreo: inicio intento para santiago@gmail.com
+[2025-12-07 18:23:51] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-07 18:32:30] EnviarCorreo: inicio intento para pepex@gmail.com
+[2025-12-07 18:32:33] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525

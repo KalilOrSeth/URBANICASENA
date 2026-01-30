@@ -1,0 +1,39 @@
+﻿@model List<CapaEntidad.Producto>
+
+<h2>Listado de Productos</h2>
+
+<div class="mb-3">
+    <a href="@Url.Action("Crear","Producto")" class="btn btn-primary">Nuevo Producto</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@String.Format("{0:C}", item.Precio)</td>
+                <td>
+                    <img src="@Url.Content(item.RutaImagen + item.NombreImagen)"
+                         alt="@item.Nombre"
+                         style="max-height:80px"
+                         onerror="this.src='@Url.Content("~/Content/img/productos/default.jpg")'" />
+                </td>
+                <td>
+                    <a href="@Url.Action("Editar","Producto", new { id = item.IdProducto })"
+                       class="btn btn-warning btn-sm">Editar</a>
+                    <a href="@Url.Action("Eliminar","Producto", new { id = item.IdProducto })"
+                       class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+[Reestablecer][Admin] 2025-12-02 00:30:27Z - Correo: waaaow@gmail.com - Código enviado: 8c3e3a49
+[Reestablecer][Admin] 2025-12-02 00:32:29Z - Correo: waaaow@gmail.com - Código enviado: 18d9eda3
+[Reestablecer][Admin] 2025-12-02 13:04:20Z - Correo: waaaow@gmail.com - Código enviado: 193dc93f
+[Reestablecer][Admin] 2025-12-02 13:21:20Z - Correo: waaaow@gmail.com - Código enviado: 9a092d73
+[Reestablecer][Admin] 2025-12-02 13:22:30Z - Correo: qwert@gmail.com - Código enviado: d7fd8a8e
+[EnviarCodigoCambioClave] 2025-12-02 18:15:07Z - ClienteId: 8 - Correo: xiaomi@gmail.com - Código enviado: 94b1c5e8
+[EnviarCodigoCambioClave] 2025-12-02 18:16:38Z - ClienteId: 8 - Correo: xiaomi@gmail.com - Código enviado: 125ee83e
+[EnviarCodigoCambioClaveAjax] 2025-12-02 18:40:49Z - ClienteId: 3 - Correo: pepepepe@gmail.com - Código enviado: d7e4f20b
+[EnviarCodigoCambioClaveAjax] 2025-12-02 19:06:05Z - ClienteId: 6 - Correo: gorrion@gmail.com - Código enviado: b30fd1bb
+[EnviarCodigoCambioClaveAjax] 2025-12-02 19:14:48Z - ClienteId: 8 - Correo: xiaomi@gmail.com - Código enviado: 8bbb1490
+[EnviarCodigoCambioClaveAjax] 2025-12-02 19:48:16Z - ClienteId: 7 - Correo: caballo@gmail.com - Código enviado: 4cea500e
+[CambiarClaveDesdePerfilAjax][Cliente] 2025-12-02 19:48:49Z - ClienteId: 7
+[EnviarCodigoCambioClaveAjax] 2025-12-02 21:32:34Z - ClienteId: 3 - Correo: pepepepe@gmail.com - Código enviado: 1dd9fd95
+[CambiarClaveDesdePerfilAjax][Cliente] 2025-12-02 21:33:27Z - ClienteId: 3
+[EnviarCodigoCambioClaveAjax] 2025-12-04 18:27:01Z - ClienteId: 11 - Correo: depredator@gmail.com - Código enviado: dcfc188e
+[Restablecer][Admin] 2025-12-05 20:07:51Z - Correo: waaaow@gmail.com - Código enviado: c8ed220b
+[Restablecer][Admin] 2025-12-05 20:08:09Z - Correo: waaaow@gmail.com - Código enviado: bf64e787
+[Restablecer][Cliente] 2025-12-05 21:02:24Z - ClienteId: 1 - Correo: blackpeas@gmail.com - Código enviado: 98451020
+[Restablecer][Admin] 2025-12-05 21:03:13Z - Correo: waaaow@gmail.com - Código enviado: 64dfca3e
+[Restablecer][Admin] 2025-12-05 21:42:03Z - Correo: wawa@gmail.com - Código enviado: 1a60d606
+[Restablecer][Admin] 2025-12-05 21:42:25Z - Correo: ninjasss@gmail.com - Código enviado: df559a7e
+[Restablecer][Admin] 2025-12-05 21:42:58Z - Correo: ninjasss@gmail.com - Código enviado: 7e5c353a
+[Restablecer][Admin] 2025-12-05 21:49:17Z - Correo: ninjasss@gmail.com - Código enviado: de1e123b
+[CambiarClave][Admin] 2025-12-05 21:49:51Z - Admin: ninjasss@gmail.com
+[EnviarCodigoCambioClaveAjax] 2025-12-07 11:30:30Z - ClienteId: 6 - Correo: pepe@gmail.com - Código enviado: 1c69823e
+[EnviarCodigoCambioClaveAjax] 2025-12-07 11:30:42Z - ClienteId: 6 - Correo: pepe@gmail.com - Código enviado: 68e1a3fd
+[CambiarClaveDesdePerfilAjax][Cliente] 2025-12-07 11:31:26Z - ClienteId: 6
+[EnviarCodigoCambioClaveAjax] 2025-12-07 11:31:37Z - ClienteId: 6 - Correo: pepe@gmail.com - Código enviado: aababac8
+[CambiarClaveDesdePerfilAjax][Cliente] 2025-12-07 11:32:08Z - ClienteId: 6
+[EnviarCodigoCambioClaveAjax] 2025-12-07 12:28:38Z - ClienteId: 7 - Correo: santiago@gmail.com - Código enviado: e9d5c7b2
+[CambiarClaveDesdePerfilAjax][Cliente] 2025-12-07 12:29:41Z - ClienteId: 7
+[EnviarCodigoCambioClaveAjax] 2025-12-07 13:23:37Z - ClienteId: 7 - Correo: santiago@gmail.com - Código enviado: 14e66ce5

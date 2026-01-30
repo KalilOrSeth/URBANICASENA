@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Restablecer contraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">🔒 Restablecer contraseña</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger text-center">@ViewBag.Error</div>
+}
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success text-center">@ViewBag.Mensaje</div>
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        @using (Html.BeginForm("Restablecer", "Acceso", FormMethod.Post, new { @class = "card p-4 shadow-sm" }))
+        {
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" class="form-control" placeholder="ejemplo@correo.com" required />
+            </div>
+
+            <button type="submit" class="btn btn-warning w-100">
+                <i class="bi bi-envelope"></i> Enviar código
+            </button>
+        }
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <p>¿Ya recuerdas tu contraseña? @Html.ActionLink("Inicia sesión aquí", "Index", "Acceso", null, new { @class = "link-primary" })</p>
+</div>

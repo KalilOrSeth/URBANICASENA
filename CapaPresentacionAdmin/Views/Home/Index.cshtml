@@ -1,0 +1,167 @@
+﻿@model CapaEntidad.ReporteDashboard
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+
+    <!-- Cards -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Cantidad Clientes</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <span class="small text-white">@String.Format("{0:N0}", Model != null ? Model.CantidadClientes : (ViewBag.TotalClientes ?? 0))</span>
+                    <div class="small text-white"><i class="fas fa-users fa-2x"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Cantidad Ventas</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <span class="small text-white">@String.Format("{0:N0}", Model != null ? Model.CantidadVentas : (ViewBag.TotalVentas ?? 0))</span>
+                    <div class="small text-white"><i class="fas fa-shopping-cart fa-2x"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Cantidad Productos</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <span class="small text-white">@String.Format("{0:N0}", Model != null ? Model.CantidadProductos : (ViewBag.TotalProductos ?? 0))</span>
+                    <div class="small text-white"><i class="fas fa-box fa-2x"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros de búsqueda -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-search me-1"></i>
+            Historial de Ventas
+        </div>
+        <div class="card-body">
+            <form id="formBusqueda">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label>Fecha Inicio</label>
+                        <input type="date" class="form-control" id="fechaInicio" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Fecha Fin</label>
+                        <input type="date" class="form-control" id="fechaFin" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Id Transacción</label>
+                        <input type="text" class="form-control" id="idTransaccion" />
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="button" class="btn btn-primary me-2" id="btnBuscar">Buscar</button>
+                        <button type="button" class="btn btn-success" id="btnExportar">Exportar</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Spinner de carga -->
+            <div id="loading" class="text-center" style="display:none;">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p>Cargando ventas...</p>
+            </div>
+
+            <!-- Tabla -->
+            <div class="table-responsive">
+                <table class="table table-bordered" id="tablaVentas">
+                    <thead>
+                        <tr>
+                            <th>Fecha Venta</th>
+                            <th>Cliente</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Id Transacción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="7" class="text-center">Ningún dato disponible en esta tabla</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ Importar jQuery antes de usar $ -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        // Buscar ventas
+        $("#btnBuscar").click(function () {
+            let fechaInicio = $("#fechaInicio").val();
+            let fechaFin = $("#fechaFin").val();
+            let idTransaccion = $("#idTransaccion").val();
+
+            $("#loading").show();
+
+            $.ajax({
+                url: '@Url.Action("ReporteVentas", "Home")',
+                type: 'POST',
+                data: {
+                    fechaInicio: fechaInicio,
+                    fechaFin: fechaFin,
+                    idTransaccion: idTransaccion
+                },
+                success: function (response) {
+                    $("#loading").hide();
+                    let tbody = $("#tablaVentas tbody");
+                    tbody.empty();
+
+                    if (!response || !response.data || response.data.length === 0) {
+                        tbody.append('<tr><td colspan="7" class="text-center">No se encontraron resultados</td></tr>');
+                    } else {
+                        response.data.forEach(v => {
+                            tbody.append(`<tr>
+                                <td>${v.FechaVenta}</td>
+                                <td>${v.Cliente}</td>
+                                <td>${v.Producto}</td>
+                                <td>${v.Precio}</td>
+                                <td>${v.Cantidad}</td>
+                                <td>${v.Total}</td>
+                                <td>${v.IdTransaccion}</td>
+                            </tr>`);
+                        });
+                    }
+                },
+                error: function () {
+                    $("#loading").hide();
+                    let tbody = $("#tablaVentas tbody");
+                    tbody.empty();
+                    tbody.append('<tr><td colspan="7" class="text-center">Error al obtener datos</td></tr>');
+                }
+            });
+        });
+
+        // Exportar ventas
+        $("#btnExportar").click(function () {
+            let fechaInicio = $("#fechaInicio").val();
+            let fechaFin = $("#fechaFin").val();
+            let idTransaccion = $("#idTransaccion").val();
+
+            window.location.href = '@Url.Action("ExportarVentas", "Home")'
+                + '?fechaInicio=' + fechaInicio
+                + '&fechaFin=' + fechaFin
+                + '&idTransaccion=' + idTransaccion;
+        });
+    });
+</script>

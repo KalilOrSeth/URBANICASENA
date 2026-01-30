@@ -1,0 +1,757 @@
+﻿using CapaEntidad;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+
+namespace CapaDatos
+{
+    public class CD_Cliente
+    {
+        private string DetectIdColumn(SqlConnection conn)
+        {
+            // Detect if Cliente table uses IdCliente or IdUsuario as primary id column
+            using (var cmd = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente' AND COLUMN_NAME='IdCliente'", conn))
+            {
+                var r = cmd.ExecuteScalar();
+                if (r != null && Convert.ToInt32(r) > 0) return "IdCliente";
+            }
+            using (var cmd = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente' AND COLUMN_NAME='IdUsuario'", conn))
+            {
+                var r = cmd.ExecuteScalar();
+                if (r != null && Convert.ToInt32(r) > 0) return "IdUsuario";
+            }
+            // default fallback
+            return "IdCliente";
+        }
+
+        // Public helper to be used by business layer when creating associated Usuario
+        public bool ColumnExistsForChecks(string columnName)
+        {
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+            {
+                oConexion.Open();
+                using (var cmd = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente' AND COLUMN_NAME=@col", oConexion))
+                {
+                    cmd.Parameters.AddWithValue("@col", columnName);
+                    var r = cmd.ExecuteScalar();
+                    return r != null && Convert.ToInt32(r) > 0;
+                }
+            }
+        }
+
+        private bool ColumnExists(SqlConnection conn, string columnName)
+        {
+            using (var cmd = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente' AND COLUMN_NAME=@col", conn))
+            {
+                cmd.Parameters.AddWithValue("@col", columnName);
+                var r = cmd.ExecuteScalar();
+                return r != null && Convert.ToInt32(r) > 0;
+            }
+        }
+
+        private bool TableExists(SqlConnection conn, string tableName)
+        {
+            using (var cmd = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @tname", conn))
+            {
+                cmd.Parameters.AddWithValue("@tname", tableName);
+                var r = cmd.ExecuteScalar();
+                return r != null && Convert.ToInt32(r) > 0;
+            }
+        }
+
+        public List<Cliente> Listar()
+        {
+            var lista = new List<Cliente>();
+
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+            {
+                oConexion.Open();
+                string idCol = DetectIdColumn(oConexion);
+
+                bool hasReestablecer = ColumnExists(oConexion, "Reestablecer");
+                bool hasActivo = ColumnExists(oConexion, "Activo");
+                bool hasRol = ColumnExists(oConexion, "Rol");
+                bool hasFechaRegistro = ColumnExists(oConexion, "FechaRegistro");
+
+                string select = $"SELECT {idCol} AS IdCliente, Nombres, Apellidos, Correo, Clave" +
+                                (hasReestablecer ? ", Reestablecer" : ", 0 AS Reestablecer") +
+                                (hasActivo ? ", Activo" : ", 1 AS Activo") +
+                                (hasRol ? ", Rol" : ", 'Cliente' AS Rol") +
+                                (hasFechaRegistro ? ", FechaRegistro" : ", NULL AS FechaRegistro") +
+                                " FROM Cliente";
+
+                SqlCommand cmd = new SqlCommand(select, oConexion);
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    int idxId = dr.GetOrdinal("IdCliente");
+                    int idxNombres = dr.GetOrdinal("Nombres");
+                    int idxApellidos = dr.GetOrdinal("Apellidos");
+                    int idxCorreo = dr.GetOrdinal("Correo");
+                    int idxClave = dr.GetOrdinal("Clave");
+                    int idxReestablecer = dr.GetOrdinal("Reestablecer");
+                    int idxActivo = dr.GetOrdinal("Activo");
+                    int idxRol = dr.GetOrdinal("Rol");
+                    int idxFechaRegistro = hasFechaRegistro ? dr.GetOrdinal("FechaRegistro") : -1;
+
+                    while (dr.Read())
+                    {
+                        var cliente = new Cliente
+                        {
+                            IdCliente = !dr.IsDBNull(idxId) ? dr.GetInt32(idxId) : 0,
+                            Nombres = !dr.IsDBNull(idxNombres) ? dr.GetString(idxNombres) : string.Empty,
+                            Apellidos = !dr.IsDBNull(idxApellidos) ? dr.GetString(idxApellidos) : string.Empty,
+                            Correo = !dr.IsDBNull(idxCorreo) ? dr.GetString(idxCorreo) : string.Empty,
+                            Clave = !dr.IsDBNull(idxClave) ? dr.GetString(idxClave) : string.Empty,
+                            Reestablecer = !dr.IsDBNull(idxReestablecer) && dr.GetBoolean(idxReestablecer),
+                            Activo = !dr.IsDBNull(idxActivo) && dr.GetBoolean(idxActivo),
+                            Rol = !dr.IsDBNull(idxRol) ? dr.GetString(idxRol) : "Cliente",
+                            FechaRegistro = (idxFechaRegistro >= 0 && !dr.IsDBNull(idxFechaRegistro)) ? dr.GetDateTime(idxFechaRegistro) : DateTime.MinValue
+                        };
+                        lista.Add(cliente);
+                    }
+                }
+            }
+            return lista;
+        }
+
+        public Cliente ObtenerPorCorreo(string correo)
+        {
+            Cliente cliente = null;
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+            {
+                oConexion.Open();
+                string idCol = DetectIdColumn(oConexion);
+
+                bool hasReestablecer = ColumnExists(oConexion, "Reestablecer");
+                bool hasActivo = ColumnExists(oConexion, "Activo");
+                bool hasRol = ColumnExists(oConexion, "Rol");
+                bool hasFechaRegistro = ColumnExists(oConexion, "FechaRegistro");
+
+                string query = $"SELECT {idCol} AS IdCliente, Nombres, Apellidos, Correo, Clave" +
+                                (hasReestablecer ? ", Reestablecer" : ", 0 AS Reestablecer") +
+                                (hasActivo ? ", Activo" : ", 1 AS Activo") +
+                                (hasRol ? ", Rol" : ", 'Cliente' AS Rol") +
+                                (hasFechaRegistro ? ", FechaRegistro" : ", NULL AS FechaRegistro") +
+                                " FROM Cliente WHERE LOWER(LTRIM(RTRIM(Correo))) = @correo";
+                SqlCommand cmd = new SqlCommand(query, oConexion);
+                cmd.Parameters.AddWithValue("@correo", (correo ?? string.Empty).Trim().ToLower());
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        int idxId = dr.GetOrdinal("IdCliente");
+                        int idxNombres = dr.GetOrdinal("Nombres");
+                        int idxApellidos = dr.GetOrdinal("Apellidos");
+                        int idxCorreo = dr.GetOrdinal("Correo");
+                        int idxClave = dr.GetOrdinal("Clave");
+                        int idxReestablecer = dr.GetOrdinal("Reestablecer");
+                        int idxActivo = dr.GetOrdinal("Activo");
+                        int idxRol = dr.GetOrdinal("Rol");
+                        int idxFechaRegistro = hasFechaRegistro ? dr.GetOrdinal("FechaRegistro") : -1;
+
+                        cliente = new Cliente
+                        {
+                            IdCliente = !dr.IsDBNull(idxId) ? dr.GetInt32(idxId) : 0,
+                            Nombres = !dr.IsDBNull(idxNombres) ? dr.GetString(idxNombres) : string.Empty,
+                            Apellidos = !dr.IsDBNull(idxApellidos) ? dr.GetString(idxApellidos) : string.Empty,
+                            Correo = !dr.IsDBNull(idxCorreo) ? dr.GetString(idxCorreo) : string.Empty,
+                            Clave = !dr.IsDBNull(idxClave) ? dr.GetString(idxClave) : string.Empty,
+                            Reestablecer = !dr.IsDBNull(idxReestablecer) && dr.GetBoolean(idxReestablecer),
+                            Activo = !dr.IsDBNull(idxActivo) && dr.GetBoolean(idxActivo),
+                            Rol = !dr.IsDBNull(idxRol) ? dr.GetString(idxRol) : "Cliente",
+                            FechaRegistro = (idxFechaRegistro >= 0 && !dr.IsDBNull(idxFechaRegistro)) ? dr.GetDateTime(idxFechaRegistro) : DateTime.MinValue
+                        };
+                    }
+                }
+            }
+            return cliente;
+        }
+
+        public int Registrar(Cliente obj, out string mensaje)
+        {
+            mensaje = string.Empty;
+            int idGenerado = 0;
+
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+                {
+                    oConexion.Open();
+                    // detect available columns to build INSERT dynamically
+                    bool hasReestablecer = ColumnExists(oConexion, "Reestablecer");
+                    bool hasActivo = ColumnExists(oConexion, "Activo");
+                    bool hasRol = ColumnExists(oConexion, "Rol");
+                    bool hasFechaRegistro = ColumnExists(oConexion, "FechaRegistro");
+
+                    var insertCols = new List<string> { "Nombres", "Apellidos", "Correo", "Clave" };
+                    var insertParams = new List<string> { "@Nombres", "@Apellidos", "@Correo", "@Clave" };
+
+                    if (hasReestablecer) { insertCols.Add("Reestablecer"); insertParams.Add("@Reestablecer"); }
+                    if (hasActivo) { insertCols.Add("Activo"); insertParams.Add("@Activo"); }
+                    if (hasRol) { insertCols.Add("Rol"); insertParams.Add("@Rol"); }
+                    if (hasFechaRegistro) { insertCols.Add("FechaRegistro"); insertParams.Add("@FechaRegistro"); }
+
+                    string insert = $"INSERT INTO Cliente({string.Join(",", insertCols)}) VALUES({string.Join(",", insertParams)}); SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                    SqlCommand cmd = new SqlCommand(insert, oConexion);
+                    cmd.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Correo", obj.Correo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Clave", obj.Clave ?? (object)DBNull.Value);
+
+                    if (hasReestablecer) cmd.Parameters.AddWithValue("@Reestablecer", obj.Reestablecer);
+                    if (hasActivo) cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+                    if (hasRol) cmd.Parameters.AddWithValue("@Rol", string.IsNullOrWhiteSpace(obj.Rol) ? "Cliente" : obj.Rol);
+                    if (hasFechaRegistro) cmd.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
+
+                    idGenerado = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                idGenerado = 0;
+            }
+
+            return idGenerado;
+        }
+
+        public bool ActualizarClave(int idCliente, string claveHash, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool resultado = false;
+
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+                {
+                    oConexion.Open();
+                    string idCol = DetectIdColumn(oConexion);
+
+                    string query = $"UPDATE Cliente SET Clave = @Clave, Reestablecer = 0 WHERE {idCol} = @IdCliente";
+                    SqlCommand cmd = new SqlCommand(query, oConexion);
+                    cmd.Parameters.AddWithValue("@Clave", claveHash ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@IdCliente", idCliente);
+
+                    resultado = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        public Cliente ObtenerPorId(int idCliente)
+        {
+            Cliente cliente = null;
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+            {
+                oConexion.Open();
+                string idCol = DetectIdColumn(oConexion);
+
+                bool hasReestablecer = ColumnExists(oConexion, "Reestablecer");
+                bool hasActivo = ColumnExists(oConexion, "Activo");
+                bool hasRol = ColumnExists(oConexion, "Rol");
+                bool hasFechaRegistro = ColumnExists(oConexion, "FechaRegistro");
+
+                string query = $"SELECT {idCol} AS IdCliente, Nombres, Apellidos, Correo, Clave" +
+                                (hasReestablecer ? ", Reestablecer" : ", 0 AS Reestablecer") +
+                                (hasActivo ? ", Activo" : ", 1 AS Activo") +
+                                (hasRol ? ", Rol" : ", 'Cliente' AS Rol") +
+                                (hasFechaRegistro ? ", FechaRegistro" : ", NULL AS FechaRegistro") +
+                                $" FROM Cliente WHERE {idCol} = @idCliente";
+                SqlCommand cmd = new SqlCommand(query, oConexion);
+                cmd.Parameters.AddWithValue("@idCliente", idCliente);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        int idxId = dr.GetOrdinal("IdCliente");
+                        int idxNombres = dr.GetOrdinal("Nombres");
+                        int idxApellidos = dr.GetOrdinal("Apellidos");
+                        int idxCorreo = dr.GetOrdinal("Correo");
+                        int idxClave = dr.GetOrdinal("Clave");
+                        int idxReestablecer = dr.GetOrdinal("Reestablecer");
+                        int idxActivo = dr.GetOrdinal("Activo");
+                        int idxRol = dr.GetOrdinal("Rol");
+                        int idxFechaRegistro = hasFechaRegistro ? dr.GetOrdinal("FechaRegistro") : -1;
+
+                        cliente = new Cliente
+                        {
+                            IdCliente = !dr.IsDBNull(idxId) ? dr.GetInt32(idxId) : 0,
+                            Nombres = !dr.IsDBNull(idxNombres) ? dr.GetString(idxNombres) : string.Empty,
+                            Apellidos = !dr.IsDBNull(idxApellidos) ? dr.GetString(idxApellidos) : string.Empty,
+                            Correo = !dr.IsDBNull(idxCorreo) ? dr.GetString(idxCorreo) : string.Empty,
+                            Clave = !dr.IsDBNull(idxClave) ? dr.GetString(idxClave) : string.Empty,
+                            Reestablecer = !dr.IsDBNull(idxReestablecer) && dr.GetBoolean(idxReestablecer),
+                            Activo = !dr.IsDBNull(idxActivo) && dr.GetBoolean(idxActivo),
+                            Rol = !dr.IsDBNull(idxRol) ? dr.GetString(idxRol) : "Cliente",
+                            FechaRegistro = (idxFechaRegistro >= 0 && !dr.IsDBNull(idxFechaRegistro)) ? dr.GetDateTime(idxFechaRegistro) : DateTime.MinValue
+                        };
+                    }
+                }
+            }
+            return cliente;
+        }
+
+        public bool Eliminar(int idCliente, out string mensaje)
+        {
+            bool resultado = false;
+            mensaje = string.Empty;
+
+            if (idCliente <= 0)
+            {
+                mensaje = "Id de cliente inválido.";
+                return false;
+            }
+
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+                {
+                    oConexion.Open();
+                    string idCol = DetectIdColumn(oConexion);
+                    bool hasIdUsuario = ColumnExists(oConexion, "IdUsuario");
+
+                    // Determine if a DetalleVenta table exists (could be 'DetalleVenta' or 'DETALLE_VENTA')
+                    bool hasDetalleVenta = false;
+                    string detalleTableName = null;
+                    if (TableExists(oConexion, "DetalleVenta")) { hasDetalleVenta = true; detalleTableName = "DetalleVenta"; }
+                    else if (TableExists(oConexion, "DETALLE_VENTA")) { hasDetalleVenta = true; detalleTableName = "DETALLE_VENTA"; }
+
+                    using (var transaction = oConexion.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 0) If DetalleVenta exists, delete detalle rows linked to ventas of this cliente
+                            if (hasDetalleVenta)
+                            {
+                                string sqlDelDetalle = $"DELETE DV FROM [{detalleTableName}] DV INNER JOIN VENTA V ON DV.IdVenta = V.IdVenta WHERE V.IdCliente = @IdCliente";
+                                using (var cmdDelDetalleVenta = new SqlCommand(sqlDelDetalle, oConexion, transaction))
+                                {
+                                    cmdDelDetalleVenta.Parameters.AddWithValue("@IdCliente", idCliente);
+                                    cmdDelDetalleVenta.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Delete VENTA rows for this client
+                            using (var cmdDelVenta = new SqlCommand("DELETE FROM VENTA WHERE IdCliente = @IdCliente", oConexion, transaction))
+                            {
+                                cmdDelVenta.Parameters.AddWithValue("@IdCliente", idCliente);
+                                cmdDelVenta.ExecuteNonQuery();
+                            }
+
+                            // 1) Remove carrito rows referencing this cliente to avoid FK constraint
+                            using (var cmdDelCarrito = new SqlCommand("DELETE FROM CARRITO WHERE IdCliente = @IdCliente", oConexion, transaction))
+                            {
+                                cmdDelCarrito.Parameters.AddWithValue("@IdCliente", idCliente);
+                                cmdDelCarrito.ExecuteNonQuery();
+                            }
+
+                            // 2) Delete cliente row
+                            string deleteClienteSql = $"DELETE FROM Cliente WHERE {idCol} = @IdCliente";
+                            using (var cmdDelCliente = new SqlCommand(deleteClienteSql, oConexion, transaction))
+                            {
+                                cmdDelCliente.Parameters.AddWithValue("@IdCliente", idCliente);
+                                int filas = cmdDelCliente.ExecuteNonQuery();
+                                if (filas <= 0)
+                                {
+                                    mensaje = "No se encontró el cliente a eliminar.";
+                                    transaction.Rollback();
+                                    return false;
+                                }
+                            }
+
+                            // 3) If Cliente uses IdUsuario linking to UsuarioNormal, delete that user as well
+                            if (hasIdUsuario)
+                            {
+                                using (var cmdDelUsuario = new SqlCommand("DELETE FROM UsuarioNormal WHERE IdUsuario = @IdUsuario", oConexion, transaction))
+                                {
+                                    cmdDelUsuario.Parameters.AddWithValue("@IdUsuario", idCliente);
+                                    cmdDelUsuario.ExecuteNonQuery();
+                                }
+                            }
+
+                            transaction.Commit();
+                            resultado = true;
+                            mensaje = "Cliente eliminado correctamente.";
+                        }
+                        catch (Exception exTrans)
+                        {
+                            try { transaction.Rollback(); } catch { }
+                            resultado = false;
+                            mensaje = "Error interno: " + exTrans.Message;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                mensaje = "Error interno: " + ex.Message;
+            }
+
+            return resultado;
+
+        }
+
+        public int RegistrarClienteCompleto(Cliente obj, out string mensaje)
+        {
+            mensaje = string.Empty;
+            int idGenerado = 0;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Conexion.cn))
+                {
+                    conn.Open();
+
+                    // 1. Validar si el correo ya existe en UsuarioNormal
+                    string checkCorreo = "SELECT COUNT(*) FROM UsuarioNormal WHERE Correo = @Correo";
+                    using (SqlCommand cmdCheck = new SqlCommand(checkCorreo, conn))
+                    {
+                        cmdCheck.Parameters.AddWithValue("@Correo", obj.Correo);
+                        int existe = Convert.ToInt32(cmdCheck.ExecuteScalar());
+
+                        if (existe > 0)
+                        {
+                            mensaje = "El correo ya está registrado.";
+                            return 0;
+                        }
+                    }
+
+                    // 2. Insertar en UsuarioNormal
+                    string insertUsuario = @"INSERT INTO UsuarioNormal (Nombres, Apellidos, Correo, Clave, Activo, Rol)
+                                     VALUES (@Nombres, @Apellidos, @Correo, @Clave, @Activo, 'Cliente');
+                                     SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                    int idUsuario;
+                    using (SqlCommand cmdUsuario = new SqlCommand(insertUsuario, conn))
+                    {
+                        cmdUsuario.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                        cmdUsuario.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                        cmdUsuario.Parameters.AddWithValue("@Correo", obj.Correo ?? (object)DBNull.Value);
+                        cmdUsuario.Parameters.AddWithValue("@Clave", obj.Clave ?? (object)DBNull.Value);
+                        // Forzar Activo = 1 para nuevos usuarios registrados desde la tienda
+                        cmdUsuario.Parameters.AddWithValue("@Activo", obj.Activo ? 1 : 1);
+
+                        var result = cmdUsuario.ExecuteScalar();
+                        if (result == null || result == DBNull.Value)
+                        {
+                            mensaje = "No se pudo generar el IdUsuario.";
+                            return 0;
+                        }
+
+                        idUsuario = Convert.ToInt32(result);
+                    }
+
+                    // 3. Insertar en Cliente usando el IdUsuario generado
+                    // Check if FechaRegistro column exists in Cliente
+                    bool hasFechaRegistro = false;
+                    using (var cmdCheckFecha = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente' AND COLUMN_NAME='FechaRegistro'", conn))
+                    {
+                        var rf = cmdCheckFecha.ExecuteScalar();
+                        hasFechaRegistro = rf != null && Convert.ToInt32(rf) > 0;
+                    }
+
+                    string insertCliente = hasFechaRegistro
+                        ? @"INSERT INTO Cliente (IdUsuario, Nombres, Apellidos, Correo, Clave, Activo, FechaRegistro)
+                                     VALUES (@IdUsuario, @Nombres, @Apellidos, @Correo, @Clave, @Activo, @FechaRegistro);
+                                     SELECT CAST(SCOPE_IDENTITY() AS INT);"
+                        : @"INSERT INTO Cliente (IdUsuario, Nombres, Apellidos, Correo, Clave, Activo)
+                                     VALUES (@IdUsuario, @Nombres, @Apellidos, @Correo, @Clave, @Activo);
+                                     SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                    using (SqlCommand cmdCliente = new SqlCommand(insertCliente, conn))
+                    {
+                        cmdCliente.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        cmdCliente.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                        cmdCliente.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                        cmdCliente.Parameters.AddWithValue("@Correo", obj.Correo ?? (object)DBNull.Value);
+                        cmdCliente.Parameters.AddWithValue("@Clave", obj.Clave ?? (object)DBNull.Value);
+                        // Forzar Activo = 1 en cliente insertado desde tienda
+                        cmdCliente.Parameters.AddWithValue("@Activo", obj.Activo ? 1 : 1);
+                        if (hasFechaRegistro) cmdCliente.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
+
+                        var resultCliente = cmdCliente.ExecuteScalar();
+                        if (resultCliente != null && resultCliente != DBNull.Value)
+                        {
+                            idGenerado = Convert.ToInt32(resultCliente);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+            }
+
+            return idGenerado;
+        }
+
+        public bool CambiarClavePorCorreo(string correo, string nuevaClave, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool resultado = false;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Conexion.cn))
+                {
+                    conn.Open();
+
+                    // 0. Validar si el correo existe en UsuarioNormal
+                    string checkCorreo = "SELECT COUNT(*) FROM UsuarioNormal WHERE Correo = @Correo";
+                    SqlCommand cmdCheck = new SqlCommand(checkCorreo, conn);
+                    cmdCheck.Parameters.AddWithValue("@Correo", correo);
+                    int existe = Convert.ToInt32(cmdCheck.ExecuteScalar());
+
+                    if (existe == 0)
+                    {
+                        mensaje = "El correo no está registrado.";
+                        return false; // detenemos el flujo
+                    }
+
+                    // 1. Actualizar la clave en UsuarioNormal
+                    string updateClave = "UPDATE UsuarioNormal SET Clave = @Clave, Restablecer = NULL WHERE Correo = @Correo";
+                    SqlCommand cmdUpdate = new SqlCommand(updateClave, conn);
+                    cmdUpdate.Parameters.AddWithValue("@Clave", nuevaClave);
+                    cmdUpdate.Parameters.AddWithValue("@Correo", correo);
+
+                    int filas = cmdUpdate.ExecuteNonQuery();
+                    resultado = filas > 0;
+
+                    if (!resultado)
+                        mensaje = "No se pudo actualizar la contraseña.";
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        public bool ActualizarActivo(int idCliente, bool activo, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool resultado = false;
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+                {
+                    oConexion.Open();
+                    string idCol = DetectIdColumn(oConexion);
+
+                    // Determine once whether Cliente table links to UsuarioNormal
+                    bool hasIdUsuario = ColumnExists(oConexion, "IdUsuario");
+
+                    using (var transaction = oConexion.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1) Update Cliente table
+                            string queryCliente = $"UPDATE Cliente SET Activo = @Activo WHERE {idCol} = @IdCliente";
+                            using (var cmd = new SqlCommand(queryCliente, oConexion, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@Activo", activo);
+                                cmd.Parameters.AddWithValue("@IdCliente", idCliente);
+
+                                int filas = cmd.ExecuteNonQuery();
+                                if (filas <= 0)
+                                {
+                                    mensaje = "No se encontró el cliente o no se actualizó ningún registro en Cliente.";
+                                    transaction.Rollback();
+                                    return false;
+                                }
+                            }
+
+                            // 2) If Cliente links to UsuarioNormal via IdUsuario, also update UsuarioNormal.Activo
+                            if (hasIdUsuario)
+                            {
+                                // Determine IdUsuario value depending on schema
+                                int idUsuario = 0;
+                                if (string.Equals(idCol, "IdUsuario", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    // The provided idCliente is actually IdUsuario
+                                    idUsuario = idCliente;
+                                }
+                                else
+                                {
+                                    // Need to lookup IdUsuario from Cliente by IdCliente (use transaction-aware command)
+                                    using (var cmdGet = new SqlCommand("SELECT IdUsuario FROM Cliente WHERE IdCliente = @IdCliente", oConexion, transaction))
+                                    {
+                                        cmdGet.Parameters.AddWithValue("@IdCliente", idCliente);
+                                        var r = cmdGet.ExecuteScalar();
+                                        if (r == null || r == DBNull.Value)
+                                        {
+                                            // no IdUsuario found, rollback and return
+                                            mensaje = "No se encontró el usuario asociado al cliente.";
+                                            transaction.Rollback();
+                                            return false;
+                                        }
+                                        idUsuario = Convert.ToInt32(r);
+                                    }
+                                }
+
+                                // Update UsuarioNormal
+                                using (var cmdUpdUser = new SqlCommand("UPDATE UsuarioNormal SET Activo = @Activo WHERE IdUsuario = @IdUsuario", oConexion, transaction))
+                                {
+                                    cmdUpdUser.Parameters.AddWithValue("@Activo", activo ? 1 : 0);
+                                    cmdUpdUser.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                                    // It's okay if 0 rows affected (user might not exist), don't fail whole op
+                                    cmdUpdUser.ExecuteNonQuery();
+                                }
+                            }
+
+                            transaction.Commit();
+                            resultado = true;
+                            mensaje = "Estado actualizado correctamente.";
+                        }
+                        catch (Exception exTrans)
+                        {
+                            try { transaction.Rollback(); } catch { }
+                            mensaje = "Error al actualizar estado: " + exTrans.Message;
+                            resultado = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al actualizar estado: " + ex.Message;
+                resultado = false;
+
+                // Log to App_Data/cliente_logs.txt for traceability
+                try
+                {
+                    var logDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data");
+                    if (!Directory.Exists(logDir)) Directory.CreateDirectory(logDir);
+                    var logFile = Path.Combine(logDir, "cliente_logs.txt");
+                    var text = DateTime.UtcNow.ToString("u") + " - Error ActualizarActivo - IdCliente:" + idCliente + " - Mensaje: " + ex.ToString() + Environment.NewLine;
+                    File.AppendAllText(logFile, text);
+                }
+                catch
+                {
+                    // no throw
+                }
+            }
+
+            return resultado;
+        }
+
+        public bool Editar(Cliente obj, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool resultado = false;
+
+            if (obj == null || obj.IdCliente <= 0)
+            {
+                mensaje = "Datos de cliente inválidos.";
+                return false;
+            }
+
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.cn))
+                {
+                    oConexion.Open();
+                    string idCol = DetectIdColumn(oConexion);
+
+                    bool hasIdUsuario = ColumnExists(oConexion, "IdUsuario");
+
+                    using (var transaction = oConexion.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Update Cliente table (names)
+                            string updateCliente = $"UPDATE Cliente SET Nombres = @Nombres, Apellidos = @Apellidos WHERE {idCol} = @IdCliente";
+                            using (var cmd = new SqlCommand(updateCliente, oConexion, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@IdCliente", obj.IdCliente);
+
+                                int filas = cmd.ExecuteNonQuery();
+                                if (filas <= 0)
+                                {
+                                    mensaje = "No se encontró el cliente o no se actualizó ningún registro.";
+                                    transaction.Rollback();
+                                    return false;
+                                }
+                            }
+
+                            // If Cliente links to UsuarioNormal, update that table too
+                            if (hasIdUsuario)
+                            {
+                                int idUsuario = 0;
+                                if (string.Equals(idCol, "IdUsuario", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    idUsuario = obj.IdCliente; // when idCol is IdUsuario, IdCliente property already holds IdUsuario
+                                }
+                                else
+                                {
+                                    using (var cmdGet = new SqlCommand("SELECT IdUsuario FROM Cliente WHERE IdCliente = @IdCliente", oConexion, transaction))
+                                    {
+                                        cmdGet.Parameters.AddWithValue("@IdCliente", obj.IdCliente);
+                                        var r = cmdGet.ExecuteScalar();
+                                        if (r == null || r == DBNull.Value)
+                                        {
+                                            // Not fatal: just continue without updating user
+                                            idUsuario = 0;
+                                        }
+                                        else
+                                        {
+                                            idUsuario = Convert.ToInt32(r);
+                                        }
+                                    }
+                                }
+
+                                if (idUsuario > 0)
+                                {
+                                    using (var cmdUpdUser = new SqlCommand("UPDATE UsuarioNormal SET Nombres = @Nombres, Apellidos = @Apellidos WHERE IdUsuario = @IdUsuario", oConexion, transaction))
+                                    {
+                                        cmdUpdUser.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                                        cmdUpdUser.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                                        cmdUpdUser.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                                        cmdUpdUser.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+
+                            transaction.Commit();
+                            resultado = true;
+                            mensaje = "Cliente actualizado correctamente.";
+                        }
+                        catch (Exception exTrans)
+                        {
+                            try { transaction.Rollback(); } catch { }
+                            resultado = false;
+                            mensaje = "Error interno: " + exTrans.Message;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                mensaje = "Error interno: " + ex.Message;
+            }
+
+            return resultado;
+        }
+
+    }
+}

@@ -1,0 +1,141 @@
+@model CapaEntidad.Producto
+@{
+    ViewBag.Title = "Detalle del Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var desdeCarrito = Request.QueryString["desdeCarrito"] == "true";
+}
+
+<div class="container py-4">
+    <div class="row">
+        <!-- Imagen del producto -->
+        <div class="col-md-6">
+            @{
+                var imgUrl = Url.Action("ImagenProducto", "Tienda", new { id = Model.IdProducto });
+            }
+            <img src="@imgUrl"
+                 alt="@Model.Nombre"
+                 class="img-fluid rounded shadow-sm"
+                 onerror="this.src='@Url.Content("~/Content/img/productos/default.jpg")'" />
+        </div>
+
+        <!-- Información del producto -->
+        <div class="col-md-6">
+            <h2 class="fw-bold">@Model.Nombre</h2>
+
+            @if (Model.oMarca != null)
+            {
+                <p class="text-muted">
+                    <strong>Marca:</strong> @Model.oMarca.Descripcion
+                </p>
+            }
+
+            @if (Model.oCategoria != null)
+            {
+                <p class="text-muted">
+                    <strong>Categoría:</strong> @Model.oCategoria.Descripcion
+                </p>
+            }
+
+            <hr />
+
+            <div class="mb-3">
+                <h5 class="text-secondary">Descripción:</h5>
+                <p>@(string.IsNullOrEmpty(Model.Descripcion) ? "Sin descripción disponible" : Model.Descripcion)</p>
+            </div>
+
+            <div class="mb-3">
+                <h3 class="text-primary fw-bold">@Model.Precio.ToString("C")</h3>
+            </div>
+
+            <div class="mb-3">
+                <p class="@(Model.Stock > 0 ? "text-success" : "text-danger")">
+                    <strong>Stock:</strong>
+                    @if (Model.Stock > 0)
+                    {
+                        <span>@Model.Stock unidades disponibles</span>
+                    }
+                    else
+                    {
+                        <span>Agotado</span>
+                    }
+                </p>
+            </div>
+
+            @if (Model.Stock > 0 && Session["Cliente"] != null)
+            {
+                <button type="button"
+                        class="btn btn-success btn-lg w-100 mb-2 btn-agregar-detalle"
+                        data-id="@Model.IdProducto">
+                    <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                </button>
+            }
+            else if (Model.Stock <= 0)
+            {
+                <button type="button" class="btn btn-secondary btn-lg w-100 mb-2" disabled>
+                    <i class="bi bi-x-circle"></i> Producto Agotado
+                </button>
+            }
+            else
+            {
+                <a href="@Url.Action("Index","Acceso")" class="btn btn-primary btn-lg w-100 mb-2">
+                    <i class="bi bi-box-arrow-in-right"></i> Inicia sesión para comprar
+                </a>
+            }
+
+            @if (desdeCarrito)
+            {
+                <a href="@Url.Action("Carrito","Tienda")" class="btn btn-outline-secondary w-100">
+                    <i class="bi bi-arrow-left"></i> Volver al Carrito
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index","Tienda")" class="btn btn-outline-secondary w-100">
+                    <i class="bi bi-arrow-left"></i> Volver al Catálogo
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function(){
+            $('.btn-agregar-detalle').on('click', function(){
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '@Url.Action("AgregarCarritoPost","Tienda")',
+                    type: 'POST',
+                    data: { idProducto: id },
+                    success: function(resp){
+                        if(resp && resp.respuesta){
+                            if (resp.cantidad !== undefined) {
+                                $('#contadorCarrito').text(resp.cantidad);
+                            } else if (typeof updateCartCount === 'function') {
+                                updateCartCount();
+                            }
+                            if (typeof showToast === 'function') {
+                                showToast('Producto agregado al carrito', 'success');
+                            } else {
+                                alert('Producto agregado al carrito');
+                            }
+                        } else {
+                            if (typeof showToast === 'function') {
+                                showToast(resp.mensaje || 'Error al agregar', 'error');
+                            } else {
+                                alert(resp.mensaje || 'Error al agregar');
+                            }
+                        }
+                    },
+                    error: function(){
+                        if (typeof showToast === 'function') {
+                            showToast('Error de comunicación', 'error');
+                        } else {
+                            alert('Error de comunicación');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

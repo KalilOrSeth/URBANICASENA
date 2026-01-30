@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Login Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">🔑 Iniciar Sesión</h2>
+
+<style>
+    .input-largo {
+        
+        max-width: 700px; 
+    }
+
+</style>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger text-center">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Acceso", FormMethod.Post, new { @class = "card p-4 shadow-sm col-md-6 mx-auto" }))
+{
+    <div class="mb-3">
+        <label for="correo" class="form-label">Correo electrónico</label>
+        <input type="email" name="correo" id="correo" class="form-control input-largo" autocomplete="email" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" name="clave" id="clave" class="form-control input-largo" autocomplete="current-password" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+        <i class="bi bi-box-arrow-in-right"></i> Ingresar
+    </button>
+}
+
+
+
+<div class="text-center mt-3">
+    <p>
+        ¿No tienes cuenta? @Html.ActionLink("Regístrate aquí", "Registrar", "Acceso", null, new { @class = "link-primary" })
+    </p>
+    <p>
+        ¿Olvidaste tu contraseña? @Html.ActionLink("Restablecer", "Restablecer", "Acceso", null, new { @class = "link-secondary" })
+    </p>
+</div>

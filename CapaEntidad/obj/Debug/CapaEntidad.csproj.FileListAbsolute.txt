@@ -1,0 +1,147 @@
+E:\CursoMVC\CapaEntidad\bin\Debug\CapaEntidad.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\CapaEntidad.pdb
+E:\CursoMVC\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\Newtonsoft.Json.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Buffers.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.IO.Pipelines.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Memory.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Numerics.Vectors.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Text.Encodings.Web.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Text.Json.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\CursoMVC\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\Newtonsoft.Json.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Buffers.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.IO.Pipelines.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Memory.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Numerics.Vectors.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Text.Encodings.Web.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Text.Json.xml
+E:\CursoMVC\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+E:\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+E:\CursoMVC\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
+E:\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.dll
+E:\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.pdb
+E:\ProyectoMVC\CapaEntidad\bin\Debug\CapaEntidad.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\CapaEntidad.pdb
+E:\ProyectoMVC\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\Newtonsoft.Json.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Buffers.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.IO.Pipelines.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Memory.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Numerics.Vectors.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Text.Encodings.Web.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Text.Json.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\ProyectoMVC\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\Newtonsoft.Json.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Buffers.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.IO.Pipelines.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Memory.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Numerics.Vectors.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Text.Encodings.Web.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Text.Json.xml
+E:\ProyectoMVC\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\ProyectoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+E:\ProyectoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+E:\ProyectoMVC\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
+E:\ProyectoMVC\CapaEntidad\obj\Debug\CapaEntidad.dll
+E:\ProyectoMVC\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Buffers.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.IO.Pipelines.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Memory.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Json.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Buffers.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.IO.Pipelines.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Memory.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Json.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Newtonsoft.Json.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Buffers.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.IO.Pipelines.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Memory.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Json.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\Newtonsoft.Json.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Buffers.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.IO.Pipelines.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Memory.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Text.Json.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Dapper.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\PayPalCheckoutSdk.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\PayPalHttp-Dotnet.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Buffers.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Memory.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Text.Json.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Dapper.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Buffers.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Memory.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Text.Json.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaEntidad\obj\Debug\CapaEntidad.pdb

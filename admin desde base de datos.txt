@@ -1,0 +1,9 @@
+INSERT INTO UsuarioAdmin (Nombres, Apellidos, Correo, Clave, Rol, Activo)
+VALUES (
+    'JH De la',
+    'Cruz',
+    'negrosdemrd@admin.com',
+    CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', '123456'), 2),
+    'Admin',
+    1
+);

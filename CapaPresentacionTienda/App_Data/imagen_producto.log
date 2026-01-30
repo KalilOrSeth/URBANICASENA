@@ -1,0 +1,22 @@
+2025-12-03T22:21:48.0642040Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\fc1839e15c544ff89faa01b027833cbd.jpg - Exists: False
+2025-12-03T22:21:50.1099970Z | No image found for product 2: tried E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\d2e73f42ea304c00ac847adc0277ceee.jpg and E:\CursoMVC\CapaPresentacionTienda\Images\Imagenes\d2e73f42ea304c00ac847adc0277ceee.jpg
+2025-12-03T22:21:50.5737134Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:21:51.0983214Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionTienda\Images\Imagenes\d4509877d8c14100a011992e9d88ba40.jpg - Exists: False
+2025-12-03T22:21:51.1250301Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\a6bd0b6ea68b433693095d7614ecf33b.jpg - Exists: True
+2025-12-03T22:21:51.1818839Z | Served image for product 8 from tiendaPath
+2025-12-03T22:47:00.7837174Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\a6bd0b6ea68b433693095d7614ecf33b.jpg - Exists: True
+2025-12-03T22:47:00.8548283Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:47:00.8982571Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionTienda\Images\Imagenes\fc1839e15c544ff89faa01b027833cbd.jpg - Exists: False
+2025-12-03T22:47:00.9359795Z | No image found for product 4: tried E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\fc1839e15c544ff89faa01b027833cbd.jpg and E:\CursoMVC\CapaPresentacionTienda\Images\Imagenes\fc1839e15c544ff89faa01b027833cbd.jpg
+2025-12-03T22:47:00.9753107Z | No image found for product 3: tried E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\32059c073d4b43d3b248b1d61f60e7c9.jpg and E:\CursoMVC\CapaPresentacionTienda\Images\Imagenes\32059c073d4b43d3b248b1d61f60e7c9.jpg
+2025-12-03T22:47:01.0286503Z | No image found for product 7: tried E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg and E:\CursoMVC\CapaPresentacionTienda\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg
+2025-12-03T22:47:01.0567474Z | Served image for product 8 from tiendaPath
+2025-12-03T22:48:45.7631974Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\5bd3786bbd584c46a1c25a66e6a77842.jpg - Exists: True
+2025-12-03T22:48:45.7982922Z | Served image for product 9 from tiendaPath
+2025-12-03T22:49:32.2794917Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\2480a4f81cf3480a9beb5714a478f9c6.jpg - Exists: True
+2025-12-03T22:49:33.4157128Z | Served image for product 10 from tiendaPath
+2025-12-03T23:10:37.7307786Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\2480a4f81cf3480a9beb5714a478f9c6.jpg - Exists: True
+2025-12-03T23:10:38.4323307Z | Served image for product 9 from tiendaPath
+2025-12-03T23:10:38.8894254Z | Served image for product 10 from tiendaPath
+2025-12-03T23:14:23.2772762Z | Attempting tiendaPath: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\622dc8eeba5243f499999a00b3e810b7.jpg - Exists: True
+2025-12-03T23:14:23.3124191Z | Served image for product 11 from tiendaPath

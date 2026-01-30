@@ -1,0 +1,744 @@
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll.config
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\csc.exe
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\csc.exe.config
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\csc.rsp
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\csi.exe
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\csi.exe.config
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\csi.rsp
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Managed.Core.targets
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.AppContext.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Collections.Immutable.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Console.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Globalization.Calendars.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Net.Http.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Net.Sockets.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Reflection.Metadata.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.ValueTuple.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XmlDocument.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\vbc.exe
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\vbc.exe.config
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\vbc.rsp
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe
+E:\CursoMVC\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe.config
+E:\CursoMVC\CapaPresentacionTienda\bin\Antlr3.Runtime.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaEntidad.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaNegocio.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\Microsoft.Web.Infrastructure.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\Newtonsoft.Json.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Buffers.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.IO.Pipelines.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Memory.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Numerics.Vectors.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Text.Encodings.Web.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Text.Json.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Helpers.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Mvc.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Optimization.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Razor.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\WebGrease.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaDatos.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\MimeKit.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\MailKit.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Formats.Asn1.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaEntidad.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaNegocio.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaNegocio.dll.config
+E:\CursoMVC\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Buffers.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.IO.Pipelines.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Memory.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Numerics.Vectors.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Text.Encodings.Web.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Text.Json.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Helpers.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Mvc.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Optimization.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.Razor.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\Newtonsoft.Json.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\Antlr3.Runtime.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\CapaDatos.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\MimeKit.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\MimeKit.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\MailKit.pdb
+E:\CursoMVC\CapaPresentacionTienda\bin\MailKit.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\MailKit.dll.config
+E:\CursoMVC\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\System.Formats.Asn1.xml
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.Helpers.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.Mvc.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.Optimization.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.Razor.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\CursoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.AssemblyReference.cache
+E:\CursoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CoreCompileInputs.cache
+E:\CursoMVC\CapaPresentacionTienda\obj\Debug\CapaPres.0F0FCBD9.Up2Date
+E:\CursoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
+E:\CursoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csc.exe
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csc.exe.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csc.rsp
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csi.exe
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csi.exe.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csi.rsp
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Managed.Core.targets
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.AppContext.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Collections.Immutable.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Console.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Globalization.Calendars.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Net.Http.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Net.Sockets.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Reflection.Metadata.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.ValueTuple.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XmlDocument.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\vbc.exe
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\vbc.exe.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\vbc.rsp
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe
+E:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Antlr3.Runtime.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaDatos.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaEntidad.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaNegocio.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.Web.Infrastructure.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Newtonsoft.Json.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Buffers.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.IO.Pipelines.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Memory.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Numerics.Vectors.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Encodings.Web.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Json.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Helpers.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Mvc.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Optimization.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Razor.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\WebGrease.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MimeKit.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Formats.Asn1.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaDatos.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaEntidad.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaNegocio.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\CapaNegocio.dll.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Buffers.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.IO.Pipelines.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Memory.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Numerics.Vectors.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Encodings.Web.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Json.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Helpers.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Mvc.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Optimization.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Razor.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Newtonsoft.Json.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Antlr3.Runtime.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MimeKit.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MimeKit.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.pdb
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.dll.config
+E:\ProyectoMVC\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\System.Formats.Asn1.xml
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Helpers.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Mvc.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Optimization.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Razor.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.AssemblyReference.cache
+E:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CoreCompileInputs.cache
+E:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPres.0F0FCBD9.Up2Date
+E:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
+E:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaPresentacionTienda.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csc.exe
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csc.exe.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csc.rsp
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csi.exe
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csi.exe.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\csi.rsp
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Managed.Core.targets
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.AppContext.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Collections.Immutable.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Console.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Globalization.Calendars.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Net.Http.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Net.Sockets.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Reflection.Metadata.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.ValueTuple.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XmlDocument.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\vbc.exe
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\vbc.exe.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\vbc.rsp
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe
+D:\ProyectoMVC\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Antlr3.Runtime.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaDatos.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaEntidad.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaNegocio.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.Web.Infrastructure.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Newtonsoft.Json.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Buffers.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.IO.Pipelines.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Memory.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Numerics.Vectors.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Encodings.Web.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Json.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Helpers.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Mvc.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Optimization.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Razor.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\WebGrease.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MimeKit.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Formats.Asn1.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaDatos.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaEntidad.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaNegocio.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\CapaNegocio.dll.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Buffers.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.IO.Pipelines.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Memory.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Numerics.Vectors.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Encodings.Web.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Text.Json.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Helpers.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Mvc.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Optimization.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.Razor.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Newtonsoft.Json.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Antlr3.Runtime.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MimeKit.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MimeKit.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.pdb
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\MailKit.dll.config
+D:\ProyectoMVC\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\System.Formats.Asn1.xml
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Helpers.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Mvc.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Optimization.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.Razor.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.AssemblyReference.cache
+D:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CoreCompileInputs.cache
+D:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPres.0F0FCBD9.Up2Date
+D:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
+D:\ProyectoMVC\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaPresentacionTienda.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csc.exe
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csc.exe.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csc.rsp
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csi.exe
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csi.exe.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csi.rsp
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.AppContext.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Console.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Net.Http.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Net.Sockets.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.ValueTuple.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\vbc.exe
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\vbc.exe.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\vbc.rsp
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Antlr3.Runtime.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaDatos.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaEntidad.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaNegocio.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Newtonsoft.Json.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Buffers.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.IO.Pipelines.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Memory.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Numerics.Vectors.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Encodings.Web.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Json.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Helpers.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Mvc.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Optimization.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Razor.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\WebGrease.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MimeKit.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Formats.Asn1.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaDatos.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaEntidad.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaNegocio.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaNegocio.dll.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Buffers.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.IO.Pipelines.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Memory.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Numerics.Vectors.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Encodings.Web.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Json.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Helpers.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Mvc.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Optimization.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Razor.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Newtonsoft.Json.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Antlr3.Runtime.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MimeKit.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MimeKit.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.dll.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Formats.Asn1.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Helpers.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Mvc.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Optimization.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Razor.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.WebPages.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.AssemblyReference.cache
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPres.0F0FCBD9.Up2Date
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaPresentacionTienda.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csc.exe
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csc.exe.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csc.rsp
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csi.exe
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csi.exe.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\csi.rsp
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.AppContext.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Console.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Net.Http.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Net.Sockets.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.ValueTuple.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\vbc.exe
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\vbc.exe.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\vbc.rsp
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Antlr3.Runtime.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaDatos.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaEntidad.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaNegocio.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Newtonsoft.Json.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Buffers.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.IO.Pipelines.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Memory.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Numerics.Vectors.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Encodings.Web.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Json.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Helpers.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Mvc.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Optimization.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Razor.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\WebGrease.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MimeKit.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Formats.Asn1.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaDatos.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaEntidad.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaNegocio.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\CapaNegocio.dll.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Buffers.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.IO.Pipelines.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Memory.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Numerics.Vectors.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Encodings.Web.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Text.Json.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Helpers.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Mvc.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Optimization.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.Razor.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Newtonsoft.Json.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Antlr3.Runtime.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MimeKit.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MimeKit.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\MailKit.dll.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\System.Formats.Asn1.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Helpers.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Mvc.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Optimization.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.Razor.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.WebPages.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.AssemblyReference.cache
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CoreCompileInputs.cache
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPres.0F0FCBD9.Up2Date
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaPresentacionTienda.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaPresentacionTienda.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\csc.exe
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\csc.exe.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\csc.rsp
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\csi.exe
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\csi.exe.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\csi.rsp
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.AppContext.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Console.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Net.Http.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.ValueTuple.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\vbc.exe
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\vbc.exe.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\vbc.rsp
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Antlr3.Runtime.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaDatos.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaEntidad.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaNegocio.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Dapper.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Newtonsoft.Json.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\PayPalCheckoutSdk.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\PayPalHttp-Dotnet.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Buffers.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Data.SqlClient.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.IO.Pipelines.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Memory.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Numerics.Vectors.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Text.Encodings.Web.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Text.Json.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Helpers.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Mvc.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Optimization.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Razor.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.WebPages.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\WebGrease.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MimeKit.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MailKit.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Formats.Asn1.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaDatos.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaEntidad.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaNegocio.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\CapaNegocio.dll.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Dapper.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Buffers.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Data.SqlClient.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.IO.Pipelines.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Memory.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Numerics.Vectors.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Text.Encodings.Web.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Text.Json.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Helpers.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Mvc.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Optimization.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.Razor.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.WebPages.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Web.WebPages.Razor.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Newtonsoft.Json.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Antlr3.Runtime.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MimeKit.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MimeKit.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MailKit.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MailKit.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\MailKit.dll.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\BouncyCastle.Cryptography.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\System.Formats.Asn1.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.Razor.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaPresentacionTienda\obj\Debug\CapaPres.0F0FCBD9.Up2Date

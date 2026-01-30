@@ -1,0 +1,36 @@
+﻿@model CapaEntidad.Cliente
+@{
+    ViewBag.Title = "Editar Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Editar Perfil</h2>
+
+@using (Html.BeginForm("EditarPerfil", "Tienda", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.IdCliente)
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Nombres, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Apellidos, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Apellidos, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Correo, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-save"></i> Guardar Cambios
+            </button>
+            <a href="@Url.Action("Perfil", "Tienda")" class="btn btn-secondary ms-2">
+                Cancelar
+            </a>
+        </div>
+    </div>
+}

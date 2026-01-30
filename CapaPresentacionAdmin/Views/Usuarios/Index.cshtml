@@ -1,0 +1,152 @@
+﻿@model IEnumerable<CapaEntidad.Usuario>
+
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuarios</h2>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Dashboard</a></li>
+    <li class="breadcrumb-item active">Usuarios</li>
+</ol>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<div class="card">
+    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-user-shield me-1"></i>Lista de Usuarios</span>
+        <div>
+            <a href='@Url.Action("Crear", "Usuarios")' class="btn btn-success btn-sm me-2">
+                <i class="fas fa-user-plus me-1"></i> Crear Admin
+            </a>
+            <a href='@Url.Action("Index", "Cliente")' class="btn btn-primary btn-sm">
+                <i class="fas fa-users me-1"></i> Ver Clientes
+            </a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="tablaUsuarios" class="table table-bordered table-striped table-hover" style="width:100%">
+                <thead class="table-light">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model ?? new List<CapaEntidad.Usuario>())
+                    {
+                        <tr>
+                            <td>@usuario.IdUsuario</td>
+                            <td>@usuario.Nombres</td>
+                            <td>@usuario.Apellidos</td>
+                            <td>@usuario.Correo</td>
+                            <td>@usuario.Rol</td>
+                            <td>@Html.Raw(usuario.Activo ? "<span class=\"badge bg-success\">Sí</span>" : "<span class=\"badge bg-danger\">No</span>")</td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group" aria-label="Acciones">
+                                    <button type="button" class="btn btn-sm btn-outline-primary btn-detalle" data-id="@usuario.IdUsuario" title="Ver"><i class="fas fa-eye"></i></button>
+                                    <button type="button" class="btn btn-sm btn-outline-warning btn-editar ms-1" data-id="@usuario.IdUsuario" title="Editar"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <style>
+        /* Header gradient and text */
+        #tablaUsuarios thead th {
+            background: linear-gradient(135deg, #17a2b8, #0d6efd);
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Align search to the right and length to the left using DataTables DOM wrappers */
+        .dataTables_wrapper .dataTables_filter {
+            margin: 0;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+            width: 220px;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        /* Pagination simple styling */
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            border: 1px solid #ddd;
+            padding: 4px 8px;
+            margin-left: 4px;
+            border-radius: 4px;
+            background: #fff;
+            color: #333 !important;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: #0d6efd;
+            color: #fff !important;
+            border-color: #0d6efd;
+        }
+
+        /* Ensure info and pagination are on same row and pagination to the right */
+        .dt-bottom-row { display: flex; justify-content: space-between; align-items: center; }
+
+        /* Make action buttons consistent and compact */
+        .btn-group .btn { padding: 0.35rem 0.5rem; }
+    </style>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#tablaUsuarios').DataTable({
+                responsive: true,
+                ordering: false,
+                pageLength: 10,
+                columnDefs: [
+                    { orderable: false, targets: -1 }
+                ],
+                dom: '<"d-flex justify-content-between mb-2"<"dataTables_length"l><"dataTables_filter"f>>' +
+                     'rt' +
+                     '<"dt-bottom-row mt-2"<"dataTables_info"i><"dataTables_paginate"p>>',
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/2.3.5/i18n/es-ES.json"
+                }
+            });
+
+            // Delegated events for action buttons
+            $('#tablaUsuarios tbody').on('click', '.btn-detalle', function () {
+                var id = $(this).data('id');
+                if (!id) return;
+                window.location = '@Url.Action("Detalles", "Usuarios")' + '/' + id;
+            });
+
+            $('#tablaUsuarios tbody').on('click', '.btn-editar', function () {
+                var id = $(this).data('id');
+                if (!id) return;
+                window.location = '@Url.Action("Editar", "Usuarios")' + '/' + id;
+            });
+        });
+    </script>
+}

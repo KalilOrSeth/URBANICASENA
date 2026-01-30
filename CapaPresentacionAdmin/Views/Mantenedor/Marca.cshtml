@@ -1,0 +1,245 @@
+﻿@{
+    ViewBag.Title = "Marcas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Marcas</h2>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-tags me-2"></i><strong>Lista de Marcas</strong></span>
+        <button type="button" class="btn btn-success btn-sm" onclick="abrirModal(null)">
+            <i class="fas fa-plus me-1"></i> Crear Nuevo
+        </button>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="tablaMarcas" class="table table-striped table-bordered align-middle" style="width:100%">
+                <thead class="table-light">
+                    <tr>
+                        <th style="display:none">IdMarca</th>
+                        <th>Descripción</th>
+                        <th>Activo</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalMarca" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title">Marca</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body g-2">
+                <input id="txtIdMarca" type="hidden" value="0" />
+                <div class="row g-2">
+                    <div class="col-sm-12">
+                        <label for="txtDescripcion" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" id="txtDescripcion">
+                    </div>
+                    <div class="col-sm-12 mt-2">
+                        <label for="cboActivo" class="form-label">Activo</label>
+                        <select id="cboActivo" class="form-select">
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="mensajeError" class="alert alert-danger mt-3" style="display:none"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-primary" onclick="Guardar()">
+                    <i class="fas fa-save"></i> Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <style>
+        #tablaMarcas thead th {
+            background: linear-gradient(135deg, #17a2b8, #0d6efd);
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+            width: 220px;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            border: 1px solid #ddd;
+            padding: 4px 8px;
+            margin-left: 4px;
+            border-radius: 4px;
+            background: #fff;
+            color: #333 !important;
+        }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+                background: #0d6efd;
+                color: #fff !important;
+                border-color: #0d6efd;
+            }
+
+        .dt-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-editar,
+        .btn-eliminar {
+            padding: 0.35rem 0.5rem;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.6rem;
+        }
+    </style>
+}
+
+@section scripts{
+    <script>
+    var tablaMarcas;
+    var filaSeleccionada;
+
+    tablaMarcas = $("#tablaMarcas").DataTable({
+        responsive: true,
+        ordering: false,
+        ajax: {
+            url: "@Url.Action("ListarMarcas","Mantenedor")",
+            type: "GET",
+            dataType: "json"
+        },
+        columns: [
+            { data: "IdMarca", visible: false },
+            { data: "Descripcion" },
+            {
+                data: "Activo",
+                render: valor => valor
+                    ? '<span class="badge bg-success">Sí</span>'
+                    : '<span class="badge bg-danger">No</span>'
+            },
+            {
+                defaultContent:
+                    '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>' +
+                    '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminar"><i class="fas fa-trash"></i></button>',
+                orderable: false,
+                searchable: false,
+                className: "text-center",
+                width: "90px"
+            }
+        ],
+        dom: '<"d-flex justify-content-between mb-2"<"dataTables_length"l><"dataTables_filter"f>>' +
+             'rt' +
+             '<"dt-bottom-row mt-2"<"dataTables_info"i><"dataTables_paginate"p>>',
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/2.3.5/i18n/es-ES.json"
+        }
+    });
+
+    function abrirModal(json) {
+        $("#txtIdMarca").val(0);
+        $("#txtDescripcion").val("");
+        $("#cboActivo").val("true");
+        $("#mensajeError").hide();
+
+        if (json != null) {
+            $("#txtIdMarca").val(json.IdMarca);
+            $("#txtDescripcion").val(json.Descripcion);
+            $("#cboActivo").val(json.Activo ? "true" : "false");
+        }
+
+        var modal = new bootstrap.Modal(document.getElementById("modalMarca"));
+        modal.show();
+    }
+
+    // Editar
+    $("#tablaMarcas tbody").on("click", ".btn-editar", function () {
+        filaSeleccionada = $(this).closest("tr");
+        if (filaSeleccionada.hasClass("child")) {
+            filaSeleccionada = filaSeleccionada.prev();
+        }
+        var data = tablaMarcas.row(filaSeleccionada).data();
+        abrirModal(data);
+    });
+
+    // Eliminar
+    $("#tablaMarcas tbody").on("click", ".btn-eliminar", function () {
+        filaSeleccionada = $(this).closest("tr");
+        if (filaSeleccionada.hasClass("child")) {
+            filaSeleccionada = filaSeleccionada.prev();
+        }
+        var data = tablaMarcas.row(filaSeleccionada).data();
+
+        confirmDelete('@Url.Action("EliminarMarca","Mantenedor")', { idMarca: data.IdMarca }, function (resp) {
+            tablaMarcas.row(filaSeleccionada).remove().draw(false);
+        }, function (err) {
+            console && console.log && console.log('delete error', err);
+        }, {
+            title: '¿Eliminar marca?',
+            html: 'Esta acción no se puede deshacer.<br><br>Marca: ' + data.Descripcion,
+            successMessage: 'La marca fue eliminada correctamente.'
+        });
+    });
+
+    function Guardar() {
+        var marca = {
+            IdMarca: parseInt($("#txtIdMarca").val() || 0, 10),
+            Descripcion: $("#txtDescripcion").val(),
+            Activo: $("#cboActivo").val() === "true"
+        };
+
+        $.ajax({
+            url: '@Url.Action("RegistrarMarca","Mantenedor")',
+            type: 'POST',
+            data: marca,
+            success: function (data) {
+                if (marca.IdMarca == 0) {
+                    if (data.resultado != 0) {
+                        marca.IdMarca = data.idGenerado;
+                        tablaMarcas.row.add(marca).draw(false);
+                        var modal = bootstrap.Modal.getInstance(document.getElementById("modalMarca"));
+                        modal.hide();
+                        showBootstrapToast(data.mensaje || 'Marca registrada correctamente.', 'success');
+                    } else {
+                        $("#mensajeError").text(data.mensaje).show();
+                    }
+                } else {
+                    if (data.resultado) {
+                        tablaMarcas.row(filaSeleccionada).data(marca).draw(false);
+                        filaSeleccionada = null;
+                        var modal = bootstrap.Modal.getInstance(document.getElementById("modalMarca"));
+                        modal.hide();
+                        showBootstrapToast(data.mensaje || 'Marca actualizada correctamente.', 'success');
+                    } else {
+                        $("#mensajeError").text(data.mensaje).show();
+                    }
+                }
+            },
+                        error: function (xhr, status, error) {
+                var modal = bootstrap.Modal.getInstance(document.getElementById("modalMarca"));
+                $(".modal-body").LoadingOverlay("hide");
+                showBootstrapToast('Error en la petición: ' + (error || 'Error desconocido'), 'error');
+            }
+        });
+    }
+    </script>
+}

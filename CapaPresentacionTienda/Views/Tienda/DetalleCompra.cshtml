@@ -1,0 +1,52 @@
+﻿@model CapaEntidad.DetalleCompra
+
+@{
+    ViewBag.Title = "Detalle de Compra";
+}
+
+<div class="container">
+    <h2>Detalle de Compra #@(Model?.Venta?.IdVenta ?? 0)</h2>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <p><strong>Fecha:</strong> @(Model?.Venta?.FechaTexto ?? "")</p>
+            <p><strong>Total productos:</strong> @(Model?.Venta?.TotalProducto ?? 0)</p>
+            <p><strong>Monto total:</strong> @(Model != null ? String.Format("{0:C}", Model.Venta.MontoTotal) : "")</p>
+            <p><strong>Contacto:</strong> @(Model?.Venta?.Contacto ?? "")</p>
+            <p><strong>Teléfono:</strong> @(Model?.Venta?.Telefono ?? "")</p>
+            <p><strong>Dirección:</strong> @(Model?.Venta?.Direccion ?? "")</p>
+            <p><strong>Transacción:</strong> @(Model?.Venta?.IdTransaccion ?? "")</p>
+        </div>
+    </div>
+
+    @if (Model?.Detalles == null || Model.Detalles.Count == 0)
+    {
+        <div class="alert alert-info">No se encontraron productos para esta compra.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Detalles)
+                    {
+                        <tr>
+                            <td>@(item?.oProducto != null ? item.oProducto.Nombre : string.Empty)</td>
+                            <td>@(item?.Cantidad ?? 0)</td>
+                            <td>@String.Format("{0:C}", item?.PrecioUnitario ?? 0)</td>
+                            <td>@String.Format("{0:C}", (item?.PrecioUnitario ?? 0) * (item?.Cantidad ?? 0))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

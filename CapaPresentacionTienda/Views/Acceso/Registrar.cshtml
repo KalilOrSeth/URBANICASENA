@@ -1,0 +1,56 @@
+﻿@model CapaEntidad.Cliente
+@{
+    ViewBag.Title = "Registro Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">📝 Registrar Cliente</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger text-center">@ViewBag.Error</div>
+}
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success text-center">@ViewBag.Mensaje</div>
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        @using (Html.BeginForm("Registrar", "Acceso", FormMethod.Post, new { @class = "card p-4 shadow-sm" }))
+        {
+            <div class="mb-3">
+                <label for="Nombres" class="form-label">Nombres</label>
+                @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", placeholder = "Ingrese sus nombres", required = "required" })
+            </div>
+
+            <div class="mb-3">
+                <label for="Apellidos" class="form-label">Apellidos</label>
+                @Html.TextBoxFor(m => m.Apellidos, new { @class = "form-control", placeholder = "Ingrese sus apellidos", required = "required" })
+            </div>
+
+            <div class="mb-3">
+                <label for="Correo" class="form-label">Correo</label>
+                @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", type = "email", placeholder = "ejemplo@correo.com", required = "required" })
+            </div>
+
+            <div class="mb-3">
+                <label for="Clave" class="form-label">Contraseña</label>
+                @Html.PasswordFor(m => m.Clave, new { @class = "form-control", minlength = "6", placeholder = "Mínimo 6 caracteres", required = "required" })
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmarClave" class="form-label">Confirmar Contraseña</label>
+                <input type="password" id="confirmarClave" name="confirmarClave" class="form-control" minlength="6" placeholder="Repita la contraseña" required />
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+                <i class="bi bi-person-plus"></i> Registrarse
+            </button>
+        }
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <p>¿Ya tienes cuenta? @Html.ActionLink("Inicia sesión aquí", "Index", "Acceso", null, new { @class = "link-primary" })</p>
+</div>

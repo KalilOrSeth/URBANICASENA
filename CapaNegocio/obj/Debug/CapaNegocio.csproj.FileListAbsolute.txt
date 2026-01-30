@@ -1,0 +1,217 @@
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaNegocio.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaNegocio.pdb
+E:\CursoMVC\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaDatos.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaEntidad.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\MailKit.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\MimeKit.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Buffers.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Formats.Asn1.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.IO.Pipelines.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Memory.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Numerics.Vectors.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Text.Encodings.Web.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Text.Json.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaDatos.pdb
+E:\CursoMVC\CapaNegocio\bin\Debug\CapaEntidad.pdb
+E:\CursoMVC\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\MailKit.pdb
+E:\CursoMVC\CapaNegocio\bin\Debug\MailKit.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\MailKit.dll.config
+E:\CursoMVC\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\MimeKit.pdb
+E:\CursoMVC\CapaNegocio\bin\Debug\MimeKit.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Buffers.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Formats.Asn1.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.IO.Pipelines.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Memory.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Numerics.Vectors.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Text.Encodings.Web.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Text.Json.xml
+E:\CursoMVC\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\CursoMVC\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+E:\CursoMVC\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+E:\CursoMVC\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+E:\CursoMVC\CapaNegocio\obj\Debug\CapaNegocio.dll
+E:\CursoMVC\CapaNegocio\obj\Debug\CapaNegocio.pdb
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaNegocio.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaNegocio.pdb
+E:\ProyectoMVC\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaDatos.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaEntidad.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MailKit.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MimeKit.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Buffers.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Formats.Asn1.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.IO.Pipelines.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Memory.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Numerics.Vectors.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Text.Encodings.Web.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Text.Json.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaDatos.pdb
+E:\ProyectoMVC\CapaNegocio\bin\Debug\CapaEntidad.pdb
+E:\ProyectoMVC\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MailKit.pdb
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MailKit.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MailKit.dll.config
+E:\ProyectoMVC\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MimeKit.pdb
+E:\ProyectoMVC\CapaNegocio\bin\Debug\MimeKit.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Buffers.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Formats.Asn1.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.IO.Pipelines.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Memory.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Numerics.Vectors.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Text.Encodings.Web.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Text.Json.xml
+E:\ProyectoMVC\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\ProyectoMVC\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+E:\ProyectoMVC\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+E:\ProyectoMVC\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+E:\ProyectoMVC\CapaNegocio\obj\Debug\CapaNegocio.dll
+E:\ProyectoMVC\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MimeKit.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Buffers.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Formats.Asn1.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.IO.Pipelines.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Memory.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Json.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.dll.config
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MimeKit.pdb
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MimeKit.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Buffers.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Formats.Asn1.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.IO.Pipelines.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Memory.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Json.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MimeKit.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Buffers.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Formats.Asn1.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.IO.Pipelines.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Memory.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Json.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MailKit.dll.config
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MimeKit.pdb
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\MimeKit.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Buffers.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Formats.Asn1.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.IO.Pipelines.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Memory.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Text.Json.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\orion\OneDrive\Escritorio\SOLUCIONZAZ\SOLUCIONZAZ\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Dapper.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MailKit.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MimeKit.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\PayPalCheckoutSdk.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\PayPalHttp-Dotnet.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Buffers.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Formats.Asn1.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Memory.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Text.Json.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Dapper.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MailKit.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MailKit.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MailKit.dll.config
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MimeKit.pdb
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\MimeKit.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Buffers.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Formats.Asn1.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Memory.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Text.Json.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Admin\Downloads\URBANICA (1)\URBANICA\URBANICA\CapaNegocio\obj\Debug\CapaNegocio.pdb

@@ -1,0 +1,77 @@
+﻿@model CapaEntidad.Producto
+
+<h2>Editar Producto</h2>
+
+@using (Html.BeginForm("Editar", "Producto", FormMethod.Post, new { enctype = "application/x-www-form-urlencoded" }))
+{
+    @Html.HiddenFor(m => m.IdProducto)
+    @Html.ValidationSummary(true, "Por favor corrija los errores")
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Precio)
+        @Html.TextBoxFor(m => m.Precio, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Imagen actual</label><br />
+        <img id="currentImg" src="@Url.Content("~/Content/imagenes_productos/" + Model.NombreImagen)"
+             alt="@Model.Nombre" style="max-width:200px"
+             onerror="this.src='@Url.Content("~/Content/imagenes_productos/placeholder.png")'" />
+    </div>
+
+    <div class="form-group">
+        <label>Seleccionar Imagen</label>
+        @Html.HiddenFor(m => m.NombreImagen)
+        <select id="selectImagen" name="NombreImagen" class="form-control">
+            <option value="">-- Mantener imagen actual (o dejar vacío para default) --</option>
+        </select>
+        <div class="mt-2">
+            <img id="preview" src="@Url.Content("~/Content/imagenes_productos/placeholder.png")" alt="preview" style="max-width:200px; display:block;" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+}
+
+@section scripts{
+    <script>
+        $(function(){
+            var select = $('#selectImagen');
+            var preview = $('#preview');
+            var defaultSrc = '@Url.Content("~/Content/imagenes_productos/default.jpg")';
+
+            // Populate select via AJAX
+            $.getJSON('@Url.Action("ListarImagenesDisponibles","Mantenedor")', function(resp){
+                if(resp && resp.success){
+                    resp.images.forEach(function(n){
+                        var opt = $('<option/>').attr('value', n).text(n);
+                        if(n === '@Model.NombreImagen') opt.attr('selected','selected');
+                        select.append(opt);
+                    });
+
+                    // set preview to selected or default
+                    var sel = select.val();
+                    if(sel){
+                        preview.attr('src', '@Url.Content("~/Content/imagenes_productos/")' + sel);
+                    } else {
+                        preview.attr('src', defaultSrc);
+                    }
+                }
+            });
+
+            select.on('change', function(){
+                var val = $(this).val();
+                if(!val){
+                    preview.attr('src', defaultSrc);
+                } else {
+                    preview.attr('src', '@Url.Content("~/Content/imagenes_productos/")' + val);
+                }
+            });
+        });
+    </script>
+}

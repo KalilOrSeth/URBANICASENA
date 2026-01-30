@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "CapaPresentacionAdmin\\CapaPresentacionAdmin.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "CapaPresentacionTienda\\CapaPresentacionTienda.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

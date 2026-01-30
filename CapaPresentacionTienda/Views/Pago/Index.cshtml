@@ -1,0 +1,52 @@
+﻿@model CapaPresentacionTienda.Models.Pago.PagoModel
+
+@{
+    ViewBag.Title = "Proceso de Pago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Proceso de Pago</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Resumen de Compra</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Número de Venta:</th>
+                                <td>@Model.IdVenta</td>
+                            </tr>
+                            <tr>
+                                <th>Monto Total:</th>
+                                <td>@Model.MontoTotal.ToString("C")</td>
+                            </tr>
+                            <tr>
+                                <th>Moneda:</th>
+                                <td>@Model.Moneda</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button id="btnPayPal" class="btn btn-primary btn-lg">
+                            <i class="fab fa-paypal"></i> Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function() {
+            $('#btnPayPal').on('click', function() {
+                window.location.href = '@Url.Action("CrearPedido", "PayPal", new { idVenta = Model.IdVenta })';
+            });
+        });
+    </script>
+}

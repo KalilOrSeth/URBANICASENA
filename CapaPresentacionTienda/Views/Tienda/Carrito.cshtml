@@ -1,0 +1,211 @@
+﻿@model List<CapaEntidad.ItemCarrito>
+
+@{
+    ViewBag.Title = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var serverError = TempData["Error"] as string ?? string.Empty;
+    var serverSuccess = TempData["Success"] as string ?? string.Empty;
+}
+
+<h2 class="mb-4">🛒 Mi Carrito</h2>
+
+<div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 10800;"></div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning text-center">
+        Tu carrito está vacío.
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+        <a class="btn btn-success me-2 disabled" aria-disabled="true" title="Añade productos antes de proceder">
+            <i class="bi bi-credit-card"></i> Proceder al Pago
+        </a>
+        <a href="@Url.Action("Index","Tienda")" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Seguir Comprando
+        </a>
+    </div>
+}
+else
+{
+    <table class="table table-striped table-hover shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Producto</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr data-id="@item.Producto.IdProducto">
+                    <td>
+                        <div class="d-flex align-items-center">
+                            @{
+                                var imgAction = Url.Action("ImagenProducto", "Tienda", new { id = item.Producto?.IdProducto ?? 0 });
+                                var imgSrc = !string.IsNullOrWhiteSpace(imgAction) ? imgAction : Url.Content("~/Content/images/no-image.png");
+                            }
+                            <img src="@imgSrc" alt="@item.Producto?.Nombre" style="width:64px;height:64px;object-fit:cover;border-radius:6px;margin-right:12px;" />
+                            <div>
+                                <div class="fw-bold">@((item.Producto != null) ? item.Producto.Nombre : "")</div>
+                                @if(!string.IsNullOrEmpty(item.Producto?.Descripcion))
+                                {
+                                    <small class="text-muted">@item.Producto.Descripcion</small>
+                                }
+                                <div class="mt-2">
+                                    <a class="btn btn-sm btn-outline-primary me-2" href="@Url.Action("DetalleProducto", "Tienda", new { id = item.Producto?.IdProducto ?? 0, desdeCarrito = true })">Ver detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>@String.Format("{0:C}", item.Producto.Precio)</td>
+                    <td>
+                        <div class="input-group" style="width:130px;">
+                            <button class="btn btn-outline-secondary btn-decrease" type="button">−</button>
+                            <input type="text" class="form-control text-center cantidad-item" value="@item.Cantidad" readonly />
+                            <button class="btn btn-outline-secondary btn-increase" type="button">+</button>
+                        </div>
+                    </td>
+                    <td class="total-item">@(((item.Producto?.Precio ?? 0m) * item.Cantidad).ToString("C"))</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm btn-remove"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end fw-bold">Total Carrito:</td>
+                <td class="fw-bold total-carrito">
+                    @(((Model?.Sum(x => (x.Producto?.Precio ?? 0m) * x.Cantidad) ?? 0m).ToString("C")))
+                </td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="d-flex justify-content-end mt-3">
+        <a href="@Url.Action("Checkout","Tienda")" class="btn btn-success me-2">
+            <i class="bi bi-credit-card"></i> Proceder al Pago
+        </a>
+        <a href="@Url.Action("Index","Tienda")" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Seguir Comprando
+        </a>
+    </div>
+}
+
+@section Scripts{
+    <script>
+    $(function(){
+        // Toast helper using Bootstrap 5
+        function showToast(message, type) {
+            type = type || 'info';
+            var bg = 'bg-primary text-white';
+            if(type === 'error') bg = 'bg-danger text-white';
+            if(type === 'success') bg = 'bg-success text-white';
+            if(type === 'warning') bg = 'bg-warning text-dark';
+
+            var id = 'toast-' + Date.now();
+            var toastHtml = `
+                <div id="${id}" class="toast ${bg}" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">${message}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>`;
+            $('#toastContainer').append(toastHtml);
+            var el = document.getElementById(id);
+            var toast = new bootstrap.Toast(el);
+            toast.show();
+            el.addEventListener('hidden.bs.toast', function () { $(el).remove(); });
+        }
+
+        // show server messages if any
+        var serverError = '@Html.Raw(HttpUtility.JavaScriptStringEncode(serverError))';
+        var serverSuccess = '@Html.Raw(HttpUtility.JavaScriptStringEncode(serverSuccess))';
+        if(serverError && serverError.length > 0) showToast(serverError, 'error');
+        if(serverSuccess && serverSuccess.length > 0) showToast(serverSuccess, 'success');
+
+        function formatoCOP(valor){
+            return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(valor);
+        }
+
+        $('.btn-increase').on('click', function(){
+            var row = $(this).closest('tr');
+            var id = parseInt(row.data('id'));
+
+            // 🔒 Bloquear botones de esa fila
+            row.find('.btn-increase, .btn-decrease, .btn-remove').prop("disabled", true);
+
+            $.post('@Url.Action("CambiarCantidadCarrito","Tienda")', { idProducto: id, delta: 1 }, function(res){
+                if (res && res.redirect){ window.location = res.redirect; return; }
+                if (res && res.ok) {
+                    row.find('.cantidad-item').val(res.cantidad);
+                    row.find('.total-item').text(formatoCOP(res.totalItem));
+                    $('.total-carrito').text(formatoCOP(res.totalCarrito));
+                    showToast('Cantidad actualizada', 'success');
+                } else {
+                    showToast((res && res.message) ? res.message : 'Error al actualizar.', 'error');
+                    if(res && res.redirect) window.location = res.redirect;
+                }
+            }, 'json')
+            .fail(function(){ showToast('Error de comunicación', 'error'); })
+            .always(function(){
+                // 🔓 Rehabilitar botones al terminar
+                row.find('.btn-increase, .btn-decrease, .btn-remove').prop("disabled", false);
+            });
+        });
+
+        $('.btn-decrease').on('click', function(){
+            var row = $(this).closest('tr');
+            var id = parseInt(row.data('id'));
+
+            row.find('.btn-increase, .btn-decrease, .btn-remove').prop("disabled", true);
+
+            $.post('@Url.Action("CambiarCantidadCarrito","Tienda")', { idProducto: id, delta: -1 }, function(res){
+                if (res && res.redirect){ window.location = res.redirect; return; }
+                if(res && res.ok){
+                    row.find('.cantidad-item').val(res.cantidad);
+                    row.find('.total-item').text(formatoCOP(res.totalItem));
+                    $('.total-carrito').text(formatoCOP(res.totalCarrito));
+                    showToast('Cantidad actualizada', 'success');
+                } else {
+                    showToast((res && res.message) ? res.message : 'Error al actualizar.', 'error');
+                    if(res && res.redirect) window.location = res.redirect;
+                }
+            }, 'json')
+            .fail(function(){ showToast('Error de comunicación', 'error'); })
+            .always(function(){
+                row.find('.btn-increase, .btn-decrease, .btn-remove').prop("disabled", false);
+            });
+        });
+
+        $('.btn-remove').on('click', function(){
+            var row = $(this).closest('tr');
+            var id = parseInt(row.data('id'));
+
+            row.find('.btn-increase, .btn-decrease, .btn-remove').prop("disabled", true);
+
+            $.post('@Url.Action("EliminarProductoCarrito","Tienda")', { idProducto: id }, function(res){
+                if (res && res.redirect){ window.location = res.redirect; return; }
+                if(res && res.ok){
+                    row.remove();
+                    $('.total-carrito').text(formatoCOP(res.totalCarrito));
+                    if(typeof actualizarCantidadCarrito === 'function') actualizarCantidadCarrito();
+                    showToast('Producto eliminado', 'success');
+                } else {
+                    showToast((res && res.message) ? res.message : 'Error al eliminar.', 'error');
+                    if(res && res.redirect) window.location = res.redirect;
+                }
+            }, 'json')
+            .fail(function(){ showToast('Error de comunicación', 'error'); })
+            .always(function(){
+                row.find('.btn-increase, .btn-decrease, .btn-remove').prop("disabled", false);
+            });
+        });
+    });
+    </script>
+}

@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Panel Admin</title>
+    @Styles.Render("~/Content/css")
+
+    <!-- Aquí se mostrarán los estilos específicos de cada vista -->
+    @RenderSection("styles", required: false)
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="@Url.Action("Index","Home")">Panel Admin</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+
+        <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    @{ var usuario = Session["Usuario"] as CapaEntidad.Usuario; }
+                    @if (usuario != null)
+                    {
+                        <li><a class="dropdown-item">@usuario.Correo</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                            @using (Html.BeginForm("CerrarSesion", "Acceso", FormMethod.Post))
+                            {
+                                <button type="submit" class="dropdown-item">Cerrar Sesión</button>
+                            }
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Iniciar Sesión", "Index", "Acceso", null, new { @class = "dropdown-item" })</li>
+                    }
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Panel</div>
+
+                        @if (string.Equals(Session["Role"] as string, "Admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            <a class="nav-link" href='@Url.Action("Index","Home")'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+
+                            <!-- Usuarios Admin -->
+                            <a class="nav-link" href='@Url.Action("Index","Usuarios")'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
+                                Usuarios Admin
+                            </a>
+
+                            <!-- Clientes Normales -->
+                            <a class="nav-link" href='@Url.Action("Index","Cliente")'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Clientes Normales
+                            </a>
+
+                            <div class="sb-sidenav-menu-heading">Mantenimiento</div>
+                            <a class="nav-link" href='@Url.Action("Categoria","Mantenedor")'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Categorías
+                            </a>
+                            <a class="nav-link" href='@Url.Action("Marca","Mantenedor")'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
+                                Marcas
+                            </a>
+                            <a class="nav-link" href='@Url.Action("Producto","Mantenedor")'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                                Productos
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    @if (Session["Usuario"] != null)
+                    {
+                        var u = (CapaEntidad.Usuario)Session["Usuario"];
+                        <div style="
+            display: inline-block;
+            background: linear-gradient(135deg, #007bff, #6f42c1);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            font-weight: 500;
+            font-size: 0.95rem;
+            max-width: 100%;
+            text-align: left;
+        ">
+                            <i class="fas fa-user-shield me-2"></i>@($"{u.Nombres} {u.Apellidos}")<br />
+                            <span style="font-size: 0.85rem; font-weight: 400;">@Session["Role"]</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <span style="color:#bbb;">No autenticado</span>
+                    }
+                </div>
+
+            </nav>
+        </div>
+
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <!-- Breadcrumb global -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Index","Home")">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                @ViewBag.Title
+                            </li>
+                        </ol>
+                    </nav>
+                    @RenderBody()
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Toast container (top-right) -->
+    <div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 10800;"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/complementos")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- SweetAlert2 for confirmation dialogs (loaded globally for admin) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        (function () {
+            function showToast(message, type) {
+                if (!message) return;
+                var bg = 'bg-primary text-white';
+                if (type === 'error') bg = 'bg-danger text-white';
+                if (type === 'success') bg = 'bg-success text-white';
+                if (type === 'warning') bg = 'bg-warning text-dark';
+
+                var id = 'toast-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+                var toastHtml = '\n                    <div id="' + id + '" class="toast ' + bg + '" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">\n <div class="d-flex">\n  <div class="toast-body">' + message + '</div>\n                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>\n                        </div>\n                    </div>';
+                $('#toastContainer').append(toastHtml);
+                var el = document.getElementById(id);
+                try {
+                    var t = new bootstrap.Toast(el);
+                    t.show();
+                    el.addEventListener('hidden.bs.toast', function () { $(el).remove(); });
+                } catch (e) {
+                    // fallback: simple alert
+                    console && console.log && console.log('Toast error', e);
+                }
+            }
+
+            // Expose global helper so views can call to show toasts from JS
+            window.showBootstrapToast = showToast;
+
+            // Global delete confirmation helper: shows SweetAlert2, executes AJAX, calls callbacks
+            window.confirmDelete = function (url, data, onSuccess, onError, options) {
+                options = options || {};
+                var title = options.title || '¿Eliminar elemento?';
+                var html = options.html || 'Esta acción no se puede deshacer.';
+                var confirmText = options.confirmText || 'Sí, eliminar';
+                var cancelText = options.cancelText || 'Cancelar';
+
+                Swal.fire({
+                    title: title,
+                    html: html,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: confirmText,
+                    cancelButtonText: cancelText
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        try {
+                            if (typeof options.beforeSend === 'function') {
+                                try { options.beforeSend(); } catch (e) { console && console.error && console.error('beforeSend error', e); }
+                            }
+
+                            $.ajax({
+                                url: url,
+                                type: options.type || 'POST',
+                                data: data,
+                                dataType: options.dataType || 'json',
+                                success: function (resp) {
+                                    try {
+                                        if (resp && (resp.resultado === true || resp.resultado == 1)) {
+                                            if (options.successMessage !== false) {
+                                                showToast(resp.mensaje || options.successMessage || 'Eliminado correctamente.', 'success');
+                                            }
+                                            if (typeof onSuccess === 'function') onSuccess(resp);
+                                        } else {
+                                            var msg = (resp && resp.mensaje) ? resp.mensaje : (options.errorMessage || 'No se pudo eliminar.');
+                                            showToast(msg, 'error');
+                                            if (typeof onError === 'function') onError(resp);
+                                        }
+                                    } catch (e) {
+                                        console && console.error && console.error('confirmDelete success handler error', e);
+                                        if (typeof onError === 'function') onError(e);
+                                    }
+                                },
+                                error: function (xhr) {
+                                    var errMsg = options.errorMessage || 'Error de comunicación.';
+                                    showToast(errMsg, 'error');
+                                    if (typeof onError === 'function') onError(xhr);
+                                },
+                                complete: function () {
+                                    if (typeof options.complete === 'function') {
+                                        try { options.complete(); } catch (e) { console && console.error && console.error('complete error', e); }
+                                    }
+                                }
+                            });
+                        } catch (e) {
+                            console && console.error && console.error('confirmDelete ajax error', e);
+                        }
+                    }
+                });
+            };
+
+            // Read TempData values (rendered server-side). Use JSON encoding to avoid quote issues.
+            var temp = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(new {
+                success = TempData["Success"] ?? "",
+                error = TempData["Error"] ?? "",
+                mensaje = TempData["Mensaje"] ?? ""
+            }));
+
+            if (temp.success && temp.success.toString().trim() !== '') {
+                $(function(){ showToast(temp.success.toString().replace(/\r?\n/g,'<br/>'), 'success'); });
+            }
+            if (temp.error && temp.error.toString().trim() !== '') {
+                $(function(){ showToast(temp.error.toString().replace(/\r?\n/g,'<br/>'), 'error'); });
+            }
+            if (!temp.success && !temp.error && temp.mensaje && temp.mensaje.toString().trim() !== '') {
+                $(function(){ showToast(temp.mensaje.toString().replace(/\r?\n/g,'<br/>'), 'info'); });
+            }
+        })();
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

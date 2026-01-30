@@ -1,0 +1,45 @@
+﻿@model CapaEntidad.Usuario
+
+@{
+    ViewBag.Title = "Detalles de Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de Usuario</h2>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Usuarios")">Usuarios</a></li>
+    <li class="breadcrumb-item active">Detalles</li>
+</ol>
+
+<div class="card">
+    <div class="card-header bg-info text-white">
+        <i class="fas fa-info-circle me-1"></i> Información del Usuario
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Id Usuario</dt>
+            <dd class="col-sm-9">@Model.IdUsuario</dd>
+
+            <dt class="col-sm-3">Nombres</dt>
+            <dd class="col-sm-9">@Model.Nombres</dd>
+
+            <dt class="col-sm-3">Apellidos</dt>
+            <dd class="col-sm-9">@Model.Apellidos</dd>
+
+            <dt class="col-sm-3">Correo</dt>
+            <dd class="col-sm-9">@Model.Correo</dd>
+
+            <dt class="col-sm-3">Rol</dt>
+            <dd class="col-sm-9">@Model.Rol</dd>
+
+            <dt class="col-sm-3">Activo</dt>
+            <dd class="col-sm-9">@(Model.Activo ? "Sí" : "No")</dd>
+        </dl>
+        <div class="mt-3">
+            @Html.ActionLink("Volver al listado", "Index", null, new { @class = "btn btn-secondary" })
+            @Html.ActionLink("Editar", "Editar", new { id = Model.IdUsuario }, new { @class = "btn btn-warning ml-2" })
+        </div>
+    </div>
+</div>

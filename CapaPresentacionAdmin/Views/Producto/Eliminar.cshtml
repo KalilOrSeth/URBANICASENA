@@ -1,0 +1,20 @@
+﻿@model CapaEntidad.Producto
+
+<h2>Eliminar Producto</h2>
+
+<p>¿Seguro que quieres eliminar este producto?</p>
+
+<div>
+    <strong>@Model.Nombre</strong> - @String.Format("{0:C}", Model.Precio)
+</div>
+
+<img src="@Url.Content("~/" + Model.RutaImagen + "/" + Model.NombreImagen)"
+     alt="@Model.Nombre" style="max-height:120px"
+     onerror="this.src='@Url.Content("~/Content/img/productos/default.jpg")'" />
+
+@using (Html.BeginForm("Eliminar", "Producto", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.IdProducto)
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index","Producto")" class="btn btn-secondary">Cancelar</a>
+}

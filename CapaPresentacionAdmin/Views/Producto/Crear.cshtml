@@ -1,0 +1,68 @@
+﻿@model CapaEntidad.Producto
+
+<h2>Crear Producto</h2>
+
+@using (Html.BeginForm("Crear", "Producto", FormMethod.Post, new { enctype = "application/x-www-form-urlencoded" }))
+{
+    @Html.ValidationSummary(true, "Por favor corrija los errores")
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Precio)
+        @Html.TextBoxFor(m => m.Precio, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Imagen existente</label>
+        @* Hidden field to bind in case no selection *@
+        @Html.HiddenFor(m => m.NombreImagen)
+        <select id="selectImagen" name="NombreImagen" class="form-control">
+            <option value="">-- Seleccionar imagen existente (o dejar vacío para default) --</option>
+        </select>
+        <div class="mt-2">
+            <img id="preview" src="@Url.Content("~/Content/imagenes_productos/placeholder.png")" alt="preview" style="max-width:200px; display:block;" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+
+@section scripts{
+    <script>
+        $(function(){
+            var select = $('#selectImagen');
+            var preview = $('#preview');
+            var defaultSrc = '@Url.Content("~/Content/imagenes_productos/default.jpg")';
+            var placeholder = '@Url.Content("~/Content/imagenes_productos/placeholder.png")';
+
+            // Populate select via AJAX
+            $.getJSON('@Url.Action("ListarImagenesDisponibles","Mantenedor")', function(resp){
+                if(resp && resp.success){
+                    resp.images.forEach(function(n){
+                        select.append($('<option/>').attr('value', n).text(n));
+                    });
+                }
+            });
+
+            select.on('change', function(){
+                var val = $(this).val();
+                if(!val){
+                    // no selection -> use default if exists, otherwise placeholder
+                    // try default first
+                    preview.attr('src', defaultSrc);
+                } else {
+                    preview.attr('src', '@Url.Content("~/Content/imagenes_productos/")' + val);
+                }
+            });
+
+            // initial state
+            if(!select.val()){
+                preview.attr('src', defaultSrc);
+            }
+        });
+    </script>
+}

@@ -1,0 +1,646 @@
+﻿using CapaEntidad;
+using CapaNegocio;
+using CapaPresentacionTienda.Filters;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web.Mvc;
+using Newtonsoft.Json;
+
+namespace CapaPresentacionTienda.Controllers
+{
+    [SessionAuthorize(Roles = "Cliente")]
+    public class TiendaController : Controller
+    {
+        // Validación general: si no hay sesión, redirige al login
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            bool esAnonima = filterContext.ActionDescriptor
+                .GetCustomAttributes(typeof(AllowAnonymousAttribute), false)
+                .Any();
+
+            if (!esAnonima && Session["Role"] == null)
+            {
+                filterContext.Result = RedirectToAction("Login", "Acceso");
+            }
+
+            base.OnActionExecuting(filterContext);
+        }
+
+        // Acción principal: listado de productos (permitir anonymous)
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+            List<Producto> lista = new CN_Productos().Listar();
+            ViewBag.Marcas = new CN_Marca().Listar();
+            ViewBag.Categorias = new CN_Categoria().Listar();
+            ViewBag.CantidadCarrito = Session["Carrito"] != null ? ((List<ItemCarrito>)Session["Carrito"]).Sum(x => x.Cantidad) : 0; // mostrar total de items
+            return View(lista);
+        }
+
+        // GET: agregar al carrito vía link - redirige al carrito
+        [HttpGet]
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult AgregarCarrito(int idProducto)
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null)
+            {
+                return RedirectToAction("Login", "Cuenta");
+            }
+
+            // Prefer to perform DB operation first and then sync session from DB to avoid duplication or drift
+            string mensaje;
+            bool ok = new CN_Carrito().Agregar(cliente.IdCliente, idProducto, 1, out mensaje);
+
+            // Refresh session cart from DB (single source of truth)
+            try
+            {
+                var lista = new CN_Carrito().Listar(cliente.IdCliente);
+                Session["Carrito"] = lista;
+            }
+            catch
+            {
+                // fallback: keep existing session behavior if DB fails
+                var carrito = Session["Carrito"] as List<ItemCarrito> ?? new List<ItemCarrito>();
+                Producto prod = new CN_Productos().Listar().Find(p => p.IdProducto == idProducto);
+                if (prod != null)
+                {
+                    var existente = carrito.FirstOrDefault(c => c.Producto.IdProducto == idProducto);
+                    if (existente != null) existente.Cantidad += 1; else carrito.Add(new ItemCarrito { Producto = prod, Cantidad = 1 });
+                    Session["Carrito"] = carrito;
+                }
+            }
+
+            return RedirectToAction("Carrito");
+        }
+
+
+        // POST: agregar al carrito vía AJAX - devuelve JSON
+        [HttpPost]
+        [SessionAuthorize(Roles = "Cliente")]
+        public JsonResult AgregarCarritoPost(int idProducto)
+        {
+            try
+            {
+                var cliente = Session["Cliente"] as Cliente;
+                if (cliente == null)
+                {
+                    return Json(new { respuesta = false, mensaje = "Sesión expirada. Inicia sesión nuevamente.", cantidad = 0 });
+                }
+
+                // Persistir en BD usando IdCliente del usuario logueado (usa SP_OperacionCarrito internamente)
+                string mensaje;
+                bool ok = new CN_Carrito().Agregar(cliente.IdCliente, idProducto, 1, out mensaje);
+
+                // Después de la operación en BD, sincronizar la sesión desde la BD para que siempre sea la misma fuente de verdad
+                var lista = new CN_Carrito().Listar(cliente.IdCliente);
+                Session["Carrito"] = lista;
+
+                // Obtener cantidad total desde BD para mantener consistencia (Listar + Sum es fuente fiable)
+                int cantidadTotal = lista.Sum(x => x.Cantidad);
+
+                return Json(new { respuesta = ok, mensaje = mensaje ?? (ok ? "Producto agregado" : "Error al agregar"), cantidad = cantidadTotal });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { respuesta = false, mensaje = ex.Message, cantidad = 0 });
+            }
+        }
+
+        // Acción para ver el carrito (permitir visitantes)
+        [AllowAnonymous]
+        public ActionResult Carrito()
+        {
+            var carrito = Session["Carrito"] as List<ItemCarrito> ?? new List<ItemCarrito>();
+            return View(carrito);
+        }
+
+        // Acción para ver compras pasadas (requiere Cliente)
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult MisCompras()
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null)
+                return RedirectToAction("Index");
+
+            // Traer todas las compras del cliente
+            var compras = new CN_Ventas().Listar()
+                                         .Where(v => v.IdCliente == cliente.IdCliente)
+                                         .OrderByDescending(v => v.IdVenta)
+                                         .ToList();
+
+            return View(compras);
+        }
+
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult DetalleCompra(int idVenta)
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null)
+                return RedirectToAction("Index", "Acceso");
+
+            // Traer cabecera de la venta
+            Venta venta = new CN_Ventas().ObtenerVenta(idVenta);
+
+            // Seguridad: si la venta no existe o no pertenece al cliente, redirigir
+            if (venta == null || venta.IdCliente != cliente.IdCliente)
+            {
+                return RedirectToAction("MisCompras");
+            }
+
+            // Traer detalle de productos
+            List<DetalleVenta> detalle = new CN_Ventas().ListarDetalle(idVenta) ?? new List<DetalleVenta>();
+
+            // Calcular total de productos y asignarlo a la venta
+            try
+            {
+                venta.TotalProducto = detalle != null ? detalle.Sum(d => d.Cantidad) : 0;
+            }
+            catch
+            {
+                venta.TotalProducto = 0;
+            }
+
+            // Pasar ambos objetos a la vista mediante la entidad DetalleCompra
+            var model = new CapaEntidad.DetalleCompra
+            {
+                Venta = venta,
+                Detalles = detalle
+            };
+
+            return View(model);
+        }
+
+
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult Perfil()
+        {
+            var idCliente = Session["IdCliente"] != null ? (int)Session["IdCliente"] : 0;
+            if (idCliente == 0) return RedirectToAction("Index", "Acceso");
+
+            Cliente cliente = new CN_Cliente().ObtenerPorId(idCliente);
+            return View(cliente);
+        }
+
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult EditarPerfil()
+        {
+            var idCliente = Session["IdCliente"] != null ? (int)Session["IdCliente"] : 0;
+            if (idCliente == 0) return RedirectToAction("Index", "Acceso");
+
+            Cliente cliente = new CN_Cliente().ObtenerPorId(idCliente);
+            return View(cliente);
+        }
+
+        [HttpPost]
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult EditarPerfil(Cliente model)
+        {
+            string mensaje;
+            bool ok = new CN_Cliente().Editar(model, out mensaje);
+
+            if (ok)
+            {
+                // Update session display name
+                try
+                {
+                    var clienteSesion = Session["Cliente"] as Cliente;
+                    if (clienteSesion != null)
+                    {
+                        clienteSesion.Nombres = model.Nombres;
+                        clienteSesion.Apellidos = model.Apellidos;
+                        Session["Cliente"] = clienteSesion;
+                        Session["NombreCliente"] = clienteSesion.Nombres + " " + clienteSesion.Apellidos;
+                    }
+                }
+                catch { }
+
+                TempData["SwalType"] = "success";
+                TempData["SwalMessage"] = "Perfil actualizado correctamente.";
+                return RedirectToAction("Perfil");
+            }
+            else
+            {
+                TempData["SwalType"] = "error";
+                TempData["SwalMessage"] = string.IsNullOrWhiteSpace(mensaje) ? "No se pudo actualizar el perfil." : mensaje;
+                return View(model);
+            }
+        }
+
+        // New actions for cart item modification
+
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult CambiarCantidadCarrito(int idProducto, int delta)
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null) return Json(new { ok = false, message = "Sesión expirada. Inicia sesión nuevamente." });
+
+            try
+            {
+                var cnCarrito = new CN_Carrito();
+
+                // Verificar existencia en BD
+                if (!cnCarrito.ExisteCarrito(cliente.IdCliente, idProducto))
+                {
+                    // Eliminar de sesión si existe y avisar
+                    var carritoSession = Session["Carrito"] as List<ItemCarrito> ?? new List<ItemCarrito>();
+                    var sessionItem = carritoSession.FirstOrDefault(c => c.Producto.IdProduto == idProducto);
+                    if (sessionItem != null)
+                    {
+                        carritoSession.Remove(sessionItem);
+                        Session["Carrito"] = carritoSession;
+                    }
+
+                    TempData["Error"] = "El producto no existe en la base de datos.";
+
+                    if (Request.IsAjaxRequest())
+                        return Json(new { ok = false, redirect = Url.Action("Carrito") , message = "El producto no existe en la base de datos." });
+
+                    return Json(new { ok = false, message = "El producto no existe en la base de datos." });
+                }
+
+                // Intentar actualizar en BD primero
+                string mensajeDb;
+                bool dbOk = cnCarrito.ActualizarCantidad(cliente.IdCliente, idProducto, delta, out mensajeDb);
+                if (!dbOk)
+                {
+                    return Json(new { ok = false, message = mensajeDb ?? "No se pudo actualizar la cantidad en la base de datos." });
+                }
+
+                // Sincronizar sesión desde BD
+                var lista = cnCarrito.Listar(cliente.IdCliente);
+                Session["Carrito"] = lista;
+
+                var item = lista.FirstOrDefault(c => c.Producto.IdProducto == idProducto);
+                if (item == null) return Json(new { ok = false, message = "Producto no encontrado en el carrito." });
+
+                decimal totalItem = item.Producto != null ? item.Producto.Precio * item.Cantidad : 0m;
+                decimal totalCarrito = lista.Sum(x => (x.Producto != null ? x.Producto.Precio * x.Cantidad : 0m));
+
+                return Json(new
+                {
+                    ok = true,
+                    cantidad = item.Cantidad,
+                    totalItem = totalItem,
+                    totalCarrito = totalCarrito
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { ok = false, message = ex.Message });
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult EliminarProductoCarrito(int idProducto)
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null) return Json(new { ok = false, message = "Sesión expirada. Inicia sesión nuevamente." });
+
+            try
+            {
+                var cnCarrito = new CN_Carrito();
+
+                // Verificar existencia en BD
+                if (!cnCarrito.ExisteCarrito(cliente.IdCliente, idProducto))
+                {
+                    // Eliminar de sesión si existe y avisar
+                    var carritoSession = Session["Carrito"] as List<ItemCarrito> ?? new List<ItemCarrito>();
+                    var sessionItem = carritoSession.FirstOrDefault(c => c.Producto.IdProducto == idProducto);
+                    if (sessionItem != null)
+                    {
+                        carritoSession.Remove(sessionItem);
+                        Session["Carrito"] = carritoSession;
+                    }
+
+                    TempData["Error"] = "El producto no existe en la base de datos.";
+
+                    if (Request.IsAjaxRequest())
+                        return Json(new { ok = false, redirect = Url.Action("Carrito"), message = "El producto no existe en la base de datos." });
+
+                    return Json(new { ok = false, message = "El producto no existe en la base de datos." });
+                }
+
+                // Eliminar en BD primero
+                string mensajeDb;
+                bool dbOk = cnCarrito.Eliminar(cliente.IdCliente, idProducto, out mensajeDb);
+                if (!dbOk)
+                {
+                    return Json(new { ok = false, message = mensajeDb ?? "No se pudo eliminar el producto en la base de datos." });
+                }
+
+                // Sincronizar sesión desde BD
+                var lista = cnCarrito.Listar(cliente.IdCliente);
+                Session["Carrito"] = lista;
+
+                decimal totalCarrito = lista.Sum(x => (x.Producto != null ? x.Producto.Precio * x.Cantidad : 0m));
+                int count = lista.Sum(x => x.Cantidad);
+
+                return Json(new
+                {
+                    ok = true,
+                    totalCarrito = totalCarrito,
+                    count = count
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { ok = false, message = ex.Message });
+            }
+        }
+
+
+        // GET: Checkout - muestra resumen del carrito y formulario para confirmar compra
+        [SessionAuthorize(Roles = "Cliente")]
+        public ActionResult Checkout()
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null)
+            {
+                return RedirectToAction("Login", "Cuenta");
+            }
+
+            // Validar que haya productos en el carrito (en sesión)
+            var carrito = Session["Carrito"] as List<ItemCarrito> ?? new List<ItemCarrito>();
+            if (carrito == null || carrito.Count == 0)
+            {
+                TempData["Error"] = "Primero debes confirmar la compra de un producto para continuar.";
+                return RedirectToAction("Carrito");
+            }
+
+            return View(carrito);
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ContentResult ListarCategorias()
+        {
+            try
+            {
+                var lista = new CN_Categoria().Listar();
+                string json = JsonConvert.SerializeObject(new { data = lista });
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Content(JsonConvert.SerializeObject(new { data = new object[0], error = ex.Message }), "application/json");
+            }
+        }
+
+        // Devuelve todas las marcas registradas (desde Admin)
+        [AllowAnonymous]
+        [HttpGet]
+        public ContentResult ListarMarcas()
+        {
+            try
+            {
+                var lista = new CN_Marca().Listar().Where(m => m.Activo).OrderBy(m => m.Descripcion).ToList();
+                string json = JsonConvert.SerializeObject(new { data = lista });
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Content(JsonConvert.SerializeObject(new { data = new object[0], error = ex.Message }), "application/json");
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ContentResult ListarMarcasPorCategoria(int idCategoria = 0)
+        {
+            try
+            {
+                // Mantener comportamiento anterior: derivar marcas desde productos pero asegurar stock/activo
+                var productos = new CN_Productos().Listar();
+                var marcas = productos
+                    .Where(p => p.Activo && p.Stock > 0)
+                    .Where(p => idCategoria == 0 || (p.oCategoria != null && p.oCategoria.IdCategoria == idCategoria))
+                    .Where(p => p.oMarca != null)
+                    .Select(p => new { p.oMarca.IdMarca, p.oMarca.Descripcion })
+                    .Distinct()
+                    .OrderBy(m => m.Descripcion)
+                    .ToList();
+
+                string json = JsonConvert.SerializeObject(new { data = marcas });
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Content(JsonConvert.SerializeObject(new { data = new object[0], error = ex.Message }), "application/json");
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ContentResult ListarProductos(int idCategoria = 0, int idMarca = 0)
+        {
+            try
+            {
+                var productos = new CN_Productos().Listar();
+                var filtrados = productos.Where(p =>
+                    p.Activo && p.Stock > 0 &&
+                    (idCategoria == 0 || (p.oCategoria != null && p.oCategoria.IdCategoria == idCategoria)) &&
+                    (idMarca == 0 || (p.oMarca != null && p.oMarca.IdMarca == idMarca))
+                ).ToList();
+
+                // Return minimal product info for client
+                var lista = filtrados.Select(p => new
+                {
+                    p.IdProducto,
+                    p.Nombre,
+                    p.Precio,
+                    p.NombreImagen,
+                    p.RutaImagen
+                });
+
+                string json = JsonConvert.SerializeObject(new { data = lista });
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Content(JsonConvert.SerializeObject(new { data = new object[0], error = ex.Message }), "application/json");
+            }
+        }
+
+        // Devuelve la imagen del producto (File)
+        [AllowAnonymous]
+        public ActionResult ImagenProducto(int id)
+        {
+            try
+            {
+                var producto = new CN_Productos().ObtenerPorId(id);
+                if (producto == null)
+                    return HttpNotFound();
+
+                var virtualPath = (producto.RutaImagen ?? "") + (producto.NombreImagen ?? "");
+                var physicalPath = Server.MapPath(virtualPath);
+                if (!System.IO.File.Exists(physicalPath))
+                {
+                    physicalPath = Server.MapPath("~/Content/img/productos/default.jpg");
+                }
+
+                var ext = Path.GetExtension(physicalPath).ToLowerInvariant();
+                string contentType = "image/jpeg";
+                if (ext == ".png") contentType = "image/png";
+                else if (ext == ".gif") contentType = "image/gif";
+
+                return File(physicalPath, contentType);
+            }
+            catch
+            {
+                return File(Server.MapPath("~/Content/img/productos/default.jpg"), "image/jpeg");
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult DetalleProducto(int? id)
+        {
+            // Si no viene id en la URL, redirige al listado
+            if (id == null)
+                return RedirectToAction("Index");
+
+            var producto = new CN_Productos().ObtenerPorId(id.Value);
+
+            // Si el producto no existe, también redirige
+            if (producto == null)
+                return RedirectToAction("Index");
+
+            return View(producto);
+        }
+
+
+        [HttpGet]
+        [SessionAuthorize(Roles = "Cliente")]
+        public JsonResult CantidadEnCarrito()
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null)
+                return Json(new { cantidad = 0 }, JsonRequestBehavior.AllowGet);
+
+            int cantidad = new CN_Carrito().CantidadEnCarrito(cliente.IdCliente);
+            return Json(new { cantidad }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [SessionAuthorize(Roles = "Cliente")]
+        public JsonResult ExisteEnCarrito(int idProducto)
+        {
+            var cliente = Session["Cliente"] as Cliente;
+            if (cliente == null)
+                return Json(new { existe = false }, JsonRequestBehavior.AllowGet);
+
+            bool existe = new CN_Carrito().ExisteCarrito(cliente.IdCliente, idProducto);
+            return Json(new { existe }, JsonRequestBehavior.AllowGet);
+        }
+
+        // Datos de ejemplo (puedes llevarlos a BD más adelante)
+        private static readonly Dictionary<string, List<string>> DepartamentosCiudades = new Dictionary<string, List<string>>
+{
+    { "Bogotá D.C.", new List<string> { "Ciudad Bolívar", "Usaquén", "Suba", "Chapinero", "Kennedy" } },
+    { "Cundinamarca", new List<string> { "Soacha", "Chía", "Zipaquirá", "Funza" } },
+    { "Antioquia", new List<string> { "Medellín", "Envigado", "Bello" } },
+    { "Valle del Cauca", new List<string> { "Cali", "Palmira", "Jamundí" } }
+};
+
+        private static readonly Dictionary<string, List<string>> CiudadBarrios = new Dictionary<string, List<string>>
+{
+    { "Ciudad Bolívar", new List<string> { "Lucero", "Meissen", "San Francisco" } },
+    { "Usaquén", new List<string> { "Santa Bárbara", "Usaquén Centro", "Cedritos" } },
+    { "Medellín", new List<string> { "El Poblado", "Laureles", "Robledo" } },
+    { "Cali", new List<string> { "San Fernando", "Ciudad Jardín", "El Ingenio" } }
+    // Agrega más según necesites
+};
+
+        [HttpGet]
+        [AllowAnonymous]
+        public JsonResult ObtenerDepartamentos()
+        {
+            var lista = DepartamentosCiudades.Keys.ToList();
+            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public JsonResult ObtenerCiudades(string departamento)
+        {
+            var lista = DepartamentosCiudades.ContainsKey(departamento) ? DepartamentosCiudades[departamento] : new List<string>();
+            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public JsonResult ObtenerBarrios(string ciudad)
+        {
+            var lista = CiudadBarrios.ContainsKey(ciudad) ? CiudadBarrios[ciudad] : new List<string>();
+            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [SessionAuthorize(Roles = "Cliente")]
+        public JsonResult ConfirmarCompra(string departamento, string ciudad, string barrio, string direccion, string referencia,
+                          string contacto, string telefono, string idDistrito, string idTransaccion)
+        {
+            try
+            {
+                var cliente = Session["Cliente"] as Cliente;
+                if (cliente == null)
+                    return Json(new { respuesta = false, mensaje = "Sesión expirada. Inicia sesión nuevamente." });
+
+                // Validar que haya productos en sesión
+                var carrito = Session["Carrito"] as List<ItemCarrito> ?? new List<ItemCarrito>();
+                if (carrito == null || carrito.Count == 0)
+                    return Json(new { respuesta = false, mensaje = "El carrito está vacío." });
+
+                // Validar que en la BD también existan items para este cliente
+                int cantidadEnBD = new CN_Carrito().CantidadEnCarrito(cliente.IdCliente);
+                if (cantidadEnBD <= 0)
+                {
+                    var msg = "Tu carrito está vacío en la base de datos, agrega productos antes de confirmar.";
+                    return Json(new { respuesta = false, mensaje = msg, redirect = Url.Action("Carrito") });
+                }
+
+                var envio = new EnvioDetalle
+                {
+                    Departamento = departamento,
+                    Ciudad = ciudad,
+                    Barrio = barrio,
+                    Direccion = direccion,
+                    Referencia = referencia,
+                    Contacto = contacto,
+                    Telefono = telefono,
+                    IdDistrito = idDistrito,
+                    IdTransaccion = idTransaccion
+                };
+
+                string mensaje;
+                bool ok = new CN_Ventas().RegistrarCompra(cliente.IdCliente, envio, out mensaje);
+
+                if (!ok)
+                {
+                    return Json(new { respuesta = false, mensaje });
+                }
+
+                // Vaciar carrito en BD y en sesión
+                new CN_Carrito().Vaciar(cliente.IdCliente, out _);
+                Session["Carrito"] = new List<ItemCarrito>();
+
+                // ✅ Mensaje directo en JSON, sin TempData
+                var confirmation = "Tu compra ha sido confirmada. ¡Gracias por tu compra!";
+                return Json(new { respuesta = true, mensaje = confirmation, redirect = Url.Action("MisCompras") });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { respuesta = false, mensaje = "Error interno: " + ex.Message });
+            }
+        }
+
+
+
+
+    }
+
+}

@@ -1,0 +1,563 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using CapaEntidad;
+
+namespace CapaDatos
+{
+    public class CD_Usuarios
+    {
+        public List<Usuario> Listar()
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    // Determinar tabla existente y si tiene columna Rol
+                    string table = null;
+                    oconexion.Open();
+
+                    using (var cmdCheck = new SqlCommand(
+                        "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                    {
+                        cmdCheck.Parameters.AddWithValue("@tname", "UsuarioAdmin");
+                        var res = cmdCheck.ExecuteScalar();
+                        if (res != null && Convert.ToInt32(res) > 0) table = "UsuarioAdmin";
+                    }
+
+                    if (table == null)
+                    {
+                        using (var cmdCheck2 = new SqlCommand(
+                            "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                        {
+                            cmdCheck2.Parameters.AddWithValue("@tname", "Usuarios");
+                            var res2 = cmdCheck2.ExecuteScalar();
+                            if (res2 != null && Convert.ToInt32(res2) > 0) table = "Usuarios";
+                        }
+                    }
+
+                    if (table == null)
+                    {
+                        Debug.WriteLine("CD_Usuarios.Listar: ninguna tabla de usuario encontrada.");
+                        return lista;
+                    }
+
+                    // Comprobar si existe columna 'Rol' en la tabla seleccionada
+                    bool hasRol = false;
+                    using (var cmdCol = new SqlCommand(
+                        "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME=@tname AND COLUMN_NAME='Rol'", oconexion))
+                    {
+                        cmdCol.Parameters.AddWithValue("@tname", table);
+                        var colRes = cmdCol.ExecuteScalar();
+                        hasRol = colRes != null && Convert.ToInt32(colRes) > 0;
+                    }
+
+                    string selectColumns = hasRol
+                        ? "IdUsuario,Nombres,Apellidos,Correo,Clave,Reestablecer,Activo,Rol"
+                        : "IdUsuario,Nombres,Apellidos,Correo,Clave,Reestablecer,Activo";
+
+                    string query = $"SELECT {selectColumns} FROM [{table}]";
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            var usuario = new Usuario()
+                            {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                Nombres = dr["Nombres"].ToString(),
+                                Apellidos = dr["Apellidos"].ToString(),
+                                Correo = dr["Correo"].ToString(),
+                                Clave = dr["Clave"].ToString(),
+                                Reestablecer = dr["Reestablecer"] != DBNull.Value && Convert.ToBoolean(dr["Reestablecer"]),
+                                Activo = dr["Activo"] != DBNull.Value && Convert.ToBoolean(dr["Activo"]) 
+                            };
+
+                            if (hasRol && dr["Rol"] != DBNull.Value)
+                                usuario.Rol = dr["Rol"].ToString();
+
+                            lista.Add(usuario);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error en CD_Usuarios.Listar: " + ex);
+                // No propagar la excepción: devolvemos lista (vacía) para inspección desde el controlador.
+            }
+
+            return lista;
+        }
+
+        public Usuario ObtenerPorCorreo(string correo)
+        {
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    oconexion.Open();
+
+                    // Determinar qué tabla existe en la BD para usuarios
+                    string table = null;
+                    using (var cmdCheck = new SqlCommand(
+                        "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                    {
+                        cmdCheck.Parameters.AddWithValue("@tname", "UsuarioAdmin");
+                        var res = cmdCheck.ExecuteScalar();
+                        if (res != null && Convert.ToInt32(res) > 0) table = "UsuarioAdmin";
+                    }
+
+                    if (table == null)
+                    {
+                        using (var cmdCheck2 = new SqlCommand(
+                            "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                        {
+                            cmdCheck2.Parameters.AddWithValue("@tname", "Usuarios");
+                            var res2 = cmdCheck2.ExecuteScalar();
+                            if (res2 != null && Convert.ToInt32(res2) > 0) table = "Usuarios";
+                        }
+                    }
+
+                    if (table == null)
+                    {
+                        Debug.WriteLine("CD_Usuarios.ObtenerPorCorreo: ninguna tabla de usuario encontrada.");
+                        return null;
+                    }
+
+                    // Comprobar si existe columna 'Rol' en la tabla seleccionada
+                    bool hasRol = false;
+                    using (var cmdCol = new SqlCommand(
+                        "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME=@tname AND COLUMN_NAME='Rol'", oconexion))
+                    {
+                        cmdCol.Parameters.AddWithValue("@tname", table);
+                        var colRes = cmdCol.ExecuteScalar();
+                        hasRol = colRes != null && Convert.ToInt32(colRes) > 0;
+                    }
+
+                    string selectColumns = hasRol
+                        ? "IdUsuario,Nombres,Apellidos,Correo,Clave,Reestablecer,Activo,Rol"
+                        : "IdUsuario,Nombres,Apellidos,Correo,Clave,Reestablecer,Activo";
+
+                    string query = $"SELECT TOP 1 {selectColumns} FROM [{table}] WHERE LOWER(LTRIM(RTRIM(Correo))) = @Correo";
+                    using (SqlCommand cmd = new SqlCommand(query, oconexion))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Correo", correo?.Trim().ToLower() ?? string.Empty);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                var usuario = new Usuario
+                                {
+                                    IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                    Nombres = dr["Nombres"].ToString(),
+                                    Apellidos = dr["Apellidos"].ToString(),
+                                    Correo = dr["Correo"].ToString(),
+                                    Clave = dr["Clave"].ToString(),
+                                    Reestablecer = dr["Reestablecer"] != DBNull.Value && Convert.ToBoolean(dr["Reestablecer"]),
+                                    Activo = dr["Activo"] != DBNull.Value && Convert.ToBoolean(dr["Activo"]) 
+                                };
+
+                                if (hasRol && dr["Rol"] != DBNull.Value)
+                                    usuario.Rol = dr["Rol"].ToString();
+
+                                return usuario;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error en CD_Usuarios.ObtenerPorCorreo: " + ex);
+            }
+
+            return null;
+        }
+
+        public int Registrar(Usuario obj, out string Mensaje)
+        {
+            int idautogenerado = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    // Try stored procedure first
+                    SqlCommand cmd = new SqlCommand("sp_RegistrarUsuario", oconexion);
+                    cmd.Parameters.AddWithValue("Nombres", obj.Nombres ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Clave", obj.Clave ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Activo", obj.Activo);
+                    cmd.Parameters.AddWithValue("Rol", obj.Rol ?? "Cliente"); // 👈 nuevo parámetro
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idautogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                Debug.WriteLine("CD_Usuarios.Registrar: SP failed: " + sqlEx.Message);
+                try
+                {
+                    using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                    {
+                        oconexion.Open();
+                        // Determinar tabla existente
+                        string table = null;
+                        using (var cmdCheck = new SqlCommand(
+                            "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                        {
+                            cmdCheck.Parameters.AddWithValue("@tname", "UsuarioAdmin");
+                            var r = cmdCheck.ExecuteScalar();
+                            if (r != null && Convert.ToInt32(r) > 0) table = "UsuarioAdmin";
+                        }
+                        if (table == null)
+                        {
+                            using (var cmdCheck2 = new SqlCommand(
+                                "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                            {
+                                cmdCheck2.Parameters.AddWithValue("@tname", "Usuarios");
+                                var r2 = cmdCheck2.ExecuteScalar();
+                                if (r2 != null && Convert.ToInt32(r2) > 0) table = "Usuarios";
+                            }
+                        }
+
+                        if (table == null)
+                        {
+                            Mensaje = "No se encontró tabla de usuarios en la base de datos.";
+                            idautogenerado = 0;
+                            return idautogenerado;
+                        }
+
+                        // 👇 ahora incluye Rol en el insert
+                        string insert = $@"INSERT INTO [{table}] (Nombres,Apellidos,Correo,Clave,Activo,Rol) 
+                                   VALUES (@Nombres,@Apellidos,@Correo,@Clave,@Activo,@Rol); 
+                                   SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                        SqlCommand cmd = new SqlCommand(insert, oconexion);
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Correo", obj.Correo ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Clave", obj.Clave ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+                        cmd.Parameters.AddWithValue("@Rol", obj.Rol ?? "Cliente"); // 👈 nuevo parámetro
+
+                        var result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            idautogenerado = Convert.ToInt32(result);
+                            Mensaje = "Registro insertado directamente en tabla " + table + ".";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Mensaje = "Error al insertar usuario en tabla Usuarios/UsuarioAdmin: " + ex.Message;
+                    idautogenerado = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                idautogenerado = 0;
+                Mensaje = ex.Message;
+            }
+
+            return idautogenerado;
+        }
+
+
+        public bool ActualizarClave(int idUsuario, string claveHash, out string mensaje)
+        {
+            mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                using (SqlCommand cmd = new SqlCommand("UPDATE UsuarioAdmin SET Clave = @Clave WHERE IdUsuario = @IdUsuario", oconexion))
+                {
+                    cmd.Parameters.AddWithValue("@Clave", claveHash ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    // If no rows updated, attempt on Usuarios table
+                    if (rows == 0)
+                    {
+                        using (SqlCommand cmd2 = new SqlCommand("UPDATE Usuarios SET Clave = @Clave WHERE IdUsuario = @IdUsuario", oconexion))
+                        {
+                            cmd2.Parameters.AddWithValue("@Clave", claveHash ?? (object)DBNull.Value);
+                            cmd2.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                            rows = cmd2.ExecuteNonQuery();
+                        }
+                    }
+                    return rows > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                return false;
+            }
+        }
+
+        public bool Editar(Usuario obj, out string Mensaje)
+        {
+            bool resultado = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_EditarUsuario", oconexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.AddWithValue("Nombres", obj.Nombres ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Activo", obj.Activo);
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                Debug.WriteLine("CD_Usuarios.Editar: SP failed, attempting text fallback. Ex=" + sqlEx.Message);
+                // Fallback: intentar UPDATE en la tabla existente
+                try
+                {
+                    using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                    {
+                        oconexion.Open();
+                        string table = null;
+                        using (var cmdCheck = new SqlCommand(
+                            "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                        {
+                            cmdCheck.Parameters.AddWithValue("@tname", "UsuarioAdmin");
+                            var r = cmdCheck.ExecuteScalar();
+                            if (r != null && Convert.ToInt32(r) > 0) table = "UsuarioAdmin";
+                        }
+                        if (table == null)
+                        {
+                            using (var cmdCheck2 = new SqlCommand(
+                                "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                            {
+                                cmdCheck2.Parameters.AddWithValue("@tname", "Usuarios");
+                                var r2 = cmdCheck2.ExecuteScalar();
+                                if (r2 != null && Convert.ToInt32(r2) > 0) table = "Usuarios";
+                            }
+                        }
+
+                        if (table == null)
+                        {
+                            Mensaje = "No se encontró tabla de usuarios para actualizar.";
+                            return false;
+                        }
+
+                        string update = $"UPDATE [{table}] SET Nombres=@Nombres,Apellidos=@Apellidos,Correo=@Correo,Activo=@Activo WHERE IdUsuario=@IdUsuario";
+                        using (var cmd = new SqlCommand(update, oconexion))
+                        {
+                            cmd.Parameters.AddWithValue("@Nombres", obj.Nombres ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Apellidos", obj.Apellidos ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Correo", obj.Correo ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+                            cmd.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
+
+                            int rows = cmd.ExecuteNonQuery();
+                            resultado = rows > 0;
+                            Mensaje = resultado ? "Usuario actualizado (fallback)." : "No se actualizó ningún registro.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Mensaje = "Error al actualizar usuario en fallback: " + ex.Message;
+                    resultado = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                Mensaje = ex.Message;
+            }
+
+            return resultado;
+        }
+
+        public bool Eliminar(int idusuario, out string Mensaje)
+        {
+            bool resultado = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_EliminarUsuario", oconexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", idusuario);
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                Debug.WriteLine("CD_Usuarios.Eliminar: SP failed, attempting text fallback. Ex=" + sqlEx.Message);
+                // Fallback: try to delete from existing users table
+                try
+                {
+                    using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                    {
+                        oconexion.Open();
+                        string table = null;
+                        using (var cmdCheck = new SqlCommand(
+                            "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                        {
+                            cmdCheck.Parameters.AddWithValue("@tname", "UsuarioAdmin");
+                            var r = cmdCheck.ExecuteScalar();
+                            if (r != null && Convert.ToInt32(r) > 0) table = "UsuarioAdmin";
+                        }
+                        if (table == null)
+                        {
+                            using (var cmdCheck2 = new SqlCommand(
+                                "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @tname", oconexion))
+                            {
+                                cmdCheck2.Parameters.AddWithValue("@tname", "Usuarios");
+                                var r2 = cmdCheck2.ExecuteScalar();
+                                if (r2 != null && Convert.ToInt32(r2) > 0) table = "Usuarios";
+                            }
+                        }
+
+                        if (table == null)
+                        {
+                            Mensaje = "No se encontró tabla de usuarios para eliminar.";
+                            return false;
+                        }
+
+                        // Fallback deletion with cleanup: remove dependent CLIENTE and CARRITO entries first
+                        using (var transaction = oconexion.BeginTransaction())
+                        {
+                            try
+                            {
+                                // If Cliente table has IdUsuario, find related Cliente Ids
+                                bool clienteHasIdUsuario = false;
+                                using (var cmdCheckCol = new SqlCommand("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente' AND COLUMN_NAME='IdUsuario'", oconexion, transaction))
+                                {
+                                    var rcol = cmdCheckCol.ExecuteScalar();
+                                    clienteHasIdUsuario = rcol != null && Convert.ToInt32(rcol) > 0;
+                                }
+
+                                if (clienteHasIdUsuario)
+                                {
+                                    // Get affected Cliente Ids
+                                    List<int> clienteIds = new List<int>();
+                                    using (var cmdGetClientes = new SqlCommand("SELECT IdCliente FROM Cliente WHERE IdUsuario = @IdUsuario", oconexion, transaction))
+                                    {
+                                        cmdGetClientes.Parameters.AddWithValue("@IdUsuario", idusuario);
+                                        using (var rdr = cmdGetClientes.ExecuteReader())
+                                        {
+                                            while (rdr.Read())
+                                            {
+                                                clienteIds.Add(rdr.GetInt32(0));
+                                            }
+                                        }
+                                    }
+
+                                    if (clienteIds.Count > 0)
+                                    {
+                                        // Delete carrito entries for each cliente
+                                        using (var cmdDelCarrito = new SqlCommand("DELETE FROM CARRITO WHERE IdCliente = @IdCliente", oconexion, transaction))
+                                        {
+                                            cmdDelCarrito.Parameters.Add(new SqlParameter("@IdCliente", SqlDbType.Int));
+                                            foreach (var cid in clienteIds)
+                                            {
+                                                cmdDelCarrito.Parameters["@IdCliente"].Value = cid;
+                                                cmdDelCarrito.ExecuteNonQuery();
+                                            }
+                                        }
+
+                                        // Delete cliente rows
+                                        using (var cmdDelCliente = new SqlCommand("DELETE FROM Cliente WHERE IdCliente = @IdCliente", oconexion, transaction))
+                                        {
+                                            cmdDelCliente.Parameters.Add(new SqlParameter("@IdCliente", SqlDbType.Int));
+                                            foreach (var cid in clienteIds)
+                                            {
+                                                cmdDelCliente.Parameters["@IdCliente"].Value = cid;
+                                                cmdDelCliente.ExecuteNonQuery();
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // Finally delete the user row from the detected user table
+                                string delete = $"DELETE FROM [{table}] WHERE IdUsuario=@IdUsuario";
+                                using (var cmdDelUser = new SqlCommand(delete, oconexion, transaction))
+                                {
+                                    cmdDelUser.Parameters.AddWithValue("@IdUsuario", idusuario);
+                                    int rows = cmdDelUser.ExecuteNonQuery();
+                                    resultado = rows > 0;
+                                    Mensaje = resultado ? "Usuario eliminado (fallback)." : "No se eliminó ningún registro.";
+                                }
+
+                                transaction.Commit();
+                            }
+                            catch (Exception exTrans)
+                            {
+                                try { transaction.Rollback(); } catch { }
+                                Mensaje = "Error al eliminar usuario (fallback): " + exTrans.Message;
+                                resultado = false;
+                            }
+                        }
+                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                Mensaje = ex.Message;
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+
+    }
+}

@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Pago Fallido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container text-center py-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <div class="mb-4">
+                <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 5rem;"></i>
+            </div>
+            <h2 class="text-danger mb-3">Pago Fallido</h2>
+            <p class="lead">Hubo un problema al procesar tu pago.</p>
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger mt-4">
+                    <strong>Error:</strong> @TempData["Error"]
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning mt-4">
+                    <p>El pago no pudo completarse. Esto puede deberse a:</p>
+                    <ul class="text-start">
+                        <li>Fondos insuficientes</li>
+                        <li>Problemas con la conexión</li>
+                        <li>Datos de pago incorrectos</li>
+                    </ul>
+                </div>
+            }
+
+            <div class="mt-4">
+                <a href="@Url.Action("Checkout","Tienda")" class="btn btn-danger btn-lg">
+                    <i class="bi bi-arrow-counterclockwise"></i> Intentar Nuevamente
+                </a>
+                <a href="@Url.Action("Carrito","Tienda")" class="btn btn-outline-primary btn-lg ms-2">
+                    <i class="bi bi-cart"></i> Ver Carrito
+                </a>
+                <a href="@Url.Action("Index","Tienda")" class="btn btn-outline-secondary btn-lg ms-2">
+                    <i class="bi bi-shop"></i> Volver a la Tienda
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

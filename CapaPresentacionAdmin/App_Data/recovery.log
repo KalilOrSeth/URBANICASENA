@@ -1,0 +1,40 @@
+﻿[2025-12-01 00:23:43] Correo=spartan@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=El servidor SMTP requiere una conexión segura o el cliente no se autenticó. La respuesta del servidor fue: 5.7.0 Authentication Required. For more information, go to
+[2025-12-01 00:24:42] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=El servidor SMTP requiere una conexión segura o el cliente no se autenticó. La respuesta del servidor fue: 5.7.0 Authentication Required. For more information, go to
+[2025-12-01 00:32:43] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=El servidor SMTP requiere una conexión segura o el cliente no se autenticó. La respuesta del servidor fue: 5.7.0 Authentication Required. For more information, go to
+[2025-12-01 00:34:16] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=El servidor SMTP requiere una conexión segura o el cliente no se autenticó. La respuesta del servidor fue: 5.7.0 Authentication Required. For more information, go to
+[2025-12-01 01:02:27] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo.
+[2025-12-01 01:11:16] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:11:46] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:11:50] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:12:17] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:12:22] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:14:53] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:22:41] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:23:08] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:23:16] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 01:32:06] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:01:03] Correo=qwert@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:26:26] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:31:52] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:36:07] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:49:31] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:52:06] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:52:27] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:52:50] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:53:03] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:53:30] Correo=qwert@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 02:53:48] Correo=qwert@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:07:31] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:09:29] Correo=waaaow@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:15:41] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:16:17] Correo=monica88_464@ginna.org Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:25:05] Correo=qwert@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:25:16] Correo=waaaow@gmail.com Accion=SolicitudCodigo Estado=Error Detalle=Error al enviar correo
+[2025-12-01 03:34:20] Correo=santiaginog2005@gmail.com Accion=SolicitudCodigo Estado=Enviado Detalle=OK
+[2025-12-01 03:34:33] Correo=santiaginog2005@gmail.com Accion=ValidarCodigo Estado=OK Detalle=Código válido
+[2025-12-01 03:41:57] Correo=qwert@gmail.com Accion=SolicitudCodigo Estado=Enviado Detalle=OK
+[2025-12-01 03:42:08] Correo=qwert@gmail.com Accion=ValidarCodigo Estado=OK Detalle=Código válido
+[2025-12-01 03:42:27] Correo=qwert@gmail.com Accion=CambiarClave Estado=OK Detalle=Contraseña actualizada
+[2025-12-02 18:53:32] Correo=waaaow@gmail.com Accion=SolicitudCodigo Estado=Enviado Detalle=OK
+[2025-12-02 18:53:46] Correo=waaaow@gmail.com Accion=ValidarCodigo Estado=OK Detalle=Código válido
+[2025-12-02 18:54:37] Correo=waaaow@gmail.com Accion=CambiarClave Estado=OK Detalle=Contraseña actualizada

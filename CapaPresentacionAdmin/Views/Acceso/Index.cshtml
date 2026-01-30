@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Acceso Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Iniciar Sesión (Admin)</h3>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.Error</div>
+                    }
+
+                    @using (Html.BeginForm("Index", "Acceso", FormMethod.Post, new { @id = "formLogin", autocomplete = "off" }))
+                    {
+                        @* campo oculto para evitar autofill *@
+                        <input type="text" name="fakeusernameremembered" style="display:none" />
+
+                        <div class="form-group mb-3">
+                            <label for="correo">Correo</label>
+                            <input type="email" name="correo" id="correo" class="form-control" autocomplete="off" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="clave">Contraseña</label>
+                            <input type="password" name="clave" id="clave" class="form-control" autocomplete="new-password" required />
+                            <div class="form-text">Mínimo 6 caracteres</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                    }
+
+                    <div class="text-center mt-3">
+                        <a href="@Url.Action("RecuperarClave", "Acceso")">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        (function () {
+            var form = document.getElementById('formLogin');
+            form.addEventListener('submit', function (e) {
+                var clave = document.getElementById('clave').value || '';
+                if (clave.length < 6) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Clave inválida',
+                        text: 'La contraseña debe tener al menos 6 caracteres.'
+                    });
+                    return false;
+                }
+                return true;
+            });
+
+            // Si hubo error desde el servidor, limpiar el campo clave
+            var hasError = @((ViewBag.Error != null) ? "true" : "false");
+            if (hasError === "true") {
+                try {
+                    var pwd = document.getElementById('clave');
+                    if (pwd) pwd.value = '';
+                } catch (e) { }
+            }
+        })();
+    </script>
+}

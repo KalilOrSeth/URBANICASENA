@@ -1,0 +1,189 @@
+﻿@model List<CapaEntidad.Producto>
+@{
+    ViewBag.Title = "Catálogo";
+}
+
+<!-- Título principal con menor margen -->
+<div class="text-center mt-3 mb-3">
+    <h1 class="display-6 fw-bold text-primary">Catálogo</h1>
+    <hr class="mx-auto" style="width: 85%; border-top: 3px solid #0d6efd;" />
+</div>
+
+<div class="row">
+    <!-- Filtros -->
+    <div class="col-lg-3 mb-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-gradient bg-primary text-white fw-semibold text-center">
+                <i class="fas fa-filter me-2"></i>Filtros
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <h6 class="text-secondary fw-bold">Categorías</h6>
+                    <div id="listaCategorias" class="ps-2"></div>
+                </div>
+                <div class="mb-4">
+                    <h6 class="text-secondary fw-bold">Marcas</h6>
+                    <div id="listaMarcas" class="ps-2"></div>
+                </div>
+                <button id="btnAplicar" class="btn btn-outline-primary w-100">
+                    <i class="fas fa-search me-1"></i> Aplicar Filtros
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Productos -->
+    <div class="col-lg-9">
+        <div id="contenedorProducto" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            @* Productos cargados por JS *@
+        </div>
+    </div>
+</div>
+
+
+<!-- Productos -->
+<div class="col-lg-9">
+    <div id="contenedorProducto" class="row row-cols-1 row-cols-md-3 g-4">
+        @* Productos cargados por JS *@
+    </div>
+</div>
+</div>
+
+
+
+@section scripts{
+    <script>
+        $(function(){
+            var selectedCategoria = 0;
+            var selectedMarca = 0;
+            var isLogged = @((Session["Cliente"] != null) ? "true" : "false");
+
+            function formatPeso(value){
+                return '$ ' + Number(value).toFixed(2);
+            }
+
+            function cargarCategorias(){
+                return $.getJSON('@Url.Action("ListarCategorias","Tienda")', function(resp){
+                    var html = '';
+                    if(resp && resp.data){
+                        html += '<div class="form-check">'
+                             + '<input class="form-check-input" type="radio" name="categoria" value="0" id="cat_0" checked>'
+                             + '<label class="form-check-label" for="cat_0">Todas</label>'
+                             + '</div>';
+                        $.each(resp.data, function(i, item){
+                            html += '<div class="form-check">'
+                                 + '<input class="form-check-input" type="radio" name="categoria" value="' + item.IdCategoria + '" id="cat_' + item.IdCategoria + '">'
+                                 + '<label class="form-check-label" for="cat_' + item.IdCategoria + '">' + item.Descripcion + '</label>'
+                                 + '</div>';
+                        });
+                    }
+                    $('#listaCategorias').html(html);
+                });
+            }
+
+            function cargarMarcas(){
+                return $.getJSON('@Url.Action("ListarMarcas","Tienda")', function(resp){
+                    var html = '';
+                    if(resp && resp.data){
+                        html += '<div class="form-check">'
+                             + '<input class="form-check-input" type="radio" name="marca" value="0" id="marca_0" checked>'
+                             + '<label class="form-check-label" for="marca_0">Todas</label>'
+                             + '</div>';
+                        $.each(resp.data, function(i, item){
+                            html += '<div class="form-check">'
+                                 + '<input class="form-check-input" type="radio" name="marca" value="' + item.IdMarca + '" id="marca_' + item.IdMarca + '">'
+                                 + '<label class="form-check-label" for="marca_' + item.IdMarca + '">' + item.Descripcion + '</label>'
+                                 + '</div>';
+                        });
+                    }
+                    $('#listaMarcas').html(html);
+                });
+            }
+
+            function cargarProductos(idCategoria, idMarca){
+                $('#contenedorProducto').html('<div class="col-12">Cargando...</div>');
+                return $.getJSON('@Url.Action("ListarProductos","Tienda")' + '?idCategoria=' + idCategoria + '&idMarca=' + idMarca, function(resp){
+                    var html = '';
+                    if(!resp || !resp.data || resp.data.length === 0){
+                        html = '<div class="col-12 alert alert-warning">No se encontraron productos</div>';
+                        $('#contenedorProducto').html(html);
+                        return;
+                    }
+
+                    $.each(resp.data, function(i, p){
+                        var imgUrl = '@Url.Action("ImagenProducto","Tienda")' + '?id=' + p.IdProducto;
+
+                        html += '<div class="col-md-4">'
+                             + '<div class="card h-100 shadow-sm d-flex flex-column">'
+                             + '<img class="card-img-top" src="' + imgUrl + '" alt="' + p.Nombre + '" onerror="this.src=\'@Url.Content("~/Content/img/productos/default.jpg")\'" />'
+                             + '<div class="card-body text-center">'
+                             + '<h5 class="fw-bold">' + p.Nombre + '</h5>'
+                             + '<span class="fw-bold text-primary">' + formatPeso(p.Precio) + '</span>'
+                             + '</div>'
+                             + '<div class="card-footer bg-transparent border-top-0 mt-auto text-center">'
+                             + '<a class="btn btn-outline-primary me-2" href="@Url.Action("DetalleProducto","Tienda")?id=' + p.IdProducto + '">Ver detalle</a>';
+
+                        if(isLogged === true || isLogged === 'true'){
+                            // Use AJAX button instead of href to call POST endpoint and show toast
+                            html += '<button type="button" class="btn btn-outline-dark btn-agregar" data-id="' + p.IdProducto + '"><i class="fas fa-cart-plus me-1"></i> Agregar al carrito</button>';
+                        }
+
+                        html += '</div></div></div>';
+                    });
+
+                    $('#contenedorProducto').html(html);
+                });
+            }
+
+            // initial load
+            cargarCategorias().then(function(){
+                cargarMarcas().then(function(){
+                    cargarProductos(0,0);
+                });
+            });
+
+            // when category changes
+            $('#listaCategorias').on('change', 'input[name="categoria"]', function(){
+                selectedCategoria = parseInt($(this).val(), 10) || 0;
+            });
+
+            // when brand changes
+            $('#listaMarcas').on('change', 'input[name="marca"]', function(){
+                selectedMarca = parseInt($(this).val(), 10) || 0;
+            });
+
+            $('#btnAplicar').click(function(){
+                selectedCategoria = parseInt($('input[name="categoria"]:checked').val() || 0, 10);
+                selectedMarca = parseInt($('input[name="marca"]:checked').val() || 0, 10);
+                cargarProductos(selectedCategoria, selectedMarca);
+            });
+
+            // Delegate click for dynamically added buttons
+            $('#contenedorProducto').on('click', '.btn-agregar', function(e){
+                e.preventDefault();
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '@Url.Action("AgregarCarritoPost","Tienda")',
+                    type: 'POST',
+                    data: { idProducto: id },
+                    success: function(resp){
+                        if(resp && resp.respuesta){
+                            // Prefer server-provided count to avoid desync
+                            if (resp.cantidad !== undefined) {
+                                $('#contadorCarrito').text(resp.cantidad);
+                            } else if (typeof updateCartCount === 'function') {
+                                updateCartCount();
+                            }
+                            if (typeof showToast === 'function') showToast(resp.mensaje || 'Producto agregado al carrito', 'success');
+                        } else {
+                            if (typeof showToast === 'function') showToast(resp.mensaje || 'Error al agregar al carrito', 'error');
+                        }
+                    },
+                    error: function(){
+                        if (typeof showToast === 'function') showToast('Error de comunicación', 'error');
+                    }
+                });
+            });
+        });
+    </script>
+}

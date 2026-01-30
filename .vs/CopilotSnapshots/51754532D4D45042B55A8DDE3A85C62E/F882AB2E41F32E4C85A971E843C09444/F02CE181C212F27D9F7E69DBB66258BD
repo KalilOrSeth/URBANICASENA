@@ -1,0 +1,253 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using CapaDatos;
+using CapaEntidad;
+
+namespace CapaNegocio
+{
+    public class CN_Cliente
+    {
+        private readonly CD_Cliente cdCliente = new CD_Cliente();
+
+        // Listar todos los clientes
+        public List<Cliente> Listar()
+        {
+            return cdCliente.Listar();
+        }
+
+        // Obtener cliente por correo
+        public Cliente ObtenerPorCorreo(string correo)
+        {
+            if (string.IsNullOrWhiteSpace(correo)) return null;
+            return cdCliente.ObtenerPorCorreo(correo.Trim().ToLower());
+        }
+
+        // Registrar nuevo cliente
+        public int Registrar(Cliente obj, out string mensaje)
+        {
+            mensaje = string.Empty;
+
+            try
+            {
+                if (obj == null)
+                {
+                    mensaje = "Datos de cliente inválidos.";
+                    return 0;
+                }
+
+                if (string.IsNullOrWhiteSpace(obj.Nombres) ||
+                    string.IsNullOrWhiteSpace(obj.Apellidos) ||
+                    string.IsNullOrWhiteSpace(obj.Correo) ||
+                    string.IsNullOrWhiteSpace(obj.Clave))
+                {
+                    mensaje = "Todos los campos son obligatorios.";
+                    return 0;
+                }
+
+                obj.Correo = obj.Correo.Trim().ToLower();
+
+                // Verificar correo duplicado
+                var existente = cdCliente.ObtenerPorCorreo(obj.Correo);
+                if (existente != null)
+                {
+                    mensaje = "El correo ya está registrado.";
+                    return 0;
+                }
+
+                // Encriptar clave
+                obj.Clave = CN_Recursos.ConvertirSha256(obj.Clave);
+
+                // Si la tabla Cliente referencia IdUsuario, use flujo que inserta en UsuarioNormal y luego Cliente
+                try
+                {
+                    if (cdCliente.ColumnExistsForChecks("IdUsuario"))
+                    {
+                        int idGenerado = cdCliente.RegistrarClienteCompleto(obj, out mensaje);
+                        return idGenerado;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Advertencia al intentar registrar cliente completo: " + ex.Message);
+                }
+
+                // Fallback: insertar sólo en tabla Cliente si no usa IdUsuario linkage
+                int idGeneradoFallback = cdCliente.Registrar(obj, out mensaje);
+                return idGeneradoFallback;
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error interno al registrar: " + ex.Message;
+                Debug.WriteLine("CN_Cliente.Registrar error: " + ex);
+                return 0;
+            }
+        }
+
+        // Validar login
+        public bool ValidarLogin(string correo, string clavePlano, out Cliente cliente)
+        {
+            cliente = null;
+            if (string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(clavePlano))
+                return false;
+
+            string correoNormalized = correo.Trim().ToLower();
+            string claveHash = CN_Recursos.ConvertirSha256(clavePlano)?.Trim().ToLower();
+
+            try
+            {
+                var encontrado = cdCliente.ObtenerPorCorreo(correoNormalized);
+                if (encontrado != null)
+                {
+                    var claveGuardada = (encontrado.Clave ?? string.Empty).Trim().ToLower();
+                    if (string.Equals(claveGuardada, claveHash, StringComparison.OrdinalIgnoreCase))
+                    {
+                        cliente = encontrado;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error en ValidarLogin: " + ex);
+                return false;
+            }
+        }
+
+        // Actualizar clave
+        public bool ActualizarClave(int idCliente, string nuevaClavePlano, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (string.IsNullOrWhiteSpace(nuevaClavePlano))
+            {
+                mensaje = "La nueva contraseña no puede estar vacía.";
+                return false;
+            }
+
+            string claveHash = CN_Recursos.ConvertirSha256(nuevaClavePlano);
+            return cdCliente.ActualizarClave(idCliente, claveHash, out mensaje);
+        }
+
+        // Obtener cliente por Id
+        public Cliente ObtenerPorId(int idCliente)
+        {
+            if (idCliente <= 0) return null;
+            return cdCliente.ObtenerPorId(idCliente);
+        }
+
+        // 👇 Nuevo método Eliminar
+        public bool Eliminar(int idCliente, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (idCliente <= 0)
+            {
+                mensaje = "Id de cliente inválido.";
+                return false;
+            }
+
+            try
+            {
+                return cdCliente.Eliminar(idCliente, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error interno al eliminar: " + ex.Message;
+                Debug.WriteLine("CN_Cliente.Eliminar error: " + ex);
+                return false;
+            }
+        }
+
+        // Nuevo: actualizar sólo el campo Activo
+        public bool EditarEstadoActivo(int idCliente, bool nuevoEstado, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (idCliente <= 0)
+            {
+                mensaje = "Id de cliente inválido.";
+                return false;
+            }
+
+            try
+            {
+                bool ok = cdCliente.ActualizarActivo(idCliente, nuevoEstado, out mensaje);
+                if (!ok)
+                {
+                    // Log failure in business layer for additional traceability
+                    Debug.WriteLine($"CN_Cliente.EditarEstadoActivo falló para Id={idCliente}: {mensaje}");
+                }
+                return ok;
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error interno al actualizar estado: " + ex.Message;
+                Debug.WriteLine("CN_Cliente.EditarEstadoActivo error: " + ex);
+
+                // Try to write to App_Data log as fallback
+                try
+                {
+                    var logDir = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data");
+                    if (!System.IO.Directory.Exists(logDir)) System.IO.Directory.CreateDirectory(logDir);
+                    var logFile = System.IO.Path.Combine(logDir, "cliente_logs.txt");
+                    var text = DateTime.UtcNow.ToString("u") + " - CN Error EditarEstadoActivo - IdCliente:" + idCliente + " - Mensaje: " + ex.ToString() + Environment.NewLine;
+                    System.IO.File.AppendAllText(logFile, text);
+                }
+                catch { }
+
+                return false;
+            }
+        }
+
+        // Editar cliente (nombres/apellidos)
+        public bool Editar(Cliente obj, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (obj == null || obj.IdCliente <= 0)
+            {
+                mensaje = "Datos de cliente inválidos.";
+                return false;
+            }
+
+            try
+            {
+                return cdCliente.Editar(obj, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error interno al editar: " + ex.Message;
+                Debug.WriteLine("CN_Cliente.Editar error: " + ex);
+                return false;
+            }
+        }
+
+        // Actualizar correo
+        public bool ActualizarCorreo(int idCliente, string nuevoCorreo, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (idCliente <= 0)
+            {
+                mensaje = "Id de cliente inválido.";
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(nuevoCorreo))
+            {
+                mensaje = "El correo no puede estar vacío.";
+                return false;
+            }
+
+            try
+            {
+                nuevoCorreo = nuevoCorreo.Trim().ToLower();
+                return cdCliente.ActualizarCorreo(idCliente, nuevoCorreo, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error interno al actualizar correo: " + ex.Message;
+                Debug.WriteLine(mensaje);
+                return false;
+            }
+        }
+
+    }
+}

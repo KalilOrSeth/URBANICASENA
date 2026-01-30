@@ -1,0 +1,43 @@
+﻿@model CapaEntidad.Usuario
+
+@{
+    ViewBag.Title = "Eliminar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar Usuario</h2>
+
+<div class="alert alert-warning">
+    <strong>¿Está seguro que desea eliminar este usuario?</strong>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Id Usuario</dt>
+            <dd class="col-sm-9">@Model.IdUsuario</dd>
+
+            <dt class="col-sm-3">Nombres</dt>
+            <dd class="col-sm-9">@Model.Nombres</dd>
+
+            <dt class="col-sm-3">Apellidos</dt>
+            <dd class="col-sm-9">@Model.Apellidos</dd>
+
+            <dt class="col-sm-3">Correo</dt>
+            <dd class="col-sm-9">@Model.Correo</dd>
+
+            <dt class="col-sm-3">Rol</dt>
+            <dd class="col-sm-9">@Model.Rol</dd>
+
+            <dt class="col-sm-3">Activo</dt>
+            <dd class="col-sm-9">@(Model.Activo ? "Sí" : "No")</dd>
+        </dl>
+    </div>
+</div>
+
+@using (Html.BeginForm("Eliminar", "Usuarios", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.IdUsuario)
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+}

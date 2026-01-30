@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Verificación y Nueva Contraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">🔑 Verificación de Código y Nueva Contraseña</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger text-center">@ViewBag.Error</div>
+}
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success text-center">@ViewBag.Mensaje</div>
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        @using (Html.BeginForm("IngresarCodigo", "Acceso", FormMethod.Post, new { @class = "card p-4 shadow-sm" }))
+        {
+            <div class="mb-3">
+                <label for="codigo" class="form-label">Código de verificación</label>
+                <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Ingrese el código recibido" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="nuevaClave" class="form-label">Nueva contraseña</label>
+                <input type="password" id="nuevaClave" name="nuevaClave" class="form-control" minlength="6" placeholder="Mínimo 6 caracteres" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmarClave" class="form-label">Confirmar contraseña</label>
+                <input type="password" id="confirmarClave" name="confirmarClave" class="form-control" minlength="6" placeholder="Repita la contraseña" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-shield-lock"></i> Guardar nueva contraseña
+            </button>
+        }
+    </div>
+</div>

@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "Detalle de envío";
+}
+
+<div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 10800;"></div>
+
+<div class="container" style="max-width: 1100px;">
+
+    <h2 class="mb-4 mt-3 fw-bold">Detalle de envío</h2>
+
+    <form id="formEnvio">
+
+        <!-- Primera fila -->
+        <div class="row mb-4 g-4">
+            <div class="col-md-4">
+                <label for="cboDepartamento" class="form-label">Departamento</label>
+                <select id="cboDepartamento" class="form-control">
+                    <option value="">Seleccione...</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="cboCiudad" class="form-label">Ciudad</label>
+                <select id="cboCiudad" class="form-control" disabled>
+                    <option value="">Seleccione...</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="cboBarrio" class="form-label">Barrio</label>
+                <select id="cboBarrio" class="form-control" disabled>
+                    <option value="">Seleccione... (opcional)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Segunda fila -->
+        <div class="row mb-4 g-4">
+            <div class="col-md-4">
+                <label for="txtDireccion" class="form-label">Dirección</label>
+                <input type="text" id="txtDireccion" class="form-control" placeholder="Calle 00 # 00-00, apto 000" />
+            </div>
+
+            <div class="col-md-4">
+                <label for="cboDistrito" class="form-label">Distrito</label>
+                <select id="cboDistrito" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <option value="1">Distrito 1</option>
+                    <option value="2">Distrito 2</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="txtReferencia" class="form-label">Referencia</label>
+                <input type="text" id="txtReferencia" class="form-control" placeholder="Punto de referencia (opcional)" />
+            </div>
+        </div>
+
+        <!-- Tercera fila -->
+        <div class="row mb-4 g-4">
+            <div class="col-md-4">
+                <label for="txtContacto" class="form-label">Nombre de contacto</label>
+                <input type="text" id="txtContacto" class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                <label for="txtTelefono" class="form-label">Teléfono</label>
+                <input type="text" id="txtTelefono" class="form-control" />
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="row mt-4">
+            <div class="col-12 d-flex">
+                <button type="button" id="btnConfirmar" class="btn btn-primary">Confirmar compra</button>
+                <a class="btn btn-secondary ms-2" href="@Url.Action("Carrito","Tienda")">Volver al carrito</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{
+    <script>
+$(function () {
+
+    function showToast(message, type) {
+        type = type || 'info';
+        var bg = 'bg-primary text-white';
+        if(type === 'error') bg = 'bg-danger text-white';
+        if(type === 'success') bg = 'bg-success text-white';
+        if(type === 'warning') bg = 'bg-warning text-dark';
+
+        var id = 'toast-' + Date.now();
+        var toastHtml = `
+            <div id="${id}" class="toast ${bg}" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="7000">
+                <div class="d-flex">
+                    <div class="toast-body">${message}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>`;
+        $('#toastContainer').append(toastHtml);
+        var el = document.getElementById(id);
+        var toast = new bootstrap.Toast(el);
+        toast.show();
+        el.addEventListener('hidden.bs.toast', function () { $(el).remove(); });
+    }
+
+    // Cargar departamentos
+    $.get('@Url.Action("ObtenerDepartamentos","Tienda")', function (resp) {
+        if (resp && resp.data) {
+            $("#cboDepartamento").append(resp.data.map(d => `<option value="${d}">${d}</option>`));
+        }
+    });
+
+    // Cambio de departamento → ciudades
+    $("#cboDepartamento").on("change", function () {
+        const dep = $(this).val();
+        $("#cboCiudad").prop("disabled", !dep).empty().append('<option value="">Seleccione...</option>');
+        $("#cboBarrio").prop("disabled", true).empty().append('<option value="">Seleccione...</option>');
+        if (!dep) return;
+
+        $.get('@Url.Action("ObtenerCiudades","Tienda")', { departamento: dep }, function (resp) {
+            if (resp && resp.data) {
+                $("#cboCiudad").append(resp.data.map(c => `<option value="${c}">${c}</option>`));
+            }
+        });
+    });
+
+    // Cambio de ciudad → barrios
+    $("#cboCiudad").on("change", function () {
+        const ciudad = $(this).val();
+        $("#cboBarrio").prop("disabled", !ciudad).empty().append('<option value="">Seleccione...</option>');
+        if (!ciudad) return;
+
+        $.get('@Url.Action("ObtenerBarrios","Tienda")', { ciudad }, function (resp) {
+            if (resp && resp.data) {
+                $("#cboBarrio").append(resp.data.map(b => `<option value="${b}">${b}</option>`));
+            }
+        });
+    });
+
+    // ✅ CONFIRMAR COMPRA CON PAYPAL
+    $("#btnConfirmar").off().on("click", function () {
+        const payload = {
+            departamento: $("#cboDepartamento").val(),
+            ciudad: $("#cboCiudad").val(),
+            barrio: $("#cboBarrio").val(),
+            direccion: $("#txtDireccion").val(),
+            referencia: $("#txtReferencia").val(),
+            contacto: $("#txtContacto").val(),
+            telefono: $("#txtTelefono").val(),
+            idDistrito: $("#cboDistrito").val()
+        };
+
+        // Validar campos obligatorios (barrio es opcional)
+        if (!payload.departamento || !payload.ciudad || !payload.direccion ||
+            !payload.contacto || !payload.telefono || !payload.idDistrito) {
+            showToast("Completa todos los campos obligatorios.", 'warning');
+            return;
+        }
+
+        // Deshabilitar botón para evitar doble clic
+        $("#btnConfirmar").prop("disabled", true).text("Procesando...");
+
+        // Guardar datos de envío en sesión
+        $.ajax({
+            url: '@Url.Action("GuardarDatosEnvio","Tienda")',
+            type: 'POST',
+            data: payload,
+            success: function (resp) {
+                if (resp && resp.respuesta) {
+                    showToast("Redirigiendo a PayPal para realizar el pago...", 'success');
+
+                    // Redirigir a PayPal después de 1 segundo
+                    setTimeout(function() {
+                        window.location = '@Url.Action("IniciarPago","Pago")';
+                    }, 1000);
+                } else {
+                    showToast(resp.mensaje || 'Error al guardar datos de envío.', 'error');
+                    $("#btnConfirmar").prop("disabled", false).text("Confirmar compra");
+                }
+            },
+            error: function () {
+                showToast('Error de comunicación con el servidor.', 'error');
+                $("#btnConfirmar").prop("disabled", false).text("Confirmar compra");
+            }
+        });
+    });
+
+});
+    </script>
+}

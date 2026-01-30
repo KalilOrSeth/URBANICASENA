@@ -1,0 +1,313 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using CapaEntidad;
+
+namespace CapaDatos
+{
+    public class CD_Ventas
+    {
+        public List<Venta> Listar()
+        {
+            var lista = new List<Venta>();
+            try
+            {
+                using (var cn = new SqlConnection(Conexion.cn))
+                using (var cmd = new SqlCommand(
+                    @"SELECT IdVenta, IdCliente, MontoTotal, Contacto, Telefono, Direccion,
+                             CONVERT(varchar, FechaVenta, 103) AS FechaTexto, IdTransaccion
+                      FROM Venta", cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cn.Open();
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Venta
+                            {
+                                IdVenta = dr.IsDBNull(0) ? 0 : dr.GetInt32(0),
+                                IdCliente = dr.IsDBNull(1) ? 0 : dr.GetInt32(1),
+                                MontoTotal = dr.IsDBNull(2) ? 0 : dr.GetDecimal(2),
+                                Contacto = dr.IsDBNull(3) ? string.Empty : dr.GetString(3),
+                                Telefono = dr.IsDBNull(4) ? string.Empty : dr.GetString(4),
+                                Direccion = dr.IsDBNull(5) ? string.Empty : dr.GetString(5),
+                                FechaTexto = dr.IsDBNull(6) ? string.Empty : dr.GetString(6),
+                                IdTransaccion = dr.IsDBNull(7) ? string.Empty : dr.GetString(7)
+                            });
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<Venta>();
+            }
+
+            return lista;
+        }
+
+        public int Registrar(Venta obj, out string mensaje)
+        {
+            int idGenerado = 0;
+            mensaje = string.Empty;
+
+            try
+            {
+                using (var cn = new SqlConnection(Conexion.cn))
+                using (var cmd = new SqlCommand("SP_RegistrarVenta", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdCliente", obj.IdCliente);
+                    cmd.Parameters.AddWithValue("@Contacto", obj.Contacto ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@Telefono", obj.Telefono ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@Direccion", obj.Direccion ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@IdTransaccion", obj.IdTransaccion ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@IdDistrito", obj.IdDistrito ?? string.Empty);
+
+                    var outputId = new SqlParameter("@IdVenta", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(outputId);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idGenerado = Convert.ToInt32(outputId.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                idGenerado = 0;
+                mensaje = ex.Message;
+            }
+
+            return idGenerado;
+        }
+
+        public bool RegistrarCompra(int idCliente, EnvioDetalle envio, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool resultado = false;
+
+            try
+            {
+                using (var cn = new SqlConnection(Conexion.cn))
+                {
+                    cn.Open();
+                    using (var transaction = cn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1) Leer items del carrito usando la función (misma conexión/tx)
+                            var items = new List<(int idProducto, int cantidad, string nombre)>();
+                            using (var cmdList = new SqlCommand("SELECT IdProducto, Cantidad, Nombre FROM fn_ListarCarrito(@IdCliente)", cn, transaction))
+                            {
+                                cmdList.Parameters.AddWithValue("@IdCliente", idCliente);
+                                using (var dr = cmdList.ExecuteReader())
+                                {
+                                    while (dr.Read())
+                                    {
+                                        int pid = dr["IdProducto"] == DBNull.Value ? 0 : Convert.ToInt32(dr["IdProducto"]);
+                                        int cant = dr["Cantidad"] == DBNull.Value ? 0 : Convert.ToInt32(dr["Cantidad"]);
+                                        string nombre = dr["Nombre"] == DBNull.Value ? string.Empty : dr["Nombre"].ToString();
+                                        items.Add((pid, cant, nombre));
+                                    }
+                                }
+                            }
+
+                            if (items.Count == 0)
+                            {
+                                mensaje = "No se encontraron productos en el carrito.";
+                                transaction.Rollback();
+                                return false;
+                            }
+
+                            // 2) Validar stock para todos los items
+                            foreach (var it in items)
+                            {
+                                using (var cmdStock = new SqlCommand("SELECT Stock FROM Producto WHERE IdProducto = @IdProducto", cn, transaction))
+                                {
+                                    cmdStock.Parameters.AddWithValue("@IdProducto", it.idProducto);
+                                    object s = cmdStock.ExecuteScalar();
+                                    int stockActual = s == null || s == DBNull.Value ? 0 : Convert.ToInt32(s);
+
+                                    if (stockActual < it.cantidad)
+                                    {
+                                        mensaje = $"Solo puedes comprar {stockActual} cantidad de este producto: '{it.nombre}'.";
+                                        transaction.Rollback();
+                                        return false;
+                                    }
+                                }
+                            }
+
+                            // 3) Ejecutar SP_RegistrarVenta dentro de la transacción
+                            using (var cmd = new SqlCommand("SP_RegistrarVenta", cn, transaction))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                                cmd.Parameters.AddWithValue("@Contacto", envio.Contacto ?? string.Empty);
+                                cmd.Parameters.AddWithValue("@Telefono", envio.Telefono ?? string.Empty);
+                                cmd.Parameters.AddWithValue("@Direccion", envio.Direccion ?? string.Empty);
+                                cmd.Parameters.AddWithValue("@IdTransaccion", envio.IdTransaccion ?? string.Empty);
+                                cmd.Parameters.AddWithValue("@IdDistrito", envio.IdDistrito ?? string.Empty);
+
+                                var outputId = new SqlParameter("@IdVenta", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                                cmd.Parameters.Add(outputId);
+
+                                cmd.ExecuteNonQuery();
+
+                                int idVentaGenerado = 0;
+                                if (outputId.Value != null && outputId.Value != DBNull.Value)
+                                    idVentaGenerado = Convert.ToInt32(outputId.Value);
+
+                                if (idVentaGenerado <= 0)
+                                {
+                                    mensaje = "No se pudo generar la venta.";
+                                    transaction.Rollback();
+                                    return false;
+                                }
+
+                                // 4) Reducir stock para cada item (dentro de la transacción)
+                                foreach (var it in items)
+                                {
+                                    using (var cmdUpd = new SqlCommand("UPDATE Producto SET Stock = Stock - @Cantidad WHERE IdProducto = @IdProducto AND Stock >= @Cantidad", cn, transaction))
+                                    {
+                                        cmdUpd.Parameters.AddWithValue("@Cantidad", it.cantidad);
+                                        cmdUpd.Parameters.AddWithValue("@IdProducto", it.idProducto);
+                                        int filas = cmdUpd.ExecuteNonQuery();
+                                        if (filas <= 0)
+                                        {
+                                            mensaje = $"No se pudo actualizar el stock para el producto '{it.nombre}'.";
+                                            transaction.Rollback();
+                                            return false;
+                                        }
+                                    }
+                                }
+
+                                // 5) Borrar carrito del cliente (si el SP no lo hizo)
+                                using (var cmdVaciar = new SqlCommand("DELETE FROM CARRITO WHERE IdCliente = @IdCliente", cn, transaction))
+                                {
+                                    cmdVaciar.Parameters.AddWithValue("@IdCliente", idCliente);
+                                    cmdVaciar.ExecuteNonQuery();
+                                }
+
+                                transaction.Commit();
+                                resultado = true;
+                                mensaje = "Compra registrada con éxito. IdVenta: " + idVentaGenerado + ".";
+                                return true;
+                            }
+                        }
+                        catch (Exception exTrans)
+                        {
+                            try { transaction.Rollback(); } catch { }
+                            mensaje = "Error interno: " + exTrans.Message;
+                            resultado = false;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error de comunicación: " + ex.Message;
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+
+
+        // 🚀 Nuevo: obtener cabecera de una venta
+        public Venta ObtenerVenta(int idVenta)
+        {
+            Venta venta = null;
+            try
+            {
+                using (var cn = new SqlConnection(Conexion.cn))
+                using (var cmd = new SqlCommand(
+                    @"SELECT IdVenta, IdCliente, MontoTotal, Contacto, Telefono, Direccion,
+                             CONVERT(varchar, FechaVenta, 103) AS FechaTexto, IdTransaccion
+                      FROM Venta
+                      WHERE IdVenta = @IdVenta", cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+                    cn.Open();
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            venta = new Venta
+                            {
+                                IdVenta = dr.IsDBNull(0) ? 0 : dr.GetInt32(0),
+                                IdCliente = dr.IsDBNull(1) ? 0 : dr.GetInt32(1),
+                                MontoTotal = dr.IsDBNull(2) ? 0 : dr.GetDecimal(2),
+                                Contacto = dr.IsDBNull(3) ? string.Empty : dr.GetString(3),
+                                Telefono = dr.IsDBNull(4) ? string.Empty : dr.GetString(4),
+                                Direccion = dr.IsDBNull(5) ? string.Empty : dr.GetString(5),
+                                FechaTexto = dr.IsDBNull(6) ? string.Empty : dr.GetString(6),
+                                IdTransaccion = dr.IsDBNull(7) ? string.Empty : dr.GetString(7)
+                            };
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                venta = null;
+            }
+
+            return venta;
+        }
+
+        // 🚀 Nuevo: listar detalle de productos de una venta
+        public List<DetalleVenta> ListarDetalle(int idVenta)
+        {
+            var lista = new List<DetalleVenta>();
+            try
+            {
+                using (var cn = new SqlConnection(Conexion.cn))
+                using (var cmd = new SqlCommand(
+                    @"SELECT dv.IdDetalleVenta, dv.IdVenta, dv.IdProducto, p.Nombre, dv.Cantidad, dv.PrecioUnitario
+                      FROM DetalleVenta dv
+                      INNER JOIN Producto p ON dv.IdProducto = p.IdProducto
+                      WHERE dv.IdVenta = @IdVenta", cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+                    cn.Open();
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new DetalleVenta
+                            {
+                                IdDetalleVenta = dr.IsDBNull(0) ? 0 : dr.GetInt32(0),
+                                IdVenta = dr.IsDBNull(1) ? 0 : dr.GetInt32(1),
+                                oProducto = new Producto
+                                {
+                                    IdProducto = dr.IsDBNull(2) ? 0 : dr.GetInt32(2),
+                                    Nombre = dr.IsDBNull(3) ? string.Empty : dr.GetString(3)
+                                },
+                                Cantidad = dr.IsDBNull(4) ? 0 : dr.GetInt32(4),
+                                PrecioUnitario = dr.IsDBNull(5) ? 0 : dr.GetDecimal(5)
+                            });
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<DetalleVenta>();
+            }
+
+            return lista;
+        }
+    }
+}

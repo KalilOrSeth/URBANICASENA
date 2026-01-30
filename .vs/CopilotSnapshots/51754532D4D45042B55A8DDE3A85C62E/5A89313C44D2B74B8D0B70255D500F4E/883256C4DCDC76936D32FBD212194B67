@@ -1,0 +1,121 @@
+﻿@model CapaEntidad.Cliente
+@{
+    ViewBag.Title = "Editar Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Editar Perfil</h2>
+
+@using (Html.BeginForm("EditarPerfil", "Tienda", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.IdCliente)
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Nombres, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Apellidos, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Apellidos, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Correo, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @readonly = "readonly", id = "correoActual" })
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-save"></i> Guardar Cambios
+            </button>
+            <a href="@Url.Action("Perfil", "Tienda")" class="btn btn-secondary ms-2">
+                Cancelar
+            </a>
+
+            <hr />
+
+            <div class="mt-3">
+                <button id="btnToggleCambioCorreo" type="button" class="btn btn-warning">Deseas cambiar tu correo</button>
+            </div>
+
+            <div id="panelCambioCorreo" style="display:none; margin-top:15px;">
+                <div class="mb-3">
+                    <label class="form-label">Nuevo correo</label>
+                    <input id="nuevoCorreo" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <button id="btnEnviarCodigoCorreo" type="button" class="btn btn-primary">Generar código de verificación</button>
+                </div>
+                <div id="panelIngresarCodigo" style="display:none;">
+                    <div class="mb-3">
+                        <label class="form-label">Código</label>
+                        <input id="codigoCambioCorreo" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <button id="btnConfirmarCambioCorreo" type="button" class="btn btn-success">Confirmar cambio de correo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        (function(){
+            var btn = document.getElementById('btnToggleCambioCorreo');
+            var panel = document.getElementById('panelCambioCorreo');
+            var btnEnviar = document.getElementById('btnEnviarCodigoCorreo');
+            var panelCodigo = document.getElementById('panelIngresarCodigo');
+            var btnConfirmar = document.getElementById('btnConfirmarCambioCorreo');
+
+            btn.addEventListener('click', function(){
+                panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+
+                // show sweetalert informing code generated when toggling (as requested)
+                // But actual code generation occurs when user clicks generar. We'll trigger alert here as required by spec when they click the button.
+            });
+
+            btnEnviar.addEventListener('click', function(){
+                // send AJAX to generate code
+                fetch('@Url.Action("EnviarCodigoCambioCorreoAjax","Tienda")', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' } })
+                .then(r => r.json()).then(function(res){
+                    if(res.ok){
+                        panelCodigo.style.display = 'block';
+                        Swal.fire('Código enviado','Se ha generado el codigo de verificación, revisa en tu correo','success');
+                    } else {
+                        Swal.fire('Error', res.message || 'No se pudo enviar el código','error');
+                    }
+                }).catch(function(){
+                    Swal.fire('Error','No se pudo conectar con el servidor','error');
+                });
+            });
+
+            btnConfirmar.addEventListener('click', function(){
+                var codigo = document.getElementById('codigoCambioCorreo').value;
+                var nuevoCorreo = document.getElementById('nuevoCorreo').value;
+
+                fetch('@Url.Action("ConfirmarCodigoCambioCorreoAjax","Tienda")', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }, body: JSON.stringify({ codigo: codigo, nuevoCorreo: nuevoCorreo }) })
+                .then(r => r.json()).then(function(res){
+                    if(res.ok){
+                        Swal.fire('Éxito', res.message, 'success').then(function(){ location.reload(); });
+                    } else {
+                        Swal.fire('Error', res.message || 'No se pudo actualizar el correo', 'error');
+                    }
+                }).catch(function(){
+                    Swal.fire('Error','No se pudo conectar con el servidor','error');
+                });
+            });
+
+            // Show TempData Swal if provided
+            var swalType = '@(TempData["SwalType"] ?? "")';
+            var swalMsg = '@(TempData["SwalMessage"] ?? "")';
+            if(swalType){
+                if(swalType === 'success') Swal.fire('Éxito', swalMsg, 'success');
+                else if(swalType === 'error') Swal.fire('Error', swalMsg, 'error');
+                else Swal.fire(swalMsg);
+            }
+        })();
+    </script>
+}

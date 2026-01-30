@@ -1,0 +1,58 @@
+﻿@model List<CapaEntidad.Venta>
+@{
+    ViewBag.Title = "Mis Compras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">📦 Mis Compras</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info text-center">
+        <i class="bi bi-bag-x fs-1 d-block mb-2"></i>
+        <p>Aún no has realizado ninguna compra.</p>
+        <a href="@Url.Action("Index","Tienda")" class="btn btn-primary">
+            <i class="bi bi-shop"></i> Ir a la Tienda
+        </a>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>#Venta</th>
+                    <th>Fecha</th>
+                    <th>Contacto</th>
+                    <th>Dirección</th>
+                    <th>Total</th>
+                    <th>Transacción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var venta in Model)
+                {
+                    <tr>
+                        <td><strong>@venta.IdVenta</strong></td>
+                        <td>@venta.FechaTexto</td>
+                        <td>
+                            <div><strong>@venta.Contacto</strong></div>
+                            <small class="text-muted">@venta.Telefono</small>
+                        </td>
+                        <td>@venta.Direccion</td>
+                        <td><strong class="text-success">@venta.MontoTotal.ToString("C")</strong></td>
+                        <td><code>@venta.IdTransaccion</code></td>
+                        <td>
+                            <a href="@Url.Action("DetalleCompra","Tienda", new { idVenta = venta.IdVenta })"
+                               class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-eye"></i> Ver Detalle
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

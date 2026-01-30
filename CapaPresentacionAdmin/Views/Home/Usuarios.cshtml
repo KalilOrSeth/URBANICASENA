@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Administradores</h2>
+
+
+<div class="card shadow-sm">
+    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-users me-2"></i><strong>Lista de Administradores</strong></span>
+        <a href='@Url.Action("Crear","Usuarios")' class="btn btn-success btn-sm">
+            <i class="fas fa-user-plus me-1"></i> Crear Admin
+        </a>
+    </div>
+    <div class="card-body">
+        <table id="tablaUsuarios" class="table table-striped table-bordered align-middle" style="width:100%">
+            <thead class="table-light">
+                <tr>
+                    <th style="display:none">IdUsuario</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Activo</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+@section styles{
+    <style>
+        table thead th {
+            background: linear-gradient(135deg, #17a2b8, #0d6efd);
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        table tbody tr:hover {
+            background-color: #e0f7ff;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            padding: 0.6em;
+            border-radius: 0.35rem;
+            font-weight: 600;
+        }
+    </style>
+}
+
+@section scripts{
+    <!-- Librerías necesarias -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.5/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        var tablaUsuarios = $("#tablaUsuarios").DataTable({
+            responsive: true,
+            ordering: false,
+            pagingType: 'simple_numbers',
+            ajax: {
+                url: "@Url.Action("Listar", "Usuarios")",
+                type: "GET",
+                dataType: "json",
+                dataSrc: "data"
+            },
+            columns: [
+                { data: "IdUsuario", visible: false },
+                { data: "Nombres" },
+                { data: "Apellidos" },
+                { data: "Correo" },
+                { data: "Rol" },
+                {
+                    data: "Activo",
+                    render: valor => valor
+                        ? '<span class="badge bg-success">Sí</span>'
+                        : '<span class="badge bg-danger">No</span>'
+                },
+                {
+                    defaultContent:
+                        '<div class="btn-group">' +
+                        '<button type="button" class="btn btn-sm btn-outline-primary btn-detalle"><i class="fas fa-eye"></i></button>' +
+                        '<button type="button" class="btn btn-sm btn-outline-warning btn-editar"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-sm btn-outline-danger btn-eliminar"><i class="fas fa-trash"></i></button>' +
+                        '</div>',
+                    orderable: false,
+                    searchable: false,
+                    className: "text-center"
+                }
+            ],
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/2.3.5/i18n/es-ES.json"
+            }
+        });
+
+        // Acciones
+        $("#tablaUsuarios tbody").on("click", ".btn-detalle", function () {
+            var data = tablaUsuarios.row($(this).closest("tr")).data();
+            window.location = '@Url.Action("Detalles","Usuarios")' + '?id=' + data.IdUsuario;
+        });
+
+        $("#tablaUsuarios tbody").on("click", ".btn-editar", function () {
+            var data = tablaUsuarios.row($(this).closest("tr")).data();
+            abrirModal(data);
+        });
+
+        $("#tablaUsuarios tbody").on("click", ".btn-eliminar", function () {
+            var data = tablaUsuarios.row($(this).closest("tr")).data();
+            Swal.fire({
+                title: "¿Eliminar usuario?",
+                text: "Esta acción no se puede deshacer.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '@Url.Action("EliminarAjax", "Usuarios")',
+                        type: 'POST',
+                        data: JSON.stringify({ idusuario: data.IdUsuario }),
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        success: function (resp) {
+                            if (resp.resultado) {
+                                tablaUsuarios.row($(this).closest("tr")).remove().draw(false);
+                                Swal.fire("Eliminado", "El usuario fue eliminado correctamente.", "success");
+                            } else {
+                                Swal.fire("Error", resp.mensaje || "No se pudo eliminar.", "error");
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            Swal.fire("Error", "No se pudo procesar la eliminación: " + error, "error");
+                        }
+                    });
+                }
+            });
+        });
+    });
+    </script>
+}

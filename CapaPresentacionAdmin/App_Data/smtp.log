@@ -1,0 +1,96 @@
+﻿[2025-12-01 02:01:01] EnviarCorreo: inicio intento para qwert@gmail.com
+[2025-12-01 02:01:03] EnviarCorreo SmtpException: Error al enviar correo. | Stack:    en System.Net.Mail.SmtpClient.Send(MailMessage message)
+   en CapaNegocio.CN_Recursos.EnviarCorreo(String correo, String asunto, String mensaje) en E:\CursoMVC\CapaNegocio\CN_Recursos.cs:línea 73
+[2025-12-01 02:01:03] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed. |    en System.Net.Mail.SmtpReplyReaderFactory.ProcessRead(Byte[] buffer, Int32 offset, Int32 read, Boolean readLine)
+   en System.Net.Mail.SmtpReplyReaderFactory.ReadLines(SmtpReplyReader caller, Boolean oneLine)
+   en System.Net.Mail.SmtpReplyReaderFactory.ReadLine(SmtpReplyReader caller)
+   en System.Net.Mail.CheckCommand.Send(SmtpConnection conn, String& response)
+   en System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   en System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   en System.Net.Mail.SmtpClient.Send(MailMessage message)
+[2025-12-01 02:26:14] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 02:26:26] EnviarCorreo SmtpException: Error al enviar correo. | Stack:    en System.Net.Mail.SmtpClient.Send(MailMessage message)
+   en CapaNegocio.CN_Recursos.EnviarCorreo(String correo, String asunto, String mensaje) en E:\CursoMVC\CapaNegocio\CN_Recursos.cs:línea 73
+[2025-12-01 02:26:26] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed. |    en System.Net.Mail.SmtpReplyReaderFactory.ProcessRead(Byte[] buffer, Int32 offset, Int32 read, Boolean readLine)
+   en System.Net.Mail.SmtpReplyReaderFactory.ReadLines(SmtpReplyReader caller, Boolean oneLine)
+   en System.Net.Mail.SmtpReplyReaderFactory.ReadLine(SmtpReplyReader caller)
+   en System.Net.Mail.CheckCommand.Send(SmtpConnection conn, String& response)
+   en System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   en System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   en System.Net.Mail.SmtpClient.Send(MailMessage message)
+[2025-12-01 02:31:45] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 02:31:45] EnviarCorreo: intentando sandbox.smtp.mailtrap.io:2525 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:31:46] EnviarCorreo: fallo en sandbox.smtp.mailtrap.io:2525 -> Error al enviar correo.
+[2025-12-01 02:31:46] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:31:46] EnviarCorreo: intentando sandbox.smtp.mailtrap.io:587 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:31:47] EnviarCorreo: fallo en sandbox.smtp.mailtrap.io:587 -> Error al enviar correo.
+[2025-12-01 02:31:48] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:31:49] EnviarCorreo: intentando sandbox.smtp.mailtrap.io:465 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:31:51] EnviarCorreo: fallo en sandbox.smtp.mailtrap.io:465 -> Error al enviar correo.
+[2025-12-01 02:31:51] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:31:52] EnviarCorreo: intentando sandbox.smtp.mailtrap.io:25 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:31:52] EnviarCorreo: fallo en sandbox.smtp.mailtrap.io:25 -> El servidor no admite conexiones seguras.
+[2025-12-01 02:31:52] EnviarCorreo: todos los intentos con appSettings fallaron. Ultimo: El servidor no admite conexiones seguras.
+[2025-12-01 02:35:57] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 02:35:57] EnviarCorreo: normalizando host 'sandbox.smtp.mailtrap.io' -> 'smtp.mailtrap.io'
+[2025-12-01 02:35:57] EnviarCorreo: intentando smtp.mailtrap.io:2525 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:35:59] EnviarCorreo: fallo en smtp.mailtrap.io:2525 ssl=True -> Error al enviar correo.
+[2025-12-01 02:35:59] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:35:59] EnviarCorreo: intentando smtp.mailtrap.io:2525 ssl=False user=066c16bf75d7f1
+[2025-12-01 02:35:59] EnviarCorreo: fallo en smtp.mailtrap.io:2525 ssl=False -> Error al enviar correo.
+[2025-12-01 02:35:59] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:35:59] EnviarCorreo: intentando smtp.mailtrap.io:587 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:36:01] EnviarCorreo: fallo en smtp.mailtrap.io:587 ssl=True -> Error al enviar correo.
+[2025-12-01 02:36:03] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:36:03] EnviarCorreo: intentando smtp.mailtrap.io:587 ssl=False user=066c16bf75d7f1
+[2025-12-01 02:36:03] EnviarCorreo: fallo en smtp.mailtrap.io:587 ssl=False -> Error al enviar correo.
+[2025-12-01 02:36:03] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:36:03] EnviarCorreo: intentando smtp.mailtrap.io:25 ssl=True user=066c16bf75d7f1
+[2025-12-01 02:36:04] EnviarCorreo: fallo en smtp.mailtrap.io:25 ssl=True -> El servidor no admite conexiones seguras.
+[2025-12-01 02:36:04] EnviarCorreo: intentando smtp.mailtrap.io:25 ssl=False user=066c16bf75d7f1
+[2025-12-01 02:36:05] EnviarCorreo: fallo en smtp.mailtrap.io:25 ssl=False -> Error al enviar correo.
+[2025-12-01 02:36:05] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:36:05] EnviarCorreo: todos los intentos con appSettings fallaron. Ultimo: Error al enviar correo.
+[2025-12-01 02:49:30] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 02:49:31] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:49:31] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:52:05] EnviarCorreo: inicio intento para monica88_464@ginna.org
+[2025-12-01 02:52:06] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:52:06] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:52:25] EnviarCorreo: inicio intento para monica88_464@ginna.org
+[2025-12-01 02:52:27] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:52:27] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:52:46] EnviarCorreo: inicio intento para monica88_464@ginna.org
+[2025-12-01 02:52:47] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:52:48] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:53:01] EnviarCorreo: inicio intento para monica88_464@ginna.org
+[2025-12-01 02:53:02] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:53:02] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:53:29] EnviarCorreo: inicio intento para qwert@gmail.com
+[2025-12-01 02:53:30] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:53:30] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 02:53:47] EnviarCorreo: inicio intento para qwert@gmail.com
+[2025-12-01 02:53:48] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 02:53:48] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 03:07:30] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 03:07:31] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 03:07:31] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 03:09:27] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-01 03:09:29] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 03:09:29] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 03:15:37] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 03:15:38] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 03:15:40] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 03:16:15] EnviarCorreo: inicio intento para monica88_464@ginna.org
+[2025-12-01 03:16:16] EnviarCorreo SmtpException: Error al enviar correo.
+[2025-12-01 03:16:17] Inner: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.
+[2025-12-01 03:25:04] EnviarCorreo: inicio intento para qwert@gmail.com
+[2025-12-01 03:25:05] EnviarCorreo Exception: The SMTP server has unexpectedly disconnected: 5.7.0 Too many failed login attempts
+[2025-12-01 03:25:15] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-01 03:25:16] EnviarCorreo Exception: The SMTP server has unexpectedly disconnected: 5.7.0 Too many failed login attempts
+[2025-12-01 03:34:18] EnviarCorreo: inicio intento para santiaginog2005@gmail.com
+[2025-12-01 03:34:20] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-01 03:41:55] EnviarCorreo: inicio intento para qwert@gmail.com
+[2025-12-01 03:41:56] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525
+[2025-12-02 18:53:30] EnviarCorreo: inicio intento para waaaow@gmail.com
+[2025-12-02 18:53:32] EnviarCorreo: enviado correctamente via sandbox.smtp.mailtrap.io:2525

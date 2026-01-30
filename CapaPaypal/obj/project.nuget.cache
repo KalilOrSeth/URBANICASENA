@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "03C4Keaka04=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPaypal\\CapaPaypal.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.1\\microsoft.extensions.configuration.10.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.1\\microsoft.extensions.configuration.abstractions.10.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.1\\microsoft.extensions.primitives.10.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\paypalcheckoutsdk\\1.0.4\\paypalcheckoutsdk.1.0.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\paypalhttp\\1.0.1\\paypalhttp.1.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

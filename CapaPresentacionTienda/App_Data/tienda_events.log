@@ -1,0 +1,5 @@
+[EnviarCodigoCambioCorreoAjax] 2025-12-07 13:07:27Z - ClienteId: 6 - Correo: pepe@gmail.com - Código enviado: 2d6fa3f6
+[ConfirmarCodigoCambioCorreoAjax][Cliente] 2025-12-07 13:08:49Z - ClienteId: 6 - NuevoCorreo: pepex@gmail.com
+[EnviarCodigoCambioCorreoAjax] 2025-12-07 13:23:51Z - ClienteId: 7 - Correo: santiago@gmail.com - Código enviado: 79903d61
+[EnviarCodigoCambioCorreoAjax] 2025-12-07 13:32:33Z - ClienteId: 6 - Correo: pepex@gmail.com - Código enviado: ca491a0c
+[ConfirmarCodigoCambioCorreoAjax][Cliente] 2025-12-07 13:32:51Z - ClienteId: 6 - NuevoCorreo: pepexxx@gmail.com

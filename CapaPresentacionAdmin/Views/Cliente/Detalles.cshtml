@@ -1,0 +1,25 @@
+@model CapaEntidad.Cliente
+@{
+    ViewBag.Title = "Detalle Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle Cliente</h2>
+<dl class="row">
+    <dt class="col-sm-3">Id</dt>
+    <dd class="col-sm-9">@Model.IdCliente</dd>
+
+    <dt class="col-sm-3">Nombres</dt>
+    <dd class="col-sm-9">@Model.Nombres</dd>
+
+    <dt class="col-sm-3">Apellidos</dt>
+    <dd class="col-sm-9">@Model.Apellidos</dd>
+
+    <dt class="col-sm-3">Correo</dt>
+    <dd class="col-sm-9">@Model.Correo</dd>
+
+    <dt class="col-sm-3">Activo</dt>
+    <dd class="col-sm-9">@(Model.Activo ? "Sí" : "No")</dd>
+</dl>
+
+<p>    <a href="@Url.Action("Index","Cliente")" class="btn btn-secondary">Volver</a></p>

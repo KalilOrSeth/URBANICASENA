@@ -1,0 +1,110 @@
+﻿@model CapaEntidad.Cliente
+@{
+    ViewBag.Title = "Mi Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mi Perfil</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nombres @Model.Apellidos</h5>
+        <p class="card-text"><strong>Correo:</strong> @Model.Correo</p>
+        <p class="card-text"><strong>Fecha de Registro:</strong> @Model.FechaRegistro.ToString("dd/MM/yyyy")</p>
+        <p class="card-text"><strong>Estado:</strong> @(Model.Activo ? "Activo" : "Inactivo")</p>
+        <p class="card-text"><strong>Rol:</strong> @Model.Rol</p>
+
+        <a href="@Url.Action("EditarPerfil","Tienda")" class="btn btn-primary">
+            <i class="bi bi-pencil-square"></i> Editar Perfil
+        </a>
+    </div>
+</div>
+
+<div class="mt-3">
+    <button id="btnEnviarCodigo" class="btn btn-warning">¿Deseas cambiar tu contraseña?</button>
+</div>
+
+<!-- Sección colapsable para cambiar contraseña -->
+<div class="card mt-3 collapse" id="collapseCambiarClave">
+    <div class="card-body">
+        <h5 class="card-title">Cambiar contraseña</h5>
+        <form id="formCambiarClaveAjax">
+            <div class="mb-2">
+                <label>Código de verificación</label>
+                <input type="text" name="codigo" class="form-control" required />
+            </div>
+            <div class="mb-2">
+                <label>Nueva contraseña</label>
+                <input type="password" name="nuevaClave" class="form-control" required />
+            </div>
+            <div class="mb-2">
+                <label>Confirmar contraseña</label>
+                <input type="password" name="confirmarClave" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-success">Guardar nueva contraseña</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        (function(){
+            $('#btnEnviarCodigo').on('click', function(e){
+                e.preventDefault();
+                // Enviar petición AJAX para generar y enviar código
+                $.ajax({
+                    url: '@Url.Action("EnviarCodigoCambioClaveAjax","Acceso")',
+                    method: 'POST',
+                    dataType: 'json'
+                }).done(function(res){
+                    if(res.ok){
+                        Swal.fire({icon:'success', title: 'Código enviado', text: res.message}).then(function(){
+                            // Mostrar sección colapsable
+                            $('#collapseCambiarClave').collapse('show');
+                        });
+                    } else {
+                        Swal.fire({icon:'error', title:'Error', text: res.message});
+                    }
+                }).fail(function(){
+                    Swal.fire({icon:'error', title:'Error', text: 'No se pudo solicitar el código.'});
+                });
+            });
+
+            // Manejar submit del formulario de cambio de clave por AJAX
+            $('#formCambiarClaveAjax').on('submit', function(e){
+                e.preventDefault();
+                var data = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("CambiarClaveDesdePerfilAjax","Acceso")',
+                    method: 'POST',
+                    data: data,
+                    dataType: 'json'
+                }).done(function(res){
+                    if(res.ok){
+                        Swal.fire({icon:'success', title:'Éxito', text: res.message}).then(function(){
+                            // ocultar collapse y recargar perfil para reflejar cambios
+                            $('#collapseCambiarClave').collapse('hide');
+                            window.location.reload();
+                        });
+                    } else {
+                        Swal.fire({icon:'error', title:'Error', text: res.message});
+                    }
+                }).fail(function(){
+                    Swal.fire({icon:'error', title:'Error', text: 'No se pudo procesar la solicitud.'});
+                });
+            });
+
+            // Mostrar TempData messages si existen (servidor-side fallback)
+            var swalType = '@(TempData["SwalType"] ?? "")';
+            var swalMessage = '@(TempData["SwalMessage"] ?? "")';
+            if(swalType && swalMessage){
+                if(swalType === 'success'){
+                    Swal.fire({icon: 'success', title: 'Éxito', text: swalMessage});
+                } else {
+                    Swal.fire({icon: 'error', title: 'Error', text: swalMessage});
+                }
+            }
+        })();
+    </script>
+}

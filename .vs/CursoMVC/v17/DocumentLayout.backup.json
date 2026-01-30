@@ -1,0 +1,171 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F42C85A-5808-44AC-A927-EEC670B54D9D}|CapaPresentacionAdmin\\CapaPresentacionAdmin.csproj|c:\\users\\admin\\downloads\\urbanica (1)\\urbanica\\urbanica\\capapresentacionadmin\\views\\acceso\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3F42C85A-5808-44AC-A927-EEC670B54D9D}|CapaPresentacionAdmin\\CapaPresentacionAdmin.csproj|solutionrelative:capapresentacionadmin\\views\\acceso\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\views\\pago\\fallida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\views\\pago\\fallida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\views\\pago\\completada.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\views\\pago\\completada.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\controllers\\pagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\controllers\\pagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\controllers\\tiendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\controllers\\tiendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\models\\enviodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\models\\enviodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F42C85A-5808-44AC-A927-EEC670B54D9D}|CapaPresentacionAdmin\\CapaPresentacionAdmin.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentacionadmin\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3F42C85A-5808-44AC-A927-EEC670B54D9D}|CapaPresentacionAdmin\\CapaPresentacionAdmin.csproj|solutionrelative:capapresentacionadmin\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\views\\tienda\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\views\\tienda\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\capapresentaciontienda\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{82AE0E1A-F113-4C84-B663-2958A251C7A6}|CapaPresentacionTienda\\CapaPresentacionTienda.csproj|solutionrelative:capapresentaciontienda\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Fallida.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Views\\Pago\\Fallida.cshtml",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Views\\Pago\\Fallida.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Views\\Pago\\Fallida.cshtml",
+              "RelativeToolTip": "CapaPresentacionTienda\\Views\\Pago\\Fallida.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwC0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T05:54:28.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Completada.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Views\\Pago\\Completada.cshtml",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Views\\Pago\\Completada.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Views\\Pago\\Completada.cshtml",
+              "RelativeToolTip": "CapaPresentacionTienda\\Views\\Pago\\Completada.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T05:51:30.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PagoController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Controllers\\PagoController.cs",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Controllers\\PagoController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Controllers\\PagoController.cs",
+              "RelativeToolTip": "CapaPresentacionTienda\\Controllers\\PagoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T05:43:00.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnvioDetalle.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Models\\EnvioDetalle.cs",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Models\\EnvioDetalle.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Models\\EnvioDetalle.cs",
+              "RelativeToolTip": "CapaPresentacionTienda\\Models\\EnvioDetalle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T05:35:32.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TiendaController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Controllers\\TiendaController.cs",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Controllers\\TiendaController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Controllers\\TiendaController.cs",
+              "RelativeToolTip": "CapaPresentacionTienda\\Controllers\\TiendaController.cs",
+              "ViewState": "AgIAAL8CAAAAAAAAAAAUwOcCAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T05:34:19.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Views\\Tienda\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Views\\Tienda\\Checkout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Views\\Tienda\\Checkout.cshtml",
+              "RelativeToolTip": "CapaPresentacionTienda\\Views\\Tienda\\Checkout.cshtml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAiwMAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T05:25:11.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionAdmin\\Views\\Acceso\\Index.cshtml",
+              "RelativeDocumentMoniker": "CapaPresentacionAdmin\\Views\\Acceso\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionAdmin\\Views\\Acceso\\Index.cshtml",
+              "RelativeToolTip": "CapaPresentacionAdmin\\Views\\Acceso\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T04:54:12.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionAdmin\\Web.config",
+              "RelativeDocumentMoniker": "CapaPresentacionAdmin\\Web.config",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionAdmin\\Web.config",
+              "RelativeToolTip": "CapaPresentacionAdmin\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-13T04:53:59.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Web.config",
+              "RelativeDocumentMoniker": "CapaPresentacionTienda\\Web.config",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\URBANICA (1)\\URBANICA\\URBANICA\\CapaPresentacionTienda\\Web.config",
+              "RelativeToolTip": "CapaPresentacionTienda\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-13T04:51:03.16Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

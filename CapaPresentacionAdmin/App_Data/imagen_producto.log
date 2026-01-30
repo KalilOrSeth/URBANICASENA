@@ -1,0 +1,73 @@
+2025-12-03T21:06:44.4708845Z | Admin folder resolved to: E:\CursoMVC\CapaPresentacionAdmin\Content\img\productos\
+2025-12-03T21:06:45.0085374Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\img\productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg
+2025-12-03T21:06:47.0311480Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\img\productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg
+2025-12-03T21:06:47.5332062Z | Serving image for product 7 from admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\img\productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg
+2025-12-03T21:42:43.9869771Z | Attempting adminPath: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T21:42:44.0277396Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionAdmin\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T21:42:44.0422392Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\default.jpg - Exists: False
+2025-12-03T21:42:44.0579427Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png - Exists: True
+2025-12-03T21:42:44.0922045Z | Served fallback image from: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png for product id 7
+2025-12-03T21:43:10.5550796Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-03T21:43:10.6095483Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\a6bd0b6ea68b433693095d7614ecf33b.jpg
+2025-12-03T21:43:13.8562077Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\a6bd0b6ea68b433693095d7614ecf33b.jpg
+2025-12-03T21:43:13.9133699Z | Attempting adminPath: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T21:43:13.9335939Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionAdmin\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T21:43:13.9497023Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\default.jpg - Exists: False
+2025-12-03T21:43:13.9666309Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png - Exists: True
+2025-12-03T21:43:13.9822663Z | Served fallback image from: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png for product id 7
+2025-12-03T21:43:23.7244229Z | Attempting adminPath: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T21:43:23.7643460Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionAdmin\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T21:43:23.7798903Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\default.jpg - Exists: False
+2025-12-03T21:43:23.7952850Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png - Exists: True
+2025-12-03T21:43:23.8113856Z | Served fallback image from: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png for product id 7
+2025-12-03T22:27:12.5438989Z | Attempting adminPath: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:27:12.5777229Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionAdmin\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:27:12.5932785Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\default.jpg - Exists: False
+2025-12-03T22:27:12.6079455Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png - Exists: True
+2025-12-03T22:27:12.6259856Z | Served fallback image from: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png for product id 7
+2025-12-03T22:47:28.7874443Z | Attempting adminPath: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:47:29.0713432Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionAdmin\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:47:29.0882800Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\default.jpg - Exists: False
+2025-12-03T22:47:29.1031789Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png - Exists: True
+2025-12-03T22:47:29.1211902Z | Served fallback image from: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png for product id 7
+2025-12-03T22:48:20.4275904Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-03T22:48:22.3853834Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\5bd3786bbd584c46a1c25a66e6a77842.jpg
+2025-12-03T22:48:22.4289563Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\5bd3786bbd584c46a1c25a66e6a77842.jpg
+2025-12-03T22:48:22.4898200Z | Attempting adminPath: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:48:22.5139025Z | Attempting imagesPath: E:\CursoMVC\CapaPresentacionAdmin\Images\Imagenes\c53c4818f1a5493e89c86a4ed133d4ab.jpg - Exists: False
+2025-12-03T22:48:22.5303503Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\default.jpg - Exists: False
+2025-12-03T22:48:22.5459044Z | Checking fallback: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png - Exists: True
+2025-12-03T22:48:22.5609748Z | Served fallback image from: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\placeholder.png for product id 7
+2025-12-03T22:49:20.0189612Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-03T22:49:20.0803003Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\2480a4f81cf3480a9beb5714a478f9c6.jpg
+2025-12-03T22:49:20.1228357Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\2480a4f81cf3480a9beb5714a478f9c6.jpg
+2025-12-03T23:14:05.2840315Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-03T23:14:05.4302130Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\622dc8eeba5243f499999a00b3e810b7.jpg
+2025-12-03T23:14:05.4747628Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\622dc8eeba5243f499999a00b3e810b7.jpg
+2025-12-04T20:46:25.7698860Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-04T20:46:26.0266479Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\04db71ea817843799a4bf03937a01ec9.jpg
+2025-12-04T20:46:26.0655145Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\04db71ea817843799a4bf03937a01ec9.jpg
+2025-12-04T21:34:40.4996887Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-04T21:34:40.5457256Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\7165aa15f4d14bd987184c5555484080.jpg
+2025-12-04T21:34:40.5819607Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\7165aa15f4d14bd987184c5555484080.jpg
+2025-12-04T21:35:23.1808984Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-04T21:35:23.2272726Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\4d7202cf550d47f596bdffdb46a8ad01.jpg
+2025-12-04T21:35:24.6107839Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\4d7202cf550d47f596bdffdb46a8ad01.jpg
+2025-12-04T23:13:22.0258375Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-04T23:13:22.7916290Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\a364325dc1044b13a1898718518ed7bd.jpg
+2025-12-04T23:13:24.8109383Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\a364325dc1044b13a1898718518ed7bd.jpg
+2025-12-04T23:29:38.8259313Z | Resolved admin folder: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-04T23:29:38.8745785Z | Saved image to admin path: E:\CursoMVC\CapaPresentacionAdmin\Content\imagenes_productos\f9074e4704e94fb39fd5d0b144d0bc35.jpg
+2025-12-04T23:29:39.5739152Z | Copied image to tienda path: E:\CursoMVC\CapaPresentacionTienda\Content\imagenes_productos\f9074e4704e94fb39fd5d0b144d0bc35.jpg
+2025-12-06T13:44:05.1201503Z | Resolved admin folder: D:\ProyectoMVC\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-06T13:44:05.4718868Z | Saved image to admin path: D:\ProyectoMVC\CapaPresentacionAdmin\Content\imagenes_productos\ab17e5712b1f42a4a68fdf52761e61f7.jpeg
+2025-12-06T13:44:07.2675722Z | Copied image to tienda path: D:\ProyectoMVC\CapaPresentacionTienda\Content\imagenes_productos\ab17e5712b1f42a4a68fdf52761e61f7.jpeg
+2025-12-07T12:52:58.5653312Z | Resolved admin folder: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-07T12:52:58.5741449Z | Saved image to admin path: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionAdmin\Content\imagenes_productos\115533bb07b148cb88dd9efb692d84e1.png
+2025-12-07T12:52:58.5803890Z | Copied image to tienda path: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\Content\imagenes_productos\115533bb07b148cb88dd9efb692d84e1.png
+2025-12-07T16:56:20.2519860Z | Resolved admin folder: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-07T16:56:20.2594802Z | Saved image to admin path: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionAdmin\Content\imagenes_productos\a15aa8826bea4eb695b6f20fb1fc891b.jpeg
+2025-12-07T16:56:20.2624793Z | Copied image to tienda path: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\Content\imagenes_productos\a15aa8826bea4eb695b6f20fb1fc891b.jpeg
+2025-12-07T16:59:52.4422856Z | Resolved admin folder: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionAdmin\Content\imagenes_productos\
+2025-12-07T16:59:52.4422856Z | Saved image to admin path: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionAdmin\Content\imagenes_productos\d276c5c557794a20b6551f729617912d.jpg
+2025-12-07T16:59:52.4448047Z | Copied image to tienda path: C:\Users\lenovo\Documents\proyecto\SOLUCIONZAZ\SOLUCIONZAZ\CapaPresentacionTienda\Content\imagenes_productos\d276c5c557794a20b6551f729617912d.jpg

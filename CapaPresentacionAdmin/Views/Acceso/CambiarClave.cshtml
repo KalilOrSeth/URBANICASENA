@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Cambiar Contraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Cambiar Contraseña</h3>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">@ViewBag.Mensaje</div>
+}
+
+@using (Html.BeginForm("CambiarClave", "Acceso", FormMethod.Post))
+{
+    <div class="form-group mt-2">
+        <label for="codigoIngresado">Código de verificación:</label>
+        <input type="text" id="codigoIngresado" name="codigoIngresado" class="form-control" required />
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="nuevaClave">Nueva Contraseña:</label>
+        <div class="input-group">
+            <input type="password" id="nuevaClave" name="nuevaClave"
+                   class="form-control" minlength="6" required />
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="#nuevaClave">Mostrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="confirmarClave">Confirmar Contraseña:</label>
+        <div class="input-group">
+            <input type="password" id="confirmarClave" name="confirmarClave"
+                   class="form-control" minlength="6" required />
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="#confirmarClave">Mostrar</button>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Cambiar</button>
+}
+
+@section Scripts {
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.toggle-password');
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var target = document.querySelector(b.getAttribute('data-target'));
+                    if (!target) return;
+                    if (target.type === 'password') {
+                        target.type = 'text';
+                        b.textContent = 'Ocultar';
+                    } else {
+                        target.type = 'password';
+                        b.textContent = 'Mostrar';
+                    }
+                });
+            });
+        })();
+    </script>
+}

@@ -1,0 +1,180 @@
+using System.Web.Mvc;
+using CapaNegocio;
+using CapaEntidad;
+using CapaPresentacionAdmin.Filters;
+using System.Linq;
+
+namespace CapaPresentacionAdmin.Controllers
+{
+    [SessionAuthorize(Roles = "Admin")]
+    public class UsuariosController : Controller
+    {
+        private readonly CN_UsuarioAdmin _cnUsuarios;
+
+        public UsuariosController()
+        {
+            _cnUsuarios = new CN_UsuarioAdmin();
+        }
+
+        // Vista principal
+        public ActionResult Index()
+        {
+            var lista = _cnUsuarios.Listar();
+            return View(lista);
+        }
+
+        // Acción para DataTable (AJAX)
+        [HttpGet]
+        public JsonResult Listar()
+        {
+            var lista = _cnUsuarios.Listar();
+            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+        }
+
+        // Acción para guardar (crear/editar) vía AJAX
+        [HttpPost]
+        public JsonResult Guardar(Usuario obj)
+        {
+            string mensaje = string.Empty;
+            int resultado = 0;
+
+            if (obj.IdUsuario == 0)
+            {
+                // Crear nuevo admin, CN_UsuarioAdmin.Registrar ahora valida duplicado en Cliente
+                resultado = _cnUsuarios.Registrar(obj, out mensaje);
+            }
+            else
+            {
+                // Editar admin existente
+                bool ok = _cnUsuarios.Editar(obj, out mensaje);
+                resultado = ok ? 1 : 0;
+
+                // Si el admin editado es el que está en sesión, actualizar la sesión para reflejar cambios inmediatos
+                if (ok && Session["Usuario"] != null)
+                {
+                    var uSesion = Session["Usuario"] as Usuario;
+                    if (uSesion != null && uSesion.IdUsuario == obj.IdUsuario)
+                    {
+                        // Actualizar los campos de sesión usados en la UI
+                        uSesion.Nombres = obj.Nombres;
+                        uSesion.Apellidos = obj.Apellidos;
+                        uSesion.Correo = obj.Correo;
+                        Session["Usuario"] = uSesion;
+                        Session["NombreUsuario"] = obj.Nombres + " " + obj.Apellidos;
+                    }
+                }
+            }
+
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
+        // Acción para eliminar vía AJAX (separada de la vista clásica)
+        [HttpPost]
+        public JsonResult EliminarAjax(int idusuario)
+        {
+            string mensaje = string.Empty;
+            bool resultado = _cnUsuarios.Eliminar(idusuario, out mensaje);
+
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
+        // Vista de detalles (modo clásico)
+        public ActionResult Detalles(int id)
+        {
+            var usuario = _cnUsuarios.Listar().FirstOrDefault(u => u.IdUsuario == id);
+            if (usuario == null) return HttpNotFound();
+            return View(usuario);
+        }
+
+        // Vista Crear (modo clásico)
+        public ActionResult Crear()
+        {
+            return View(new Usuario { Rol = "Admin", Activo = true });
+        }
+
+        [HttpPost]
+        public ActionResult Crear(Usuario obj)
+        {
+            string mensaje;
+            int idUsuario = _cnUsuarios.Registrar(obj, out mensaje);
+
+            if (idUsuario > 0)
+            {
+                TempData["Mensaje"] = "Usuario creado correctamente.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Error = mensaje;
+                return View(obj);
+            }
+        }
+
+        // Vista Editar (modo clásico)
+        public ActionResult Editar(int id)
+        {
+            var usuario = _cnUsuarios.Listar().FirstOrDefault(u => u.IdUsuario == id);
+            if (usuario == null) return HttpNotFound();
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Usuario obj)
+        {
+            string mensaje;
+            bool resultado = _cnUsuarios.Editar(obj, out mensaje);
+
+            if (resultado)
+            {
+                // Si el admin editado es el que está en sesión, actualizar la sesión para reflejar cambios inmediatos
+                if (Session["Usuario"] != null)
+                {
+                    var uSesion = Session["Usuario"] as Usuario;
+                    if (uSesion != null && uSesion.IdUsuario == obj.IdUsuario)
+                    {
+                        uSesion.Nombres = obj.Nombres;
+                        uSesion.Apellidos = obj.Apellidos;
+                        uSesion.Correo = obj.Correo;
+                        Session["Usuario"] = uSesion;
+                        Session["NombreUsuario"] = obj.Nombres + " " + obj.Apellidos;
+                    }
+                }
+
+                TempData["Mensaje"] = "Usuario actualizado correctamente.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Error = mensaje;
+                return View(obj);
+            }
+        }
+
+        // Vista Eliminar (modo clásico)
+        public ActionResult Eliminar(int id)
+        {
+            var usuario = _cnUsuarios.Listar().FirstOrDefault(u => u.IdUsuario == id);
+            if (usuario == null) return HttpNotFound();
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public ActionResult Eliminar(int id, FormCollection form)
+        {
+            string mensaje;
+            bool resultado = _cnUsuarios.Eliminar(id, out mensaje);
+
+            if (resultado)
+            {
+                TempData["Mensaje"] = "Usuario eliminado correctamente.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Error = mensaje;
+                var usuario = _cnUsuarios.Listar().FirstOrDefault(u => u.IdUsuario == id);
+                return View(usuario);
+            }
+        }
+    }
+}
